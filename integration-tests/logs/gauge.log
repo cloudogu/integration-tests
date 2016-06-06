@@ -1,0 +1,2096 @@
+15:34:00.319 Checking updates...
+15:35:10.276 Checking updates...
+15:35:18.495 # Getting Started with Gauge
+15:35:18.497 ## Get Started
+15:35:18.498 * Navigate to "http://getgauge.io"
+15:35:22.940 * Go to Gauge Get Started Page
+15:35:24.686 Plugin [Html Report] with pid [16626] has exited
+15:35:24.787 Specifications:	1 executed	1 passed	0 failed	0 skipped
+15:35:24.787 Scenarios:	1 executed	1 passed	0 failed	0 skipped
+15:35:24.787 
+Total time taken: 12.49s
+15:37:05.839 Checking updates...
+15:37:12.487 # Getting Started with Gauge
+15:37:12.491 ## Get Started
+15:37:12.493 * Navigate to "http://getgauge.io"
+15:37:16.779 * Go to Gauge Get Started Page
+15:37:18.186 * Navigate to "http://getgauge.io"
+15:37:18.679 ## Get Started 2
+15:37:18.680 * Navigate to "http://getgauge.io"
+15:37:19.048 * Go to Gauge Get Started Page
+15:37:19.890 Plugin [Html Report] with pid [16795] has exited
+15:37:19.991 Specifications:	1 executed	1 passed	0 failed	0 skipped
+15:37:19.991 Scenarios:	2 executed	2 passed	0 failed	0 skipped
+15:37:19.991 
+Total time taken: 12.462s
+15:41:52.987 Checking updates...
+15:41:56.262 # Getting Started with Gauge
+15:41:56.266 ## Get Started
+15:41:56.309 * Navigate to "http://getgauge.io"
+15:41:58.030 * Go to Gauge Get Started Page
+15:41:59.318 * Navigate to "http://getgauge.io"
+15:41:59.913 ## Get Started 2
+15:41:59.915 * Navigate to "http://getgauge.io"
+15:42:00.302 * Go to Gauge Get Started Page
+15:42:00.721 # Jenkins Integration Tests
+15:42:00.723 ## Authentication
+15:42:00.724 * Open Jenkins "https://192.168.115.169/jenkins/"
+15:42:02.717 
+Failed Step: Open Jenkins "https://192.168.115.169/jenkins/"
+15:42:02.717 Error Message: java.lang.AssertionError
+15:42:02.720 Stacktrace: 
+org.junit.Assert.fail(Assert.java:86)
+org.junit.Assert.assertTrue(Assert.java:41)
+org.junit.Assert.assertTrue(Assert.java:52)
+com.cloudogu.ces.JenkinsSteps.navigateTo(JenkinsSteps.java:21)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+15:42:02.932 Plugin [Html Report] with pid [16994] has exited
+15:42:03.133 Specifications:	2 executed	1 passed	1 failed	0 skipped
+15:42:03.134 Scenarios:	3 executed	2 passed	1 failed	0 skipped
+15:42:03.134 
+Total time taken: 13.212s
+15:43:46.758 Checking updates...
+15:43:53.950 # Getting Started with Gauge
+15:43:53.952 ## Get Started
+15:43:53.953 * Navigate to "http://getgauge.io"
+15:43:55.562 * Go to Gauge Get Started Page
+15:43:57.053 * Navigate to "http://getgauge.io"
+15:43:57.553 ## Get Started 2
+15:43:57.555 * Navigate to "http://getgauge.io"
+15:43:57.933 * Go to Gauge Get Started Page
+15:43:58.355 # Jenkins Integration Tests
+15:43:58.356 ## Authentication
+15:43:58.357 * Open Jenkins "https://192.168.115.169/jenkins/"
+15:44:00.212 
+Failed Step: Open Jenkins "https://192.168.115.169/jenkins/"
+15:44:00.212 Error Message: java.lang.AssertionError: 
+Expected: a string containing "Jenkins"
+     but: was "CAS – Central Authentication Service"
+15:44:00.213 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.JenkinsSteps.openJenkins(JenkinsSteps.java:22)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+15:44:00.411 Plugin [Html Report] with pid [17180] has exited
+15:44:00.612 Specifications:	2 executed	1 passed	1 failed	0 skipped
+15:44:00.613 Scenarios:	3 executed	2 passed	1 failed	0 skipped
+15:44:00.613 
+Total time taken: 11.897s
+15:54:10.591 Checking updates...
+15:54:12.573 Validation failed. The following steps have errors
+15:54:12.573 /home/malte/NetBeansProjects/integration-tests/specs/jenkins.spec:12: Step implementation not found. Login with "malte" with password "malte123"
+15:54:19.986 # Jenkins Integration Tests
+15:54:20.338 Plugin [Html Report] with pid [17441] has exited
+15:54:20.441 Specifications:	1 executed	1 passed	0 failed	0 skipped
+15:54:20.442 Scenarios:	0 executed	0 passed	0 failed	1 skipped
+15:54:20.442 
+Total time taken: 7.647s
+15:54:49.853 Checking updates...
+15:54:58.119 # Jenkins Integration Tests
+15:54:58.124 ## Authentication
+15:54:58.125 * Open Jenkins "https://192.168.115.169/jenkins/"
+15:54:58.928 * Login "malte" with password "malte123"
+15:55:01.649 Plugin [Html Report] with pid [17610] has exited
+15:55:01.750 Specifications:	1 executed	1 passed	0 failed	0 skipped
+15:55:01.751 Scenarios:	1 executed	1 passed	0 failed	0 skipped
+15:55:01.751 
+Total time taken: 9.561s
+15:58:18.715 Checking updates...
+15:58:21.034 # Jenkins Integration Tests
+15:58:21.081 ## Authentication
+15:58:21.082 * Open Jenkins "https://192.168.115.169/jenkins/"
+15:58:21.880 * Login "malte" with password "malte123"
+15:58:23.627 
+Failed Step: Login "malte" with password "malte123"
+15:58:23.628 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "Jenkins"
+     but: was "CAS – Central Authentication Service"
+15:58:23.628 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.JenkinsSteps.loginToCas(JenkinsSteps.java:30)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+15:58:23.819 Plugin [Html Report] with pid [17798] has exited
+15:58:24.020 Specifications:	1 executed	0 passed	1 failed	0 skipped
+15:58:24.020 Scenarios:	1 executed	0 passed	1 failed	0 skipped
+15:58:24.021 
+Total time taken: 8.864s
+16:22:39.055 Checking updates...
+16:22:46.826 # Jenkins Integration Tests
+16:22:46.902 ## Authentication
+16:22:46.934 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:22:47.620 * Login "malte" with password "malte123"
+16:22:50.692 # Redmine Integration Tests
+16:22:50.693 ## Authentication
+16:22:50.695 * Open Redmine "https://192.168.115.169/redmine/"
+16:22:53.273 
+Failed Step: Open Redmine "https://192.168.115.169/redmine/"
+16:22:53.274 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "Redmine"
+16:22:53.274 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.openRedmine(RedmineSteps.java:23)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:22:53.474 Plugin [Html Report] with pid [18147] has exited
+16:22:53.876 Specifications:	2 executed	1 passed	1 failed	0 skipped
+16:22:53.877 Scenarios:	2 executed	1 passed	1 failed	0 skipped
+16:22:53.877 
+Total time taken: 13.06s
+16:41:34.245 Checking updates...
+16:41:42.860 # Jenkins Integration Tests
+16:41:42.928 ## Authentication
+16:41:42.956 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:41:43.821 * Login "malte" with password "malte123"
+16:41:46.529 * Logout
+16:41:48.391 
+Failed Step: Logout
+16:41:48.391 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"<b>log out</>"}
+Command duration or timeout: 294 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.2, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: a9268d61-9ae3-41f1-a6df-437e390ee342
+*** Element info: {Using=link text, value=<b>log out</>}
+16:41:48.392 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.JenkinsSteps.logOutOfCas(JenkinsSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:41:48.402 # Redmine Integration Tests
+16:41:48.403 ## Authentication
+16:41:48.406 * Open Redmine "https://192.168.115.169/redmine/"
+16:41:50.069 
+Failed Step: Open Redmine "https://192.168.115.169/redmine/"
+16:41:50.069 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "Redmine"
+16:41:50.069 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.openRedmine(RedmineSteps.java:23)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:41:50.273 Plugin [Html Report] with pid [18435] has exited
+16:41:50.675 Specifications:	2 executed	0 passed	2 failed	0 skipped
+16:41:50.677 Scenarios:	2 executed	0 passed	2 failed	0 skipped
+16:41:50.677 
+Total time taken: 14.384s
+16:43:57.019 Checking updates...
+16:44:05.630 # Jenkins Integration Tests
+16:44:05.648 ## Authentication
+16:44:05.665 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:44:06.405 * Login "malte" with password "malte123"
+16:44:08.895 * Logout
+16:44:08.980 # Redmine Integration Tests
+16:44:08.982 ## Authentication
+16:44:08.983 * Open Redmine "https://192.168.115.169/redmine/"
+16:44:11.108 
+Failed Step: Open Redmine "https://192.168.115.169/redmine/"
+16:44:11.108 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "Redmine"
+16:44:11.108 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.openRedmine(RedmineSteps.java:23)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:44:11.300 Plugin [Html Report] with pid [18630] has exited
+16:44:11.501 Specifications:	2 executed	1 passed	1 failed	0 skipped
+16:44:11.501 Scenarios:	2 executed	1 passed	1 failed	0 skipped
+16:44:11.501 
+Total time taken: 12.067s
+16:45:59.565 Checking updates...
+16:46:01.960 # Jenkins Integration Tests
+16:46:01.962 ## Authentication
+16:46:01.965 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:46:02.667 * Login "malte" with password "malte123"
+16:46:04.852 * Logout
+16:46:05.038 # Redmine Integration Tests
+16:46:05.040 ## Authentication
+16:46:05.043 * Open Redmine "https://192.168.115.169/redmine/"
+16:46:05.406 * Login "malte" with password "malte123"
+16:46:07.625 
+Failed Step: Login "malte" with password "malte123"
+16:46:07.625 Error Message: java.lang.AssertionError: 
+Expected: a string containing "Jenkins"
+     but: was "Redmine"
+16:46:07.626 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.JenkinsSteps.loginToCas(JenkinsSteps.java:33)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:46:07.821 Plugin [Html Report] with pid [18820] has exited
+16:46:08.123 Specifications:	2 executed	1 passed	1 failed	0 skipped
+16:46:08.123 Scenarios:	2 executed	1 passed	1 failed	0 skipped
+16:46:08.123 
+Total time taken: 11.233s
+16:52:05.541 Checking updates...
+16:52:12.682 # Jenkins Integration Tests
+16:52:12.728 ## Authentication
+16:52:12.742 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:52:13.733 * Login "malte" with password "malte123"
+16:52:15.889 * Logout
+16:52:16.096 # Redmine Integration Tests
+16:52:16.098 ## Authentication
+16:52:16.098 * Open Redmine "https://192.168.115.169/redmine/"
+16:52:16.533 * Login "malte" with password "malte123"
+16:52:19.006 
+Failed Step: Login "malte" with password "malte123"
+16:52:19.006 Error Message: java.lang.AssertionError: 
+Expected: a string containing "Jenkins"
+     but: was "Redmine"
+16:52:19.006 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.JenkinsSteps.loginToCas(JenkinsSteps.java:33)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:52:19.197 Plugin [Html Report] with pid [19040] has exited
+16:52:19.599 Specifications:	2 executed	1 passed	1 failed	0 skipped
+16:52:19.600 Scenarios:	2 executed	1 passed	1 failed	0 skipped
+16:52:19.600 
+Total time taken: 12.232s
+16:53:46.603 Checking updates...
+16:53:47.959 # Jenkins Integration Tests
+16:53:47.961 ## Authentication
+16:53:47.963 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:53:48.656 * Login "malte" with password "malte123"
+16:53:50.551 * Logout
+16:53:50.723 # Redmine Integration Tests
+16:53:50.725 ## Authentication
+16:53:50.729 * Open Redmine "https://192.168.115.169/redmine/"
+16:53:51.095 * Login "malte" with password "malte123"
+16:53:53.149 
+Failed Step: Login "malte" with password "malte123"
+16:53:53.150 Error Message: java.lang.AssertionError: 
+Expected: a string containing "Jenkins"
+     but: was "Redmine"
+16:53:53.150 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.JenkinsSteps.loginToCas(JenkinsSteps.java:33)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:53:53.350 Plugin [Html Report] with pid [19222] has exited
+16:53:53.751 Specifications:	2 executed	1 passed	1 failed	0 skipped
+16:53:53.751 Scenarios:	2 executed	1 passed	1 failed	0 skipped
+16:53:53.751 
+Total time taken: 10.262s
+16:56:02.207 Checking updates...
+16:56:04.340 # Jenkins Integration Tests
+16:56:04.343 ## Authentication
+16:56:04.345 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:56:05.005 * Login "malte" with password "malte123"
+16:56:08.257 
+Failed Step: Login "malte" with password "malte123"
+16:56:08.257 Error Message: java.lang.AssertionError: 
+Expected: a string containing "redmine"
+     but: was "Dashboard [Jenkins]"
+16:56:08.257 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.loginToCasRedmine(RedmineSteps.java:33)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:56:08.264 # Redmine Integration Tests
+16:56:08.265 ## Authentication
+16:56:08.266 * Open Redmine "https://192.168.115.169/redmine/"
+16:56:09.778 
+Failed Step: Open Redmine "https://192.168.115.169/redmine/"
+16:56:09.778 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "Redmine"
+16:56:09.778 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.openRedmine(RedmineSteps.java:24)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:56:09.980 Plugin [Html Report] with pid [19410] has exited
+16:56:10.180 Specifications:	2 executed	0 passed	2 failed	0 skipped
+16:56:10.181 Scenarios:	2 executed	0 passed	2 failed	0 skipped
+16:56:10.181 
+Total time taken: 10.826s
+16:58:08.699 Checking updates...
+16:58:15.476 # Jenkins Integration Tests
+16:58:15.478 ## Authentication
+16:58:15.480 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:58:16.053 * Jenkins-Login "malte" with password "malte123"
+16:58:17.957 * Logout
+16:58:18.184 # Redmine Integration Tests
+16:58:18.185 ## Authentication
+16:58:18.186 * Open Redmine "https://192.168.115.169/redmine/"
+16:58:18.533 * Redmine-Login "malte" with password "malte123"
+16:58:20.593 
+Failed Step: Redmine-Login "malte" with password "malte123"
+16:58:20.593 Error Message: java.lang.AssertionError: 
+Expected: a string containing "redmine"
+     but: was "Redmine"
+16:58:20.593 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.loginToCasRedmine(RedmineSteps.java:33)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+16:58:20.781 Plugin [Html Report] with pid [19595] has exited
+16:58:21.183 Specifications:	2 executed	1 passed	1 failed	0 skipped
+16:58:21.183 Scenarios:	2 executed	1 passed	1 failed	0 skipped
+16:58:21.183 
+Total time taken: 10.323s
+16:58:58.696 Checking updates...
+16:59:05.109 # Jenkins Integration Tests
+16:59:05.110 ## Authentication
+16:59:05.112 * Open Jenkins "https://192.168.115.169/jenkins/"
+16:59:05.696 * Jenkins-Login "malte" with password "malte123"
+16:59:07.495 * Logout
+16:59:07.650 # Redmine Integration Tests
+16:59:07.651 ## Authentication
+16:59:07.652 * Open Redmine "https://192.168.115.169/redmine/"
+16:59:08.067 * Redmine-Login "malte" with password "malte123"
+16:59:09.358 Plugin [Html Report] with pid [19768] has exited
+16:59:09.459 Specifications:	2 executed	2 passed	0 failed	0 skipped
+16:59:09.459 Scenarios:	2 executed	2 passed	0 failed	0 skipped
+16:59:09.459 
+Total time taken: 9.01s
+08:04:57.908 Checking updates...
+08:05:05.985 # Jenkins Integration Tests
+08:05:06.052 ## Authentication
+08:05:06.108 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:05:13.268 * Jenkins-Login "malte" with password "malte123"
+08:05:20.620 * Logout
+08:05:21.318 # Redmine Integration Tests
+08:05:21.321 ## Authentication
+08:05:21.322 * Open Redmine "https://192.168.115.169/redmine/"
+08:05:27.099 * Redmine-Login "malte" with password "malte123"
+08:05:29.043 * Logout
+08:05:30.190 
+Failed Step: Logout
+08:05:30.190 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"log out"}
+Command duration or timeout: 132 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c6d58c86-6f88-41c8-a9e0-ed9548530e48
+*** Element info: {Using=link text, value=log out}
+08:05:30.191 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.RedmineSteps.logOutOfCas(RedmineSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:05:30.414 Plugin [Html Report] with pid [23361] has exited
+08:05:30.816 Specifications:	2 executed	1 passed	1 failed	0 skipped
+08:05:30.817 Scenarios:	2 executed	1 passed	1 failed	0 skipped
+08:05:30.817 
+Total time taken: 30.624s
+08:07:35.665 Checking updates...
+08:07:41.451 # Jenkins Integration Tests
+08:07:41.458 ## Authentication
+08:07:41.458 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:07:42.214 * Jenkins-Login "malte" with password "malte123"
+08:07:44.371 * Logout
+08:07:45.705 
+Failed Step: Logout
+08:07:45.705 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Sign out"}
+Command duration or timeout: 281 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 1250c718-affa-4e4a-baa2-e4dd03290d16
+*** Element info: {Using=link text, value=Sign out}
+08:07:45.706 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.RedmineSteps.logOutOfCas(RedmineSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:07:45.713 # Redmine Integration Tests
+08:07:45.714 ## Authentication
+08:07:45.717 * Open Redmine "https://192.168.115.169/redmine/"
+08:07:47.068 
+Failed Step: Open Redmine "https://192.168.115.169/redmine/"
+08:07:47.068 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "Redmine"
+08:07:47.068 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.openRedmine(RedmineSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:07:47.068 * Logout
+08:07:47.855 Plugin [Html Report] with pid [23551] has exited
+08:07:48.056 Specifications:	2 executed	0 passed	2 failed	0 skipped
+08:07:48.057 Scenarios:	2 executed	0 passed	2 failed	0 skipped
+08:07:48.057 
+Total time taken: 10.694s
+08:09:56.106 Checking updates...
+08:10:01.029 # Jenkins Integration Tests
+08:10:01.032 ## Authentication
+08:10:01.034 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:10:01.682 * Jenkins-Login "malte" with password "malte123"
+08:10:03.485 * Logout
+08:10:04.729 
+Failed Step: Logout
+08:10:04.729 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Sign out"}
+Command duration or timeout: 270 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 2b50649a-05d6-4351-8d86-b33c92af758e
+*** Element info: {Using=link text, value=Sign out}
+08:10:04.729 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.RedmineSteps.logOutOfCas(RedmineSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:10:04.730 * Logout
+08:10:05.751 
+Failed Step: Logout
+08:10:05.751 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Sign out"}
+Command duration or timeout: 235 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 2b50649a-05d6-4351-8d86-b33c92af758e
+*** Element info: {Using=link text, value=Sign out}
+08:10:05.751 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.RedmineSteps.logOutOfCas(RedmineSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:10:05.754 # Redmine Integration Tests
+08:10:05.756 ## Authentication
+08:10:05.756 * Open Redmine "https://192.168.115.169/redmine/"
+08:10:07.097 
+Failed Step: Open Redmine "https://192.168.115.169/redmine/"
+08:10:07.097 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "Redmine"
+08:10:07.097 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.openRedmine(RedmineSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:10:07.293 Plugin [Html Report] with pid [23732] has exited
+08:10:07.494 Specifications:	2 executed	0 passed	2 failed	0 skipped
+08:10:07.494 Scenarios:	2 executed	0 passed	2 failed	0 skipped
+08:10:07.494 
+Total time taken: 9.869s
+08:16:29.446 Checking updates...
+08:16:35.084 # Jenkins Integration Tests
+08:16:35.087 ## Authentication
+08:16:35.090 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:16:35.628 * Jenkins-Login "malte" with password "malte123"
+08:16:38.256 * Logout
+08:16:39.505 
+Failed Step: Logout
+08:16:39.506 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Sign out"}
+Command duration or timeout: 276 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 3fe64441-695c-43aa-bddf-79fa5295461d
+*** Element info: {Using=link text, value=Sign out}
+08:16:39.506 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.RedmineSteps.logOutOfCas(RedmineSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:16:39.506 * Logout
+08:16:40.623 
+Failed Step: Logout
+08:16:40.623 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Sign out"}
+Command duration or timeout: 344 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 3fe64441-695c-43aa-bddf-79fa5295461d
+*** Element info: {Using=link text, value=Sign out}
+08:16:40.623 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.RedmineSteps.logOutOfCas(RedmineSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:16:40.630 # Redmine Integration Tests
+08:16:40.631 ## Authentication
+08:16:40.631 * Open Redmine "https://192.168.115.169/redmine/"
+08:16:41.983 
+Failed Step: Open Redmine "https://192.168.115.169/redmine/"
+08:16:41.983 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "Redmine"
+08:16:41.983 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.RedmineSteps.openRedmine(RedmineSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:16:42.200 Plugin [Html Report] with pid [23947] has exited
+08:16:42.401 Specifications:	2 executed	0 passed	2 failed	0 skipped
+08:16:42.401 Scenarios:	2 executed	0 passed	2 failed	0 skipped
+08:16:42.401 
+Total time taken: 12.04s
+08:18:57.060 Validation failed. The following steps have errors
+08:18:57.060 /home/malte/NetBeansProjects/integration-tests/specs/jenkins.spec:17: Step implementation not found. Logout
+08:18:57.060 /home/malte/NetBeansProjects/integration-tests/specs/redmine.spec:13: Step implementation not found. Logout
+08:19:00.620 Checking updates...
+08:19:02.148 # Redmine Integration Tests
+08:19:02.406 Plugin [Html Report] with pid [24128] has exited
+08:19:02.506 Specifications:	1 executed	1 passed	0 failed	1 skipped
+08:19:02.507 Scenarios:	0 executed	0 passed	0 failed	2 skipped
+08:19:02.507 
+Total time taken: 5.244s
+08:19:22.172 Checking updates...
+08:19:23.597 Validation failed. The following steps have errors
+08:19:23.597 /home/malte/NetBeansProjects/integration-tests/specs/jenkins.spec:17: Step implementation not found. Logout
+08:19:28.497 # Redmine Integration Tests
+08:19:28.501 ## Authentication
+08:19:28.502 * Open Redmine "https://192.168.115.169/redmine/"
+08:19:29.031 * Redmine-Login "malte" with password "malte123"
+08:19:30.770 * Logout of Redmine
+08:19:31.393 Plugin [Html Report] with pid [24292] has exited
+08:19:31.494 Specifications:	1 executed	1 passed	0 failed	1 skipped
+08:19:31.494 Scenarios:	1 executed	1 passed	0 failed	1 skipped
+08:19:31.494 
+Total time taken: 7.695s
+08:20:27.025 Checking updates...
+08:20:33.249 # Jenkins Integration Tests
+08:20:33.251 ## Authentication
+08:20:33.253 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:20:33.813 * Jenkins-Login "malte" with password "malte123"
+08:20:35.914 * Logout of Jenkins
+08:20:36.138 # Redmine Integration Tests
+08:20:36.139 ## Authentication
+08:20:36.140 * Open Redmine "https://192.168.115.169/redmine/"
+08:20:36.539 * Redmine-Login "malte" with password "malte123"
+08:20:37.448 * Logout of Redmine
+08:20:37.989 Plugin [Html Report] with pid [24462] has exited
+08:20:38.090 Specifications:	2 executed	2 passed	0 failed	0 skipped
+08:20:38.090 Scenarios:	2 executed	2 passed	0 failed	0 skipped
+08:20:38.090 
+Total time taken: 9.698s
+08:26:33.921 Checking updates...
+08:26:40.043 # Jenkins Integration Tests
+08:26:40.045 ## Authentication
+08:26:40.047 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:26:40.712 * Jenkins-Login "malte" with password "malte123"
+08:26:42.875 * Logout of Jenkins
+08:26:43.054 # Redmine Integration Tests
+08:26:43.056 ## Authentication
+08:26:43.056 * Open Redmine "https://192.168.115.169/redmine/"
+08:26:43.594 * Redmine-Login "malte" with password "malte123"
+08:26:44.514 * Logout of Redmine
+08:26:44.895 # Redmine Integration Tests
+08:26:44.896 ## Authentication
+08:26:44.897 * Open SCM "https://192.168.115.169/scm/"
+08:26:45.144 * SCM-Login "malte" with password "malte123"
+08:26:48.451 
+Failed Step: SCM-Login "malte" with password "malte123"
+08:26:48.451 Error Message: java.lang.AssertionError: 
+Expected: a string containing "Redmine"
+     but: was "SCM Manager"
+08:26:48.451 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SCMSteps.loginToCasSCM(SCMSteps.java:33)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:26:48.997 Plugin [Html Report] with pid [24695] has exited
+08:26:49.499 Specifications:	3 executed	2 passed	1 failed	0 skipped
+08:26:49.499 Scenarios:	3 executed	2 passed	1 failed	0 skipped
+08:26:49.499 
+Total time taken: 13.9s
+08:30:07.822 Checking updates...
+08:30:14.091 # Jenkins Integration Tests
+08:30:14.093 ## Authentication
+08:30:14.095 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:30:14.756 * Jenkins-Login "malte" with password "malte123"
+08:30:16.841 * Logout of Jenkins
+08:30:17.269 # Redmine Integration Tests
+08:30:17.270 ## Authentication
+08:30:17.271 * Open Redmine "https://192.168.115.169/redmine/"
+08:30:17.547 * Redmine-Login "malte" with password "malte123"
+08:30:18.469 * Logout of Redmine
+08:30:18.854 # Redmine Integration Tests
+08:30:18.855 ## Authentication
+08:30:18.857 * Open SCM "https://192.168.115.169/scm/"
+08:30:19.137 * SCM-Login "malte" with password "malte123"
+08:30:20.545 * Logout of SCM
+08:30:22.058 
+Failed Step: Logout of SCM
+08:30:22.058 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"ext_gen66"}
+Command duration or timeout: 271 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 34ecbae1-a2b5-4cff-9a7e-2e36ce629d48
+*** Element info: {Using=id, value=ext_gen66}
+08:30:22.058 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+org.openqa.selenium.By$ById.findElement(By.java:218)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SCMSteps.logOutOfCas(SCMSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:30:22.504 Plugin [Html Report] with pid [24904] has exited
+08:30:23.006 Specifications:	3 executed	2 passed	1 failed	0 skipped
+08:30:23.006 Scenarios:	3 executed	2 passed	1 failed	0 skipped
+08:30:23.006 
+Total time taken: 13.388s
+08:34:39.471 Checking updates...
+08:34:45.519 # Jenkins Integration Tests
+08:34:45.521 ## Authentication
+08:34:45.522 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:34:46.174 * Jenkins-Login "malte" with password "malte123"
+08:34:48.079 * Logout of Jenkins
+08:34:48.495 # Redmine Integration Tests
+08:34:48.497 ## Authentication
+08:34:48.497 * Open Redmine "https://192.168.115.169/redmine/"
+08:34:48.745 * Redmine-Login "malte" with password "malte123"
+08:34:49.778 * Logout of Redmine
+08:34:50.145 # Redmine Integration Tests
+08:34:50.146 ## Authentication
+08:34:50.147 * Open SCM "https://192.168.115.169/scm/"
+08:34:50.403 * SCM-Login "malte" with password "malte123"
+08:34:51.784 * Logout of SCM
+08:34:53.067 Plugin [Html Report] with pid [25109] has exited
+08:34:53.168 Specifications:	3 executed	3 passed	0 failed	0 skipped
+08:34:53.168 Scenarios:	3 executed	3 passed	0 failed	0 skipped
+08:34:53.168 
+Total time taken: 12.63s
+08:39:13.018 Checking updates...
+08:39:19.029 # Jenkins Integration Tests
+08:39:19.031 ## Authentication
+08:39:19.037 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:39:19.583 * Jenkins-Login "malte" with password "malte123"
+08:39:21.982 * Logout of Jenkins
+08:39:22.161 # Redmine Integration Tests
+08:39:22.163 ## Authentication
+08:39:22.163 * Open Redmine "https://192.168.115.169/redmine/"
+08:39:22.649 * Redmine-Login "malte" with password "malte123"
+08:39:23.539 * Logout of Redmine
+08:39:23.928 # SCM Integration Tests
+08:39:23.930 ## Authentication
+08:39:23.931 * Open SCM "https://192.168.115.169/scm/"
+08:39:24.203 * SCM-Login "malte" with password "malte123"
+08:39:25.525 * Logout of SCM
+08:39:26.330 # Sonar Integration Tests
+08:39:26.331 ## Authentication
+08:39:26.332 * Open Sonar "https://192.168.115.169/sonar/"
+08:39:30.250 
+Failed Step: Open Sonar "https://192.168.115.169/sonar/"
+08:39:30.250 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "SonarQube"
+08:39:30.250 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SonarSteps.openSCM(SonarSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:39:30.690 Plugin [Html Report] with pid [25340] has exited
+08:39:30.791 Specifications:	4 executed	3 passed	1 failed	0 skipped
+08:39:30.791 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+08:39:30.791 
+Total time taken: 16.586s
+08:43:03.769 Checking updates...
+08:43:09.397 # Jenkins Integration Tests
+08:43:09.400 ## Authentication
+08:43:09.404 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:43:10.108 * Jenkins-Login "malte" with password "malte123"
+08:43:11.951 * Logout of Jenkins
+08:43:12.121 # Redmine Integration Tests
+08:43:12.123 ## Authentication
+08:43:12.124 * Open Redmine "https://192.168.115.169/redmine/"
+08:43:12.480 * Redmine-Login "malte" with password "malte123"
+08:43:13.363 * Logout of Redmine
+08:43:13.737 # SCM Integration Tests
+08:43:13.738 ## Authentication
+08:43:13.739 * Open SCM "https://192.168.115.169/scm/"
+08:43:14.020 * SCM-Login "malte" with password "malte123"
+08:43:15.648 * Logout of SCM
+08:43:15.811 # Sonar Integration Tests
+08:43:15.812 ## Authentication
+08:43:15.812 * Open Sonar "https://192.168.115.169/sonar/"
+08:43:18.930 
+Failed Step: Open Sonar "https://192.168.115.169/sonar/"
+08:43:18.930 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "SonarQube"
+08:43:18.930 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SonarSteps.openSCM(SonarSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:43:19.322 Plugin [Html Report] with pid [25559] has exited
+08:43:19.523 Specifications:	4 executed	3 passed	1 failed	0 skipped
+08:43:19.523 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+08:43:19.523 
+Total time taken: 14.661s
+08:45:20.976 Checking updates...
+08:45:27.281 # Jenkins Integration Tests
+08:45:27.282 ## Authentication
+08:45:27.289 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:45:27.909 * Jenkins-Login "malte" with password "malte123"
+08:45:29.747 * Logout of Jenkins
+08:45:29.920 # Redmine Integration Tests
+08:45:29.922 ## Authentication
+08:45:29.923 * Open Redmine "https://192.168.115.169/redmine/"
+08:45:30.254 * Redmine-Login "malte" with password "malte123"
+08:45:31.176 * Logout of Redmine
+08:45:31.533 # SCM Integration Tests
+08:45:31.534 ## Authentication
+08:45:31.535 * Open SCM "https://192.168.115.169/scm/"
+08:45:31.781 * SCM-Login "malte" with password "malte123"
+08:45:33.076 * Logout of SCM
+08:45:34.630 
+Failed Step: Logout of SCM
+08:45:34.631 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Log out"}
+Command duration or timeout: 337 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 2c92c35d-eeea-470f-8ab7-37108b092a58
+*** Element info: {Using=link text, value=Log out}
+08:45:34.631 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SCMSteps.logOutOfCas(SCMSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:45:34.640 # Sonar Integration Tests
+08:45:34.641 ## Authentication
+08:45:34.642 * Open Sonar "https://192.168.115.169/sonar/"
+08:45:38.073 
+Failed Step: Open Sonar "https://192.168.115.169/sonar/"
+08:45:38.074 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "SonarQube"
+08:45:38.074 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SonarSteps.openSCM(SonarSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:45:38.472 Plugin [Html Report] with pid [25791] has exited
+08:45:38.773 Specifications:	4 executed	2 passed	2 failed	0 skipped
+08:45:38.773 Scenarios:	4 executed	2 passed	2 failed	0 skipped
+08:45:38.773 
+Total time taken: 16.105s
+08:50:43.912 Checking updates...
+08:50:49.938 # Jenkins Integration Tests
+08:50:49.942 ## Authentication
+08:50:49.945 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:50:50.388 * Jenkins-Login "malte" with password "malte123"
+08:50:52.444 * Logout of Jenkins
+08:50:52.867 # Redmine Integration Tests
+08:50:52.868 ## Authentication
+08:50:52.869 * Open Redmine "https://192.168.115.169/redmine/"
+08:50:53.121 * Redmine-Login "malte" with password "malte123"
+08:50:54.000 * Logout of Redmine
+08:50:54.331 # SCM Integration Tests
+08:50:54.333 ## Authentication
+08:50:54.333 * Open SCM "https://192.168.115.169/scm/"
+08:50:54.566 * SCM-Login "malte" with password "malte123"
+08:50:55.874 * Logout of SCM
+08:50:56.554 # Sonar Integration Tests
+08:50:56.556 ## Authentication
+08:50:56.557 * Open Sonar "https://192.168.115.169/sonar/"
+08:51:00.496 
+Failed Step: Open Sonar "https://192.168.115.169/sonar/"
+08:51:00.496 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "SonarQube"
+08:51:00.496 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SonarSteps.openSCM(SonarSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:51:00.892 Plugin [Html Report] with pid [26008] has exited
+08:51:01.293 Specifications:	4 executed	3 passed	1 failed	0 skipped
+08:51:01.293 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+08:51:01.293 
+Total time taken: 15.909s
+08:51:48.826 # Jenkins Integration Tests
+08:51:48.829 ## Authentication
+08:51:48.831 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:51:49.247 * Jenkins-Login "malte" with password "malte123"
+08:51:51.195 * Logout of Jenkins
+08:51:51.373 # Redmine Integration Tests
+08:51:51.373 ## Authentication
+08:51:51.374 * Open Redmine "https://192.168.115.169/redmine/"
+08:51:51.623 Checking updates...
+08:51:51.716 * Redmine-Login "malte" with password "malte123"
+08:51:52.611 * Logout of Redmine
+08:51:52.984 # SCM Integration Tests
+08:51:52.985 ## Authentication
+08:51:52.987 * Open SCM "https://192.168.115.169/scm/"
+08:51:53.236 * SCM-Login "malte" with password "malte123"
+08:51:54.430 * Logout of SCM
+08:51:55.369 
+Failed Step: Logout of SCM
+08:51:55.369 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"ext-gen51"}
+Command duration or timeout: 14 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 503a0014-e600-4626-a138-debe966843b9
+*** Element info: {Using=id, value=ext-gen51}
+08:51:55.369 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+org.openqa.selenium.By$ById.findElement(By.java:218)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SCMSteps.logOutOfCas(SCMSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:51:55.372 # Sonar Integration Tests
+08:51:55.376 ## Authentication
+08:51:55.377 * Open Sonar "https://192.168.115.169/sonar/"
+08:51:57.841 
+Failed Step: Open Sonar "https://192.168.115.169/sonar/"
+08:51:57.841 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "SonarQube"
+08:51:57.841 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SonarSteps.openSCM(SonarSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:51:58.226 Plugin [Html Report] with pid [26204] has exited
+08:51:58.327 Specifications:	4 executed	2 passed	2 failed	0 skipped
+08:51:58.327 Scenarios:	4 executed	2 passed	2 failed	0 skipped
+08:51:58.327 
+Total time taken: 14.295s
+08:53:06.559 Checking updates...
+08:53:07.516 # Jenkins Integration Tests
+08:53:07.518 ## Authentication
+08:53:07.519 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:53:08.135 * Jenkins-Login "malte" with password "malte123"
+08:53:10.358 * Logout of Jenkins
+08:53:10.811 # Redmine Integration Tests
+08:53:10.812 ## Authentication
+08:53:10.813 * Open Redmine "https://192.168.115.169/redmine/"
+08:53:11.072 * Redmine-Login "malte" with password "malte123"
+08:53:11.969 * Logout of Redmine
+08:53:12.331 # SCM Integration Tests
+08:53:12.332 ## Authentication
+08:53:12.332 * Open SCM "https://192.168.115.169/scm/"
+08:53:12.570 * SCM-Login "malte" with password "malte123"
+08:53:14.502 * Logout of SCM
+08:53:14.710 # Sonar Integration Tests
+08:53:14.711 ## Authentication
+08:53:14.711 * Open Sonar "https://192.168.115.169/sonar/"
+08:53:15.120 * Sonar-Login "malte" with password "malte123"
+08:53:15.950 
+Failed Step: Sonar-Login "malte" with password "malte123"
+08:53:15.950 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"username"}
+Command duration or timeout: 15 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 3f436e85-f88d-403c-b71c-08ed9f66f0f3
+*** Element info: {Using=id, value=username}
+08:53:15.950 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+org.openqa.selenium.By$ById.findElement(By.java:218)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+com.sun.proxy.$Proxy3.sendKeys(Unknown Source)
+com.cloudogu.ces.CasPage.login(CasPage.java:27)
+com.cloudogu.ces.SonarSteps.loginToCasSCM(SonarSteps.java:32)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:53:16.343 Plugin [Html Report] with pid [26388] has exited
+08:53:16.644 Specifications:	4 executed	3 passed	1 failed	0 skipped
+08:53:16.644 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+08:53:16.644 
+Total time taken: 13.49s
+08:54:40.395 Checking updates...
+08:54:46.235 # Jenkins Integration Tests
+08:54:46.238 ## Authentication
+08:54:46.240 * Open Jenkins "https://192.168.115.169/jenkins/"
+08:54:46.734 * Jenkins-Login "malte" with password "malte123"
+08:54:48.655 * Logout of Jenkins
+08:54:48.828 # Redmine Integration Tests
+08:54:48.830 ## Authentication
+08:54:48.831 * Open Redmine "https://192.168.115.169/redmine/"
+08:54:49.164 * Redmine-Login "malte" with password "malte123"
+08:54:50.102 * Logout of Redmine
+08:54:50.476 # SCM Integration Tests
+08:54:50.477 ## Authentication
+08:54:50.478 * Open SCM "https://192.168.115.169/scm/"
+08:54:50.726 * SCM-Login "malte" with password "malte123"
+08:54:52.031 * Logout of SCM
+08:54:52.710 # Sonar Integration Tests
+08:54:52.712 ## Authentication
+08:54:52.713 * Open Sonar "https://192.168.115.169/sonar/"
+08:54:53.142 * Sonar-Login "malte" with password "malte123"
+08:54:54.129 
+Failed Step: Sonar-Login "malte" with password "malte123"
+08:54:54.129 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"username"}
+Command duration or timeout: 61 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 4ab568c6-ec89-498e-bebb-a5c8825743e4
+*** Element info: {Using=id, value=username}
+08:54:54.129 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+org.openqa.selenium.By$ById.findElement(By.java:218)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+com.sun.proxy.$Proxy3.sendKeys(Unknown Source)
+com.cloudogu.ces.CasPage.login(CasPage.java:27)
+com.cloudogu.ces.SonarSteps.loginToCasSCM(SonarSteps.java:32)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+08:54:54.520 Plugin [Html Report] with pid [26587] has exited
+08:54:54.922 Specifications:	4 executed	3 passed	1 failed	0 skipped
+08:54:54.922 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+08:54:54.922 
+Total time taken: 13.138s
+09:00:08.154 Checking updates...
+09:00:14.531 # Jenkins Integration Tests
+09:00:14.536 ## Authentication
+09:00:14.537 * Open Jenkins "https://192.168.115.169/jenkins/"
+09:00:15.153 * Jenkins-Login "malte" with password "malte123"
+09:00:17.044 * Logout of Jenkins
+09:00:17.452 # Redmine Integration Tests
+09:00:17.453 ## Authentication
+09:00:17.454 * Open Redmine "https://192.168.115.169/redmine/"
+09:00:17.703 * Redmine-Login "malte" with password "malte123"
+09:00:18.620 * Logout of Redmine
+09:00:18.991 # SCM Integration Tests
+09:00:18.993 ## Authentication
+09:00:18.994 * Open SCM "https://192.168.115.169/scm/"
+09:00:19.201 * SCM-Login "malte" with password "malte123"
+09:00:20.458 * Logout of SCM
+09:00:21.585 
+Failed Step: Logout of SCM
+09:00:21.585 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"ext-gen51"}
+Command duration or timeout: 15 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 49ac75e5-41b9-416e-b4fa-d4c7b1afc7b9
+*** Element info: {Using=id, value=ext-gen51}
+09:00:21.585 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+org.openqa.selenium.By$ById.findElement(By.java:218)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SCMSteps.logOutOfCas(SCMSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:00:21.590 # Sonar Integration Tests
+09:00:21.592 ## Authentication
+09:00:21.593 * Open Sonar "https://192.168.115.169/sonar/"
+09:00:24.906 
+Failed Step: Open Sonar "https://192.168.115.169/sonar/"
+09:00:24.906 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "SonarQube"
+09:00:24.906 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SonarSteps.openSCM(SonarSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:00:25.302 Plugin [Html Report] with pid [26829] has exited
+09:00:25.503 Specifications:	4 executed	2 passed	2 failed	0 skipped
+09:00:25.503 Scenarios:	4 executed	2 passed	2 failed	0 skipped
+09:00:25.503 
+Total time taken: 15.563s
+09:01:30.003 Checking updates...
+09:01:31.432 # Jenkins Integration Tests
+09:01:31.434 ## Authentication
+09:01:31.435 * Open Jenkins "https://192.168.115.169/jenkins/"
+09:01:32.041 * Jenkins-Login "malte" with password "malte123"
+09:01:34.010 * Logout of Jenkins
+09:01:34.189 # Redmine Integration Tests
+09:01:34.197 ## Authentication
+09:01:34.198 * Open Redmine "https://192.168.115.169/redmine/"
+09:01:34.539 * Redmine-Login "malte" with password "malte123"
+09:01:35.466 * Logout of Redmine
+09:01:35.860 # SCM Integration Tests
+09:01:35.861 ## Authentication
+09:01:35.865 * Open SCM "https://192.168.115.169/scm/"
+09:01:36.087 * SCM-Login "malte" with password "malte123"
+09:01:37.603 * Logout of SCM
+09:01:38.822 
+Failed Step: Logout of SCM
+09:01:38.822 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"ext-gen51"}
+Command duration or timeout: 16 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 01d816db-9f42-4bde-ba4e-c137a2e3a5cf
+*** Element info: {Using=id, value=ext-gen51}
+09:01:38.822 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+org.openqa.selenium.By$ById.findElement(By.java:218)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SCMSteps.logOutOfCas(SCMSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:01:38.828 # Sonar Integration Tests
+09:01:38.829 ## Authentication
+09:01:38.831 * Open Sonar "https://192.168.115.169/sonar/"
+09:01:42.948 
+Failed Step: Open Sonar "https://192.168.115.169/sonar/"
+09:01:42.948 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "SonarQube"
+09:01:42.948 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SonarSteps.openSCM(SonarSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:01:43.390 Plugin [Html Report] with pid [27021] has exited
+09:01:43.791 Specifications:	4 executed	2 passed	2 failed	0 skipped
+09:01:43.791 Scenarios:	4 executed	2 passed	2 failed	0 skipped
+09:01:43.792 
+Total time taken: 16.941s
+09:05:30.237 Checking updates...
+09:05:36.254 # Jenkins Integration Tests
+09:05:36.257 ## Authentication
+09:05:36.259 * Open Jenkins "https://192.168.115.169/jenkins/"
+09:05:36.927 * Jenkins-Login "malte" with password "malte123"
+09:05:38.837 * Logout of Jenkins
+09:05:39.034 # Redmine Integration Tests
+09:05:39.036 ## Authentication
+09:05:39.037 * Open Redmine "https://192.168.115.169/redmine/"
+09:05:39.448 * Redmine-Login "malte" with password "malte123"
+09:05:40.359 * Logout of Redmine
+09:05:40.746 # SCM Integration Tests
+09:05:40.747 ## Authentication
+09:05:40.748 * Open SCM "https://192.168.115.169/scm/"
+09:05:40.971 * SCM-Login "malte" with password "malte123"
+09:05:42.583 * Logout of SCM
+09:05:42.885 # Sonar Integration Tests
+09:05:42.887 ## Authentication
+09:05:42.888 * Open Sonar "https://192.168.115.169/sonar/"
+09:05:43.346 * Sonar-Login "malte" with password "malte123"
+09:05:44.234 
+Failed Step: Sonar-Login "malte" with password "malte123"
+09:05:44.234 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"username"}
+Command duration or timeout: 17 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 1ac3aa7b-6aad-41f7-97ce-9e05cd50d10c
+*** Element info: {Using=id, value=username}
+09:05:44.234 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+org.openqa.selenium.By$ById.findElement(By.java:218)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+com.sun.proxy.$Proxy3.sendKeys(Unknown Source)
+com.cloudogu.ces.CasPage.login(CasPage.java:27)
+com.cloudogu.ces.SonarSteps.loginToCasSCM(SonarSteps.java:33)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:05:44.671 Plugin [Html Report] with pid [27243] has exited
+09:05:44.872 Specifications:	4 executed	3 passed	1 failed	0 skipped
+09:05:44.872 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+09:05:44.872 
+Total time taken: 13.325s
+09:06:31.603 Checking updates...
+09:06:36.208 # Jenkins Integration Tests
+09:06:36.212 ## Authentication
+09:06:36.213 * Open Jenkins "https://192.168.115.169/jenkins/"
+09:06:36.774 * Jenkins-Login "malte" with password "malte123"
+09:06:38.660 * Logout of Jenkins
+09:06:39.058 # Redmine Integration Tests
+09:06:39.059 ## Authentication
+09:06:39.059 * Open Redmine "https://192.168.115.169/redmine/"
+09:06:39.290 * Redmine-Login "malte" with password "malte123"
+09:06:40.186 * Logout of Redmine
+09:06:40.534 # SCM Integration Tests
+09:06:40.535 ## Authentication
+09:06:40.535 * Open SCM "https://192.168.115.169/scm/"
+09:06:40.779 * SCM-Login "malte" with password "malte123"
+09:06:42.221 * Logout of SCM
+09:06:43.540 
+Failed Step: Logout of SCM
+09:06:43.540 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"ext-gen51"}
+Command duration or timeout: 295 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c70cb7dc-9943-4ddc-89ac-f37fce47bc78
+*** Element info: {Using=id, value=ext-gen51}
+09:06:43.540 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+org.openqa.selenium.By$ById.findElement(By.java:218)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SCMSteps.logOutOfCas(SCMSteps.java:38)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:06:43.542 # Sonar Integration Tests
+09:06:43.543 ## Authentication
+09:06:43.544 * Open Sonar "https://192.168.115.169/sonar/"
+09:06:47.410 
+Failed Step: Open Sonar "https://192.168.115.169/sonar/"
+09:06:47.410 Error Message: java.lang.AssertionError: 
+Expected: a string starting with "CAS"
+     but: was "SonarQube"
+09:06:47.410 Stacktrace: 
+org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+org.junit.Assert.assertThat(Assert.java:956)
+org.junit.Assert.assertThat(Assert.java:923)
+com.cloudogu.ces.SonarSteps.openSCM(SonarSteps.java:25)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:94)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:06:47.862 Plugin [Html Report] with pid [27436] has exited
+09:06:48.264 Specifications:	4 executed	2 passed	2 failed	0 skipped
+09:06:48.264 Scenarios:	4 executed	2 passed	2 failed	0 skipped
+09:06:48.264 
+Total time taken: 16.556s
+09:16:47.384 Checking updates...
+09:16:54.584 # Jenkins Integration Tests
+09:16:54.597 ## Authentication
+09:16:54.612 * Open Jenkins "https://192.168.115.169/jenkins/"
+09:16:55.312 * Jenkins-Login "malte" with password "malte123"
+09:16:57.421 * Logout of Jenkins
+09:16:57.596 # Redmine Integration Tests
+09:16:57.598 ## Authentication
+09:16:57.599 * Open Redmine "https://192.168.115.169/redmine/"
+09:16:58.050 * Redmine-Login "malte" with password "malte123"
+09:16:59.061 * Logout of Redmine
+09:16:59.482 # SCM Integration Tests
+09:16:59.483 ## Authentication
+09:16:59.484 * Open SCM "https://192.168.115.169/scm/"
+09:16:59.705 * SCM-Login "malte" with password "malte123"
+09:17:01.906 * Logout of SCM
+09:17:03.071 # Sonar Integration Tests
+09:17:03.073 ## Authentication
+09:17:03.074 * Open Sonar "https://192.168.115.169/sonar/"
+09:17:03.318 * Sonar-Login "malte" with password "malte123"
+09:17:06.210 * Logout of Sonar
+09:17:07.794 
+Failed Step: Logout of Sonar
+09:17:07.794 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Log out"}
+Command duration or timeout: 449 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: e18acff4-d75f-4c22-9a86-dd1962a5f374
+*** Element info: {Using=link text, value=Log out}
+09:17:07.794 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SonarSteps.logOutOfCas(SonarSteps.java:39)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:17:08.333 Plugin [Html Report] with pid [27770] has exited
+09:17:08.535 Specifications:	4 executed	3 passed	1 failed	0 skipped
+09:17:08.535 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+09:17:08.536 
+Total time taken: 19.346s
+09:19:51.857 Checking updates...
+09:19:58.395 # Jenkins Integration Tests
+09:19:58.402 ## Authentication
+09:19:58.405 * Open Jenkins "https://192.168.115.169/jenkins/"
+09:19:59.007 * Jenkins-Login "malte" with password "malte123"
+09:20:01.105 * Logout of Jenkins
+09:20:01.268 # Redmine Integration Tests
+09:20:01.269 ## Authentication
+09:20:01.270 * Open Redmine "https://192.168.115.169/redmine/"
+09:20:01.656 * Redmine-Login "malte" with password "malte123"
+09:20:02.602 * Logout of Redmine
+09:20:03.068 # SCM Integration Tests
+09:20:03.070 ## Authentication
+09:20:03.070 * Open SCM "https://192.168.115.169/scm/"
+09:20:03.300 * SCM-Login "malte" with password "malte123"
+09:20:05.006 * Logout of SCM
+09:20:06.417 # Sonar Integration Tests
+09:20:06.418 ## Authentication
+09:20:06.419 * Open Sonar "https://192.168.115.169/sonar/"
+09:20:06.689 * Sonar-Login "malte" with password "malte123"
+09:20:09.707 * Logout of Sonar
+09:20:11.184 
+Failed Step: Logout of Sonar
+09:20:11.185 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Log out"}
+Command duration or timeout: 418 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6a46023a-cc8a-4954-ac59-e331935336f4
+*** Element info: {Using=link text, value=Log out}
+09:20:11.185 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SonarSteps.logOutOfCas(SonarSteps.java:40)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:20:11.627 Plugin [Html Report] with pid [27978] has exited
+09:20:11.828 Specifications:	4 executed	3 passed	1 failed	0 skipped
+09:20:11.828 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+09:20:11.828 
+Total time taken: 18.285s
+09:23:21.445 Checking updates...
+09:23:27.216 # Jenkins Integration Tests
+09:23:27.217 ## Authentication
+09:23:27.222 * Open Jenkins "https://192.168.115.169/jenkins/"
+09:23:27.807 * Jenkins-Login "malte" with password "malte123"
+09:23:29.869 * Logout of Jenkins
+09:23:30.036 # Redmine Integration Tests
+09:23:30.037 ## Authentication
+09:23:30.037 * Open Redmine "https://192.168.115.169/redmine/"
+09:23:30.372 * Redmine-Login "malte" with password "malte123"
+09:23:31.286 * Logout of Redmine
+09:23:31.646 # SCM Integration Tests
+09:23:31.647 ## Authentication
+09:23:31.648 * Open SCM "https://192.168.115.169/scm/"
+09:23:31.874 * SCM-Login "malte" with password "malte123"
+09:23:33.705 * Logout of SCM
+09:23:34.841 # Sonar Integration Tests
+09:23:34.842 ## Authentication
+09:23:34.842 * Open Sonar "https://192.168.115.169/sonar/"
+09:23:35.116 * Sonar-Login "malte" with password "malte123"
+09:23:37.795 * Logout of Sonar
+09:23:39.189 
+Failed Step: Logout of Sonar
+09:23:39.189 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Log out"}
+Command duration or timeout: 421 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 9f12b396-18e1-4fca-8f80-81578492fe15
+*** Element info: {Using=link text, value=Log out}
+09:23:39.189 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SonarSteps.logOutOfCas(SonarSteps.java:40)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:23:39.580 Plugin [Html Report] with pid [28176] has exited
+09:23:39.981 Specifications:	4 executed	3 passed	1 failed	0 skipped
+09:23:39.982 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+09:23:39.982 
+Total time taken: 17.076s
+09:32:00.316 Checking updates...
+09:32:06.755 # Jenkins Integration Tests
+09:32:06.784 ## Authentication
+09:32:06.786 * Open Jenkins "https://192.168.115.169/jenkins/"
+09:32:07.427 * Jenkins-Login "malte" with password "malte123"
+09:32:09.755 * Logout of Jenkins
+09:32:09.963 # Redmine Integration Tests
+09:32:09.964 ## Authentication
+09:32:09.965 * Open Redmine "https://192.168.115.169/redmine/"
+09:32:10.306 * Redmine-Login "malte" with password "malte123"
+09:32:11.263 * Logout of Redmine
+09:32:11.672 # SCM Integration Tests
+09:32:11.673 ## Authentication
+09:32:11.674 * Open SCM "https://192.168.115.169/scm/"
+09:32:11.966 * SCM-Login "malte" with password "malte123"
+09:32:14.167 * Logout of SCM
+09:32:15.326 # Sonar Integration Tests
+09:32:15.328 ## Authentication
+09:32:15.328 * Open Sonar "https://192.168.115.169/sonar/"
+09:32:15.568 * Sonar-Login "malte" with password "malte123"
+09:32:18.139 * Logout of Sonar
+09:32:20.003 
+Failed Step: Logout of Sonar
+09:32:20.004 Error Message: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Log out"}
+Command duration or timeout: 427 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'malte-Vostro-3500', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-21-generic', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=LINUX, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: dc1e14ab-0636-4921-8798-49eff8a64387
+*** Element info: {Using=link text, value=Log out}
+09:32:20.004 Stacktrace: 
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+com.cloudogu.ces.SonarSteps.logOutOfCas(SonarSteps.java:42)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+com.thoughtworks.gauge.execution.MethodExecutor.execute(MethodExecutor.java:31)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStepMethod(StepExecutionStage.java:96)
+com.thoughtworks.gauge.execution.StepExecutionStage.executeStep(StepExecutionStage.java:77)
+com.thoughtworks.gauge.execution.StepExecutionStage.execute(StepExecutionStage.java:58)
+com.thoughtworks.gauge.execution.AbstractExecutionStage.executeNext(AbstractExecutionStage.java:24)
+com.thoughtworks.gauge.execution.HookExecutionStage.execute(HookExecutionStage.java:42)
+com.thoughtworks.gauge.execution.ExecutionPipeline.start(ExecutionPipeline.java:31)
+com.thoughtworks.gauge.processor.ExecuteStepProcessor.process(ExecuteStepProcessor.java:34)
+com.thoughtworks.gauge.connection.MessageDispatcher.dispatchMessages(MessageDispatcher.java:72)
+com.thoughtworks.gauge.GaugeRuntime.main(GaugeRuntime.java:37)
+09:32:20.495 Plugin [Html Report] with pid [28420] has exited
+09:32:20.897 Specifications:	4 executed	3 passed	1 failed	0 skipped
+09:32:20.898 Scenarios:	4 executed	3 passed	1 failed	0 skipped
+09:32:20.898 
+Total time taken: 19.103s
