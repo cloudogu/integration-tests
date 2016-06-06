@@ -10,7 +10,6 @@ import driver.Driver;
 import driver.Pages;
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
-import org.openqa.selenium.By;
 
 /**
  *
