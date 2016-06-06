@@ -37,11 +37,7 @@ public class SCMSteps {
     
     @Step("Logout of SCM")
     public void logOutOfCas(){
-        Driver.webDriver.findElement(By.id("ext-gen51")).click(); // LogOut Button
-        try {            
-            Thread.sleep(1000); // sometimes leads to gauge timeout
-        } catch (InterruptedException ex) {
-            Logger.getLogger(SCMSteps.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        SCMPage page = Pages.get(SCMPage.class);
+        page.logout();
     }
 }

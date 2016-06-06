@@ -35,7 +35,8 @@ public class JenkinsSteps {
     
     @Step("Logout of Jenkins")
     public void logOutOfCas(){
-        Driver.webDriver.findElement(By.linkText("log out")).click();
+        JenkinsPage page = Pages.get(JenkinsPage.class);
+        page.logout();
     }
     
 }

@@ -35,6 +35,7 @@ public class RedmineSteps {
     
     @Step("Logout of Redmine")
     public void logOutOfCas(){
-        Driver.webDriver.findElement(By.linkText("Sign out")).click();
+        RedminePage page = Pages.get(RedminePage.class);
+        page.logout();
     }
 }

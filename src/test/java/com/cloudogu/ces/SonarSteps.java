@@ -8,12 +8,14 @@ package com.cloudogu.ces;
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
 import driver.Pages;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 /**
  *
@@ -36,13 +38,9 @@ public class SonarSteps {
     }
     
     @Step("Logout of Sonar")
-    public void logOutOfCas(){
-        Driver.webDriver.findElement(By.linkText("Log out")).click(); // LogOut Button        
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(SonarSteps.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                
+    public void logOutOfCas(){   
+        SonarPage page = Pages.get(SonarPage.class);
+        page.logout();
     }
+                   
 }
