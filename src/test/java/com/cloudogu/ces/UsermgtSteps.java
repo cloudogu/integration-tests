@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
 import static org.hamcrest.Matchers.containsString;
@@ -40,5 +41,19 @@ public class UsermgtSteps {
         page.logout();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
-                   
+    @Step("Access Usermgt API via REST client for <user> with password <password>")
+    public void createRESTClientForSonarAPI(String user, String password){
+        UsermgtAPI api = new UsermgtAPI(user,password);
+        JsonNode jnode = api.getInformation();        
+        JsonNode root = jnode.get("entries");
+        String userName = "";
+        for(int i=0; i<root.size();i++){
+            JsonNode inner = root.get(i);
+            if(inner.get("displayName").asText().equals(user)){
+                userName = inner.get("displayName").asText();
+            }
+        }
+        assertThat(userName, is(user));
+        api.close();
+    }               
 }
