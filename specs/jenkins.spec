@@ -1,6 +1,6 @@
 Jenkins Integration Tests
 ==========================
-
+Tags: jenkins
 Some Jenkins integration tests
 
 Authentication
@@ -8,6 +8,13 @@ Authentication
 
 Test Jenkins Cas Authentication Workflow
 
-* Open Jenkins "https://192.168.115.169/jenkins/"
-* Jenkins-Login "malte" with password "malte123"
+* Open Jenkins
+* Jenkins-Login "admin" with password "admin123"
 * Logout of Jenkins
+
+REST API u+p
+--------------
+
+Test API by accessing json-file without Cas Authentication
+
+ Access Jenkins API via REST client for "admin" with password "admin123"

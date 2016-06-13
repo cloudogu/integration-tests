@@ -1,6 +1,6 @@
 Redmine Integration Tests
 ==========================
-
+Tags: redmine
 Some Redmine integration tests
 
 Authentication
@@ -8,7 +8,7 @@ Authentication
 
 Test Redmine Cas Authentication Workflow
 
-* Open Redmine "https://192.168.115.169/redmine/"
-* Redmine-Login "malte" with password "malte123"
+* Open Redmine
+* Redmine-Login "admin" with password "admin123"
 * Logout of Redmine
 

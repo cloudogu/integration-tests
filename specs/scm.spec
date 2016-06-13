@@ -1,6 +1,6 @@
 SCM Integration Tests
 ==========================
-
+Tags: scm
 Some SCM integration tests
 
 Authentication
@@ -8,7 +8,7 @@ Authentication
 
 Test SCM Cas Authentication Workflow
 
-* Open SCM "https://192.168.115.169/scm/"
-* SCM-Login "malte" with password "malte123"
+* Open SCM
+* SCM-Login "admin" with password "admin123"
 * Logout of SCM
 

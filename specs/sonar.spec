@@ -1,6 +1,6 @@
 Sonar Integration Tests
 ==========================
-
+Tags: sonar
 Some Sonar integration tests
 
 Authentication
@@ -8,7 +8,7 @@ Authentication
 
 Test Sonar Cas Authentication Workflow
 
-* Open Sonar "https://192.168.115.169/sonar/"
-* Sonar-Login "malte" with password "malte123"
+* Open Sonar
+* Sonar-Login "admin" with password "admin123"
 * Logout of Sonar
 

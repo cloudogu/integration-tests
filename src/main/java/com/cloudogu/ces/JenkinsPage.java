@@ -14,16 +14,17 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author malte
  */
-public class SonarPage {
+public class JenkinsPage {
     
-    // Dropdown-Toogle Link must be open before 'Log out' can be clicked
-    @FindBy(xpath = "/html/body/div/nav/div/ul[@class='nav navbar-nav navbar-right']/li/a")
-    private WebElement toogle;
+    @FindBy(linkText = "log out")
+    private WebElement logOut;
     
     public void logout(){
-        toogle.click();
-        Driver.webDriver.findElement(By.linkText("Log out")).click();
+        logOut.click();
     }
     
-    
+    public String getCurrentUsername(){
+        WebElement currentUser = Driver.webDriver.findElement(By.tagName("b"));
+        return currentUser.getText();
+    }
 }

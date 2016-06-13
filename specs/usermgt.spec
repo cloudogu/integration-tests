@@ -1,6 +1,6 @@
 Usermgt Integration Tests
 ==========================
-
+Tags: usermgt
 Some Usermgt integration tests
 
 Authentication
@@ -8,7 +8,7 @@ Authentication
 
 Test Usermgt Cas Authentication Workflow
 
-* Open Usermgt "https://192.168.115.169/usermgt/"
-* Usermgt-Login "malte" with password "malte123"
+* Open Usermgt
+* Usermgt-Login "admin" with password "admin123"
 * Logout of Usermgt
 

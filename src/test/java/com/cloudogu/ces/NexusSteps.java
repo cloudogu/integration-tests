@@ -7,8 +7,8 @@ package com.cloudogu.ces;
 
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
-import driver.Pages;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
 
@@ -18,24 +18,31 @@ import static org.junit.Assert.assertThat;
  */
 public class NexusSteps {
     
-    @Step("Open Nexus <url>")
-    public void openNexus(String url){
-        Driver.webDriver.get(url);
+    @Step("Open Nexus")
+    public void openNexus(){
+        Driver.webDriver.get(EcoSystem.getUrl("/nexus"));
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     
     @Step("Nexus-Login <user> with password <pwd>")
     public void loginToCasNexus(String user, String pwd){
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
-        CasPage page = Pages.get(CasPage.class);
+        CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
+        NexusPage nexusPage = EcoSystem.getPage(NexusPage.class);
+        assertThat(nexusPage.getCurrentUsername(), is(user));
         assertThat(Driver.webDriver.getTitle(), containsString("Nexus"));
     }
     
     @Step("Logout of Nexus")
     public void logOutOfCas(){   
-        NexusPage page = Pages.get(NexusPage.class);
+        NexusPage page = EcoSystem.getPage(NexusPage.class);
         page.logout();
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
-                   
+
+    //@Step("Access Nexus API via REST client for <user> with password <password>")
+    public void createRESTClientForNexusAPI(String user, String password){
+        
+    }        
 }
