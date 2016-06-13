@@ -5,17 +5,13 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 /**
  *
@@ -45,5 +41,20 @@ public class SonarSteps {
         page.logout();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
-                   
+    
+    @Step("Access Sonar API via REST client for <user> with password <password>")
+    public void createRESTClientForSonarAPI(String user, String password){
+        SonarAPI api = new SonarAPI(user,password);
+        JsonNode jnode = api.getInformation();        
+        JsonNode root = jnode.get("users");
+        String userName = "";
+        for(int i=0; i<root.size();i++){
+            JsonNode inner = root.get(i);
+            if(inner.get("login").asText().equals(user)){
+                userName = inner.get("login").asText();
+            }
+        }
+        assertThat(userName, is(user));
+        api.close();
+    }    
 }

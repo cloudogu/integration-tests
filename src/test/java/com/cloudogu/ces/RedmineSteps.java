@@ -51,7 +51,12 @@ public class RedmineSteps {
         String xmlFile = api.getInformation();        
         Document doc = EcoSystem.buildXmlDocument(xmlFile);
         NodeList list = doc.getElementsByTagName("firstname");
-        String userName = list.item(0).getTextContent();
+        String userName = "";
+        for(int i = 0; i<list.getLength();i++){
+            if(list.item(i).getTextContent().equals(user)){
+                userName = list.item(i).getTextContent();
+            }            
+        }
         assertThat(userName, is(user));
         api.close();
     }

@@ -7,13 +7,12 @@ package com.cloudogu.ces;
 
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
-import org.openqa.selenium.By;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
 /**
  *
@@ -42,5 +41,21 @@ public class SCMSteps {
         SCMPage page = EcoSystem.getPage(SCMPage.class);
         page.logout();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    
+    @Step("Access SCM API via REST client for <user> with password <password>")
+    public void createRESTClientForSCMAPI(String user, String password){
+        SCMAPI api = new SCMAPI(user,password);
+        String xmlFile = api.getInformation();        
+        Document doc = EcoSystem.buildXmlDocument(xmlFile);
+        NodeList list = doc.getElementsByTagName("displayName");
+        String userName = "";
+        for(int i = 0; i<list.getLength();i++){
+            if(list.item(i).getTextContent().equals(user)){
+                userName = list.item(i).getTextContent();
+            }            
+        }
+        assertThat(userName, is(user));
+        api.close();
     }
 }
