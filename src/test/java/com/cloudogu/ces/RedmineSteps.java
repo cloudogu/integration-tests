@@ -5,13 +5,16 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
+import java.util.Iterator;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
-import org.openqa.selenium.By;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
 /**
  *
@@ -40,5 +43,16 @@ public class RedmineSteps {
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.logout();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    
+    @Step("Access Redmine API via REST client for <user> with password <password>")
+    public void createRESTClientForRedmineAPI(String user, String password){
+        RedmineAPI api = new RedmineAPI(user,password);
+        String xmlFile = api.getInformation();        
+        Document doc = EcoSystem.buildXmlDocument(xmlFile);
+        NodeList list = doc.getElementsByTagName("firstname");
+        String userName = list.item(0).getTextContent();
+        assertThat(userName, is(user));
+        api.close();
     }
 }

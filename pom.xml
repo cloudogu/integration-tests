@@ -64,6 +64,7 @@
                         <phase>test</phase>
                         <configuration>
                             <specsDir>specs</specsDir>
+                            <tags>redmine_api_up</tags>
                         </configuration>
                         <goals>
                             <goal>execute</goal>

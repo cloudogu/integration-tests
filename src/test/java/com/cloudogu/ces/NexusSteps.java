@@ -5,8 +5,10 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
+import java.util.Iterator;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
@@ -41,8 +43,13 @@ public class NexusSteps {
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
 
-    //@Step("Access Nexus API via REST client for <user> with password <password>")
+    @Step("Access Nexus API via REST client for <user> with password <password>")
     public void createRESTClientForNexusAPI(String user, String password){
-        
+        NexusAPI api = new NexusAPI(user,password);
+        JsonNode jnode = api.getInformation(); 
+        Iterator<JsonNode> elements = jnode.elements();       
+        String url = elements.next().get(0).get("resourceURI").asText();
+        assertThat(url, is(EcoSystem.getUrl("/nexus/service/local/users/"+user)));
+        api.close();
     }        
 }

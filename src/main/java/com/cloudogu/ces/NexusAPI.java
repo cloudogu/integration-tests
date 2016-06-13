@@ -22,9 +22,13 @@ public class NexusAPI {
     }
     
     public JsonNode getInformation(){
-        return client.target("https://192.168.115.169/nexus/content/repositories/public/")
-                  .request(MediaType.APPLICATION_XML_TYPE)
+        return client.target(EcoSystem.getUrl("/nexus/service/local/users"))
+                  .request(MediaType.APPLICATION_JSON_TYPE)
                   .get(JsonNode.class);
+    }
+    
+    public void close(){
+        this.client.close();
     }
     
 }

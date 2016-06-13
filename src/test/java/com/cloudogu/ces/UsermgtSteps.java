@@ -30,7 +30,7 @@ public class UsermgtSteps {
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
         UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);
-        assertThat(usermgtPage.getCurrentUsername().toLowerCase(), is(user));
+        assertThat(usermgtPage.getCurrentUsername(), is(user.toUpperCase()));
         assertThat(Driver.webDriver.getTitle(), containsString("User Management"));
     }
     

@@ -6,20 +6,30 @@
 package com.cloudogu.ces;
 
 import driver.Driver;
+import java.io.IOException;
+import java.io.StringReader;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -50,6 +60,20 @@ public final class EcoSystem {
             }
         }
         return webElementToReturn;
+    }
+    
+    public static Document buildXmlDocument(String xml){
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        Document doc = null;
+        try {
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            InputSource is = new InputSource(new StringReader(xml));
+            doc = db.parse(is);
+
+        } catch (SAXException | IOException | ParserConfigurationException ex) {
+            Logger.getLogger(EcoSystem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return doc;
     }
     
     private static SSLContext createUnsecureSSLContext() throws NoSuchAlgorithmException, KeyManagementException {

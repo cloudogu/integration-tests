@@ -8,23 +8,24 @@ package com.cloudogu.ces;
 import com.fasterxml.jackson.databind.JsonNode;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
  * @author malte
  */
-public class JenkinsAPI {
+public class RedmineAPI {
     
     private final Client client;
     
-    public JenkinsAPI(String username, String password){
+    public RedmineAPI(String username, String password){
         this.client = EcoSystem.createRestClient(username, password);
     }
     
-    public JsonNode getInformation(){
-        return client.target(EcoSystem.getUrl("/jenkins/api/json"))
-                  .request(MediaType.APPLICATION_JSON_TYPE)
-                  .get(JsonNode.class);
+    public String getInformation(){
+        return client.target(EcoSystem.getUrl("/redmine/users.xml"))
+                  .request(MediaType.APPLICATION_XML_TYPE)
+                  .get(String.class);
     }
     
     public void close(){

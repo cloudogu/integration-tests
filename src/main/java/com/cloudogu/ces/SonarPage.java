@@ -5,10 +5,7 @@
  */
 package com.cloudogu.ces;
 
-import driver.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 /**
  *

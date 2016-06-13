@@ -41,11 +41,12 @@ public class JenkinsSteps {
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     
-    //@Step("Access Jenkins API via REST client for <user> with password <password>")
+    @Step("Access Jenkins API via REST client for <user> with password <password>")
     public void createRESTClientForJenkinsAPI(String user, String password){
         JenkinsAPI api = new JenkinsAPI(user,password);
         JsonNode jnode = api.getInformation();
         String url = jnode.get("primaryView").get("url").asText();
         assertThat(url, is(EcoSystem.getUrl("/jenkins/")));
+        api.close();
     }
 }
