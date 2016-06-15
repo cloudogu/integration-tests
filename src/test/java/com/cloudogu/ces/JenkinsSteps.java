@@ -10,6 +10,8 @@ import com.thoughtworks.gauge.Step;
 import driver.Driver;
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -48,5 +50,25 @@ public class JenkinsSteps {
         String url = jnode.get("primaryView").get("url").asText();
         assertThat(url, is(EcoSystem.getUrl("/jenkins/")));
         api.close();
+    }
+    
+    @Step("Obtain Jenkins token with <username> and <password>")
+    public void obtainJenkinsToken(String username, String password){
+        //WebDriver driver = Driver.webDriver;       
+        Driver.webDriver.get(EcoSystem.getUrl("/jenkins"));
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(username, password);
+        JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,10);
+        jenkinsPage.goToConfigurationPage(username,wait);        
+        assertThat(Driver.webDriver.getTitle(), containsString("Configuration"));
+        String token = jenkinsPage.getToken(wait);
+        System.out.println("token = "+token);
+    }
+    
+    @Step("Jenkins-Login with token")
+    public void loginWithJenkinsToken(){
+        
     }
 }

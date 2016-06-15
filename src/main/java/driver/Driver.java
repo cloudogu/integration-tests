@@ -15,9 +15,9 @@ public class Driver {
     @BeforeSuite
     public void initializeDriver(){
         webDriver = DriverFactory.getDriver();
-        webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().setScriptTimeout(3, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
     }
 
     // Close the webDriver instance

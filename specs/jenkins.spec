@@ -15,9 +15,18 @@ Test Jenkins Cas Authentication Workflow
 * Logout of Jenkins
 
 REST API u+p
---------------
+------------
 Tags: jenkins_api_up
 
 Test API by accessing json-file without Cas Authentication
 
 * Access Jenkins API via REST client for "admin" with password "admin123"
+
+REST token API key
+------------------
+Tags: jenkins_api_token
+
+Obtain token from Jenkins and use it to log in
+
+* Obtain Jenkins token with "admin" and "admin123"
+* Jenkins-Login with token 

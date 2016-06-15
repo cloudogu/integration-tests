@@ -7,6 +7,7 @@ package com.cloudogu.ces;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -16,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 public class JenkinsAPI {
     
     private final Client client;
+    private final String TOKEN = "39f609cd2556848cbfbde4f16860653a";
     
     public JenkinsAPI(String username, String password){
         this.client = EcoSystem.createRestClient(username, password);

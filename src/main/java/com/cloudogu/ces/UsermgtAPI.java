@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
  */
 public class UsermgtAPI {
     
-    private final Client client;
+    private final Client client;    
     
     public UsermgtAPI(String username, String password){
         this.client = EcoSystem.createRestClient(username, password);

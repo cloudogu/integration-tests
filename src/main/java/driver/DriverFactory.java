@@ -14,7 +14,7 @@ public class DriverFactory {
 
         String browser = System.getenv("BROWSER");
         if (browser == null) {
-            return new FirefoxDriver();
+            return new ChromeDriver();
         }
         switch (browser)
         {
