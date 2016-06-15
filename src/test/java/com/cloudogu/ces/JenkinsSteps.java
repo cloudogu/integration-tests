@@ -7,10 +7,11 @@ package com.cloudogu.ces;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
+import com.thoughtworks.gauge.datastore.DataStore;
+import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -19,6 +20,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class JenkinsSteps {
     
+    /*-----------------------------------
+    Szenario 1
+    -----------------------------------*/
     @Step("Open Jenkins")
     public void openJenkins() {
         Driver.webDriver.get(EcoSystem.getUrl("/jenkins"));
@@ -43,6 +47,9 @@ public class JenkinsSteps {
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     
+    /*-----------------------------------
+    Szenario 2
+    -----------------------------------*/
     @Step("Access Jenkins API via REST client for <user> with password <password>")
     public void createRESTClientForJenkinsAPI(String user, String password){
         JenkinsAPI api = new JenkinsAPI(user,password);
@@ -52,9 +59,11 @@ public class JenkinsSteps {
         api.close();
     }
     
+    /*-----------------------------------
+    Szenario 3
+    -----------------------------------*/
     @Step("Obtain Jenkins token with <username> and <password>")
-    public void obtainJenkinsToken(String username, String password){
-        //WebDriver driver = Driver.webDriver;       
+    public void obtainJenkinsToken(String username, String password){       
         Driver.webDriver.get(EcoSystem.getUrl("/jenkins"));
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
@@ -64,11 +73,17 @@ public class JenkinsSteps {
         jenkinsPage.goToConfigurationPage(username,wait);        
         assertThat(Driver.webDriver.getTitle(), containsString("Configuration"));
         String token = jenkinsPage.getToken(wait);
-        System.out.println("token = "+token);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("username",username);
+        scenarioStore.put("jenkins-user-token", token);
     }
     
     @Step("Jenkins-Login with token")
     public void loginWithJenkinsToken(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("username");
+        String token = (String) scenarioStore.get("jenkins-user-token");
         
+        createRESTClientForJenkinsAPI(user,token);
     }
 }

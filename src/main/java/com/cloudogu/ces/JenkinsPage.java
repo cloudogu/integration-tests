@@ -6,10 +6,7 @@
 package com.cloudogu.ces;
 
 import driver.Driver;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
