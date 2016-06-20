@@ -86,6 +86,17 @@ public class SonarSteps {
         String user = (String) scenarioStore.get("username");
         String token = (String) scenarioStore.get("sonar-user-token");
         
-        createRESTClientForSonarAPI(user,token);
+        SonarAPI api = new SonarAPI(token,"disabled");
+        JsonNode jnode = api.getInformation();        
+        JsonNode root = jnode.get("users");
+        String userName = "";
+        for(int i=0; i<root.size();i++){
+            JsonNode inner = root.get(i);
+            if(inner.get("login").asText().equals(user)){
+                userName = inner.get("login").asText();
+            }
+        }
+        assertThat(userName, is(user));
+        api.close();
     }    
 }

@@ -19,7 +19,9 @@ import org.w3c.dom.NodeList;
  * @author malte
  */
 public class SCMSteps {
-    
+    /*-----------------------------------
+    Szenario 1
+    -----------------------------------*/
     @Step("Open SCM")
     public void openSCM(){
         Driver.webDriver.get(EcoSystem.getUrl("/scm"));
@@ -42,7 +44,9 @@ public class SCMSteps {
         page.logout();
         openSCM();
     }
-    
+    /*-----------------------------------
+    Szenario 2
+    -----------------------------------*/
     @Step("Access SCM API via REST client for <user> with password <password>")
     public void createRESTClientForSCMAPI(String user, String password){
         SCMAPI api = new SCMAPI(user,password);

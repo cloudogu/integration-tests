@@ -65,7 +65,7 @@ public class SonarPage {
                         By.xpath("//body/div/div/div/div/div[3]/div/table/tbody/tr/td[5]/a")));
         updateTokens.click();
         List<WebElement> allTokens = Driver.webDriver.findElements(
-                By.xpath("//body/div[@class='modal in']/div[2]/table/tbody/*/td"));
+                By.xpath("//body/div[@class='modal in']/div[2]/table/tbody/*/td[1]"));
 
         int row = 1;
         int data = 1;
@@ -84,15 +84,16 @@ public class SonarPage {
                 row += 1;
             }
         }
-        WebElement tokenNameInputField = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath("//body/div[@class='modal in']/div[@class='modal-body']/form/input")));
-        tokenNameInputField.sendKeys("tmptoken");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
             Logger.getLogger(SonarPage.class.getName()).log(Level.SEVERE, null, ex);
         }
+        WebElement tokenNameInputField = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("//body/div[@class='modal in']/div[@class='modal-body']/form/input")));
+        tokenNameInputField.sendKeys("tmptoken");     
+        
         WebElement generateTokenButton = wait.until(
                 ExpectedConditions.elementToBeClickable(
                         By.xpath("//body/div[@class='modal in']/div[2]/form/button")));

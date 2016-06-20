@@ -19,7 +19,9 @@ import static org.junit.Assert.assertThat;
  * @author malte
  */
 public class NexusSteps {
-    
+    /*-----------------------------------
+    Szenario 1
+    -----------------------------------*/
     @Step("Open Nexus")
     public void openNexus(){
         Driver.webDriver.get(EcoSystem.getUrl("/nexus"));
@@ -42,7 +44,9 @@ public class NexusSteps {
         page.logout();
         openNexus();
     }
-
+    /*-----------------------------------
+    Szenario 2
+    -----------------------------------*/
     @Step("Access Nexus API via REST client for <user> with password <password>")
     public void createRESTClientForNexusAPI(String user, String password){
         NexusAPI api = new NexusAPI(user,password);

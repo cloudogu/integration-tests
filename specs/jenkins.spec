@@ -30,3 +30,15 @@ Obtain token from Jenkins and use it to log in
 
 * Obtain Jenkins token with "admin" and "admin123"
 * Jenkins-Login with token 
+
+Single Sign Out
+---------------
+Tags: jenkins_sso
+
+Log in to Jenkins, switch to Redmine and log out there. Go back to Jenkins
+and look up if successfully logged out
+
+* Jenkins-Login "admin" with password "admin123" for Single Sign out
+* Switch page to Redmine
+* Log out at Redmine
+* Go back to Jenkins

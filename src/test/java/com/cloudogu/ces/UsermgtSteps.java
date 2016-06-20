@@ -18,7 +18,9 @@ import static org.junit.Assert.assertThat;
  * @author malte
  */
 public class UsermgtSteps {
-    
+    /*-----------------------------------
+    Szenario 1
+    -----------------------------------*/
     @Step("Open Usermgt")
     public void openUsermgt(){
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
@@ -41,6 +43,9 @@ public class UsermgtSteps {
         page.logout();
         openUsermgt();
     }
+    /*-----------------------------------
+    Szenario 2
+    -----------------------------------*/
     @Step("Access Usermgt API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
         UsermgtAPI api = new UsermgtAPI(user,password);

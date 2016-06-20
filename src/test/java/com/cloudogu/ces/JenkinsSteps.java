@@ -85,4 +85,27 @@ public class JenkinsSteps {
         
         createRESTClientForJenkinsAPI(user,token);
     }
+    /*-----------------------------------
+    Szenario 4
+    -----------------------------------*/
+    @Step("Jenkins-Login <user> with password <password> for Single Sign out")
+    public void loginToTestSingleSignOut(String user, String password){
+        openJenkins();
+        loginToCasJenkins(user, password);                
+    }
+    @Step("Switch page to Redmine")
+    public void switchToRedmine(){
+        Driver.webDriver.get(EcoSystem.getUrl("/redmine"));
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("Redmine"));
+    }
+    @Step("Log out at Redmine")
+    public void logOutOfRedmine(){
+        RedminePage redminePage = EcoSystem.getPage(RedminePage.class);
+        redminePage.logout();
+    }
+    @Step("Go back to Jenkins")
+    public void goBackToJenkins(){
+        openJenkins();
+    }
 }
