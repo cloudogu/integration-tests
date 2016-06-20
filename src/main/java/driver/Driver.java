@@ -18,6 +18,7 @@ public class Driver {
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         webDriver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+        webDriver.manage().window().maximize();
     }
 
     // Close the webDriver instance

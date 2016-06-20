@@ -40,7 +40,7 @@ public class SCMSteps {
     public void logOutOfCas(){
         SCMPage page = EcoSystem.getPage(SCMPage.class);
         page.logout();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        openSCM();
     }
     
     @Step("Access SCM API via REST client for <user> with password <password>")

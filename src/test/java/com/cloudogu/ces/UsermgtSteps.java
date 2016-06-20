@@ -39,7 +39,7 @@ public class UsermgtSteps {
     public void logOutOfCas(){   
         UsermgtPage page = EcoSystem.getPage(UsermgtPage.class);
         page.logout();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        openUsermgt();
     }
     @Step("Access Usermgt API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){

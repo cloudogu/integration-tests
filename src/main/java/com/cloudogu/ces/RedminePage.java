@@ -5,7 +5,10 @@
  */
 package com.cloudogu.ces;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -25,5 +28,18 @@ public class RedminePage {
     public String getCurrentUsername() {
         WebElement currentUsername = EcoSystem.searchElementByTagAndAttribute("a","class","user active");
         return currentUsername.getText();
+    }
+    
+    public void goToMyAccountPage(WebDriverWait wait){        
+        WebElement myAccount = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My account")));
+        myAccount.click();       
+    }
+    
+    public String getKey(WebDriverWait wait){
+        String key = "";
+        WebElement showKey = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Show")));
+        showKey.click();
+        key = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("api-access-key"))).getText();
+        return key;
     }
 }

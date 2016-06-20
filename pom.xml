@@ -63,8 +63,8 @@
                     <execution>
                         <phase>test</phase>
                         <configuration>
-                            <specsDir>specs</specsDir>
-                            <tags>jenkins_api_token</tags>                            
+                            <specsDir>specs</specsDir> 
+                       
                         </configuration>
                         <goals>
                             <goal>execute</goal>

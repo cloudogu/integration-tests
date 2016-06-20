@@ -31,7 +31,7 @@ public class SonarSteps {
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
         SonarPage sonarPage = EcoSystem.getPage(SonarPage.class);
-        assertThat(sonarPage.getCurrentUsername(), is(user));
+        assertThat(sonarPage.getCurrentUsername(user), is(user));
         assertThat(Driver.webDriver.getTitle(), containsString("Sonar"));
     }
     
@@ -39,7 +39,7 @@ public class SonarSteps {
     public void logOutOfCas(){   
         SonarPage page = EcoSystem.getPage(SonarPage.class);
         page.logout();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        openSonar();
     }
     
     @Step("Access Sonar API via REST client for <user> with password <password>")

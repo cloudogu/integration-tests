@@ -40,7 +40,7 @@ public class NexusSteps {
     public void logOutOfCas(){   
         NexusPage page = EcoSystem.getPage(NexusPage.class);
         page.logout();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        openNexus();
     }
 
     @Step("Access Nexus API via REST client for <user> with password <password>")

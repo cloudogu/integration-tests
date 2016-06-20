@@ -44,7 +44,7 @@ public class JenkinsSteps {
     public void logOutOfCas(){
         JenkinsPage page = EcoSystem.getPage(JenkinsPage.class);
         page.logout();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        openJenkins();
     }
     
     /*-----------------------------------
@@ -64,18 +64,17 @@ public class JenkinsSteps {
     -----------------------------------*/
     @Step("Obtain Jenkins token with <username> and <password>")
     public void obtainJenkinsToken(String username, String password){       
-        Driver.webDriver.get(EcoSystem.getUrl("/jenkins"));
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
-        CasPage casPage = EcoSystem.getPage(CasPage.class);
-        casPage.login(username, password);
-        JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
+        openJenkins();
+        loginToCasJenkins(username, password);        
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,10);
+        JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
         jenkinsPage.goToConfigurationPage(username,wait);        
         assertThat(Driver.webDriver.getTitle(), containsString("Configuration"));
         String token = jenkinsPage.getToken(wait);
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("username",username);
         scenarioStore.put("jenkins-user-token", token);
+        logOutOfCas();
     }
     
     @Step("Jenkins-Login with token")

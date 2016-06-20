@@ -51,8 +51,8 @@ public final class EcoSystem {
     }
     
     public static WebElement searchElementByTagAndAttribute(String tag, String attribute, String attributeName){
-        List<WebElement> webElements = Driver.webDriver.findElements(By.tagName(tag));
-        WebElement webElementToReturn = null;       
+        List<WebElement> webElements = Driver.webDriver.findElements(By.tagName(tag));       
+        WebElement webElementToReturn = null;  
         for(WebElement webElement : webElements){
             if(webElement.getAttribute(attribute).equals(attributeName)){
                 webElementToReturn = webElement;
@@ -93,7 +93,7 @@ public final class EcoSystem {
         
 
         HttpAuthenticationFeature basicAuth = HttpAuthenticationFeature.basicBuilder()
-            .credentials(username, password)
+            .credentials(username, password)    
             .build();
         
         return ClientBuilder.newBuilder()
