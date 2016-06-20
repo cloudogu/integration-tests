@@ -35,10 +35,7 @@ Single Sign Out
 ---------------
 Tags: jenkins_sso
 
-Log in to Jenkins, switch to Redmine and log out there. Go back to Jenkins
-and look up if successfully logged out
+Log in to Jenkins and test Single Sign out via cas/logout
 
 * Jenkins-Login "admin" with password "admin123" for Single Sign out
-* Switch page to Redmine
-* Log out at Redmine
-* Go back to Jenkins
+* Log out from Jenkins via cas/logout

@@ -20,3 +20,12 @@ Tags: scm_api_up
 Test API by accessing json-file without Cas Authentication
 
 * Access SCM API via REST client for "admin" with password "admin123"
+
+Single Sign Out
+---------------
+Tags: scm_sso
+
+Log in to SCM and test Single Sign out via cas/logout
+
+* SCM-Login "admin" with password "admin123" for Single Sign out
+* Log out from SCM via cas/logout

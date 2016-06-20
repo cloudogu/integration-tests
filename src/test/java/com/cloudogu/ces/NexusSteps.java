@@ -55,5 +55,19 @@ public class NexusSteps {
         String url = elements.next().get(0).get("resourceURI").asText();
         assertThat(url, is(EcoSystem.getUrl("/nexus/service/local/users/"+user)));
         api.close();
-    }        
+    }
+    /*-----------------------------------
+    Szenario 3
+    -----------------------------------*/
+    @Step("Nexus-Login <user> with password <password> for Single Sign out")
+    public void loginToTestSingleSignOut(String user, String password){
+        openNexus();
+        loginToCasNexus(user, password);                
+    }
+    @Step("Log out from Nexus via cas/logout")
+    public void logOutViaCasLogout(){
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
 }

@@ -62,4 +62,18 @@ public class SCMSteps {
         assertThat(userName, is(user));
         api.close();
     }
+    /*-----------------------------------
+    Szenario 3
+    -----------------------------------*/
+    @Step("SCM-Login <user> with password <password> for Single Sign out")
+    public void loginToTestSingleSignOut(String user, String password){
+        openSCM();
+        loginToCasSCM(user, password);                
+    }
+    @Step("Log out from SCM via cas/logout")
+    public void logOutViaCasLogout(){
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
 }

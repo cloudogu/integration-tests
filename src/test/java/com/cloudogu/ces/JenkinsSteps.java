@@ -93,19 +93,10 @@ public class JenkinsSteps {
         openJenkins();
         loginToCasJenkins(user, password);                
     }
-    @Step("Switch page to Redmine")
-    public void switchToRedmine(){
-        Driver.webDriver.get(EcoSystem.getUrl("/redmine"));
+    @Step("Log out from Jenkins via cas/logout")
+    public void logOutViaCasLogout(){
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
-        assertThat(Driver.webDriver.getTitle(), startsWith("Redmine"));
-    }
-    @Step("Log out at Redmine")
-    public void logOutOfRedmine(){
-        RedminePage redminePage = EcoSystem.getPage(RedminePage.class);
-        redminePage.logout();
-    }
-    @Step("Go back to Jenkins")
-    public void goBackToJenkins(){
-        openJenkins();
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
 }

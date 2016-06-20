@@ -104,4 +104,18 @@ public class RedmineSteps {
         assertThat(userName, is(user));
         api.close();
     }
+    /*-----------------------------------
+    Szenario 4
+    -----------------------------------*/
+    @Step("Redmine-Login <user> with password <password> for Single Sign out")
+    public void loginToTestSingleSignOut(String user, String password){
+        openRedmine();
+        loginToCasRedmine(user, password);                
+    }
+    @Step("Log out from Redmine via cas/logout")
+    public void logOutViaCasLogout(){
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
 }

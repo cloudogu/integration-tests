@@ -67,21 +67,17 @@ public class SonarPage {
         List<WebElement> allTokens = Driver.webDriver.findElements(
                 By.xpath("//body/div[@class='modal in']/div[2]/table/tbody/*/td[1]"));
 
-        int row = 1;
-        int data = 1;
         for (int i = 0; i < allTokens.size(); i++) {
             if (allTokens.get(i).getText().equals("tmptoken")) {
-                allTokens.get(i + 2).click();
+                WebElement button = wait.until(
+                        ExpectedConditions.elementToBeClickable(
+                                By.xpath("//body/div[@class='modal in']/div[2]/table/tbody/tr[" + (i+1) + "]/td[3]/div/form")));
+                button.click();
                 WebElement sureButton = wait.until(
                         ExpectedConditions.elementToBeClickable(
-                                By.xpath("//body/div[@class='modal in']/div[2]/table/tbody/tr[" + row + "]/td[3]/div/form")));
+                                By.xpath("//body/div[@class='modal in']/div[2]/table/tbody/tr[" + (i+1) + "]/td[3]/div/form")));
                 sureButton.click();
                 break;
-            }
-            data += 1;
-            if (data == 3) {
-                data = 1;
-                row += 1;
             }
         }
         try {
