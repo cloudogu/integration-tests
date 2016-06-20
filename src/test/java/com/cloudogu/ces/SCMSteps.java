@@ -74,6 +74,7 @@ public class SCMSteps {
     public void logOutViaCasLogout(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
+        openSCM();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
 }

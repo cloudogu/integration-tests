@@ -21,3 +21,12 @@ Tags: usermgt_api_up
 Test API by accessing json-file without Cas Authentication
 
 * Access Usermgt API via REST client for "admin" with password "admin123"
+
+Single Sign Out
+---------------
+Tags: usermgt_sso
+
+Log in to Usermgt and test Single Sign out via cas/logout
+
+* Usermgt-Login "admin" with password "admin123" for Single Sign out
+* Log out from Usermgt via cas/logout 

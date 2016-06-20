@@ -116,6 +116,7 @@ public class RedmineSteps {
     public void logOutViaCasLogout(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
+        openRedmine();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
 }

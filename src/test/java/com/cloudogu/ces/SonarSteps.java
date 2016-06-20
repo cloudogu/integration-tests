@@ -98,5 +98,20 @@ public class SonarSteps {
         }
         assertThat(userName, is(user));
         api.close();
-    }    
+    }
+    /*-----------------------------------
+    Szenario 4
+    -----------------------------------*/
+    @Step("Sonar-Login <user> with password <password> for Single Sign out")
+    public void loginToTestSingleSignOut(String user, String password){
+        openSonar();
+        loginToCasSonar(user, password);                
+    }
+    @Step("Log out from Sonar via cas/logout")
+    public void logOutViaCasLogout(){
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        // be sure we are redirected to cas
+        openSonar();
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
 }

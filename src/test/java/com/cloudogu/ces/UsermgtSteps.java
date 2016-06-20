@@ -60,5 +60,20 @@ public class UsermgtSteps {
         }
         assertThat(userName, is(user));
         api.close();
-    }               
+    }
+    /*-----------------------------------
+    Szenario 3
+    -----------------------------------*/
+    @Step("Usermgt-Login <user> with password <password> for Single Sign out")
+    public void loginToTestSingleSignOut(String user, String password){
+        openUsermgt();
+        loginToCasUsermgt(user, password);                
+    }
+    @Step("Log out from Usermgt via cas/logout")
+    public void logOutViaCasLogout(){
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        // be sure we are redirected to cas
+        openUsermgt();
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
 }

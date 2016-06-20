@@ -97,6 +97,7 @@ public class JenkinsSteps {
     public void logOutViaCasLogout(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
+        openJenkins();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
 }
