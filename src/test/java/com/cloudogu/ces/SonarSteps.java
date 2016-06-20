@@ -7,18 +7,23 @@ package com.cloudogu.ces;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
+import com.thoughtworks.gauge.datastore.DataStore;
+import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
  * @author malte
  */
 public class SonarSteps {
-    
+    /*-----------------------------------
+    Szenario 1
+    -----------------------------------*/
     @Step("Open Sonar")
     public void openSonar(){
         Driver.webDriver.get(EcoSystem.getUrl("/sonar"));
@@ -41,7 +46,9 @@ public class SonarSteps {
         page.logout();
         openSonar();
     }
-    
+    /*-----------------------------------
+    Szenario 2
+    -----------------------------------*/
     @Step("Access Sonar API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
         SonarAPI api = new SonarAPI(user,password);
@@ -56,5 +63,29 @@ public class SonarSteps {
         }
         assertThat(userName, is(user));
         api.close();
+    }
+    /*-----------------------------------
+    Szenario 3
+    -----------------------------------*/
+    @Step("Obtain Sonar token with <username> and <password>")
+    public void obtainSonarToken(String username, String password){       
+        openSonar();
+        loginToCasSonar(username, password);        
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,10);
+        SonarPage sonarPage = EcoSystem.getPage(SonarPage.class);
+        String token = sonarPage.obtainToken(username,wait);        
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("username",username);
+        scenarioStore.put("sonar-user-token", token);
+        logOutOfCas();
+    }
+    
+    @Step("Sonar-Login with token")
+    public void loginWithSonarToken(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("username");
+        String token = (String) scenarioStore.get("sonar-user-token");
+        
+        createRESTClientForSonarAPI(user,token);
     }    
 }
