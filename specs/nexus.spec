@@ -22,6 +22,15 @@ Test API by accessing json-file without Cas Authentication
 
 * Access Nexus API via REST client for "admin" with password "admin123"
 
+REST token API key
+------------------
+Tags: nexus_api_key
+
+Obtain key from Nexus and use it to log in
+
+* Obtain Nexus key with "admin" and "admin123"
+* Nexus-Login with key
+
 Single Sign Out
 ---------------
 Tags: nexus_sso

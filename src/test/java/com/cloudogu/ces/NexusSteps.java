@@ -59,6 +59,17 @@ public class NexusSteps {
     /*-----------------------------------
     Szenario 3
     -----------------------------------*/
+    @Step("Obtain Nexus key with <user> and <password>")
+    public void obtainNexusKey(){
+        //stub: todo
+    }
+    @Step("Nexus-Login with key")
+    public void loginWithNexusKey(){
+        //stub: todo
+    }   
+    /*-----------------------------------
+    Szenario 4
+    -----------------------------------*/
     @Step("Nexus-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
         openNexus();

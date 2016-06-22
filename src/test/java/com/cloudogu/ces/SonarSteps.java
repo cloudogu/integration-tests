@@ -15,6 +15,20 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  *
