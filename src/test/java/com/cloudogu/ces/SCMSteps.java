@@ -6,7 +6,10 @@
 package com.cloudogu.ces;
 
 import com.thoughtworks.gauge.Step;
+import com.thoughtworks.gauge.datastore.DataStore;
+import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
+import javax.ws.rs.ForbiddenException;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
@@ -76,5 +79,48 @@ public class SCMSteps {
         // be sure we are redirected to cas
         openSCM();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    /*-----------------------------------
+    Szenario 4
+    -----------------------------------*/
+    @Step("Access SCM API as <user> with password <password> with admin rights")
+    public void accessRestApiAsAdmin(String user, String password){
+        SCMAPI api = new SCMAPI(user,password);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("scm_api_admin",api);
+    }
+    @Step("Check if access accepted")
+    public void acceptAccessAsAdmin(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_admin");
+        assertThat(api.getInformation(),startsWith("<?xml"));
+    }
+    @Step("Quit client with admin rights")
+    public void quitAdminClient(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_admin");
+        api.close();
+    }
+    @Step("Access SCM API as <user> with password <password> without admin rights")
+    public void accessRestApiNotAsAdmin(String user, String password){
+        SCMAPI api = new SCMAPI(user,password);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("scm_api_noadmin",api);
+    }
+    @Step("Check if access not accepted")
+    public void acceptAccessNotAsAdmin(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_noadmin");
+        try{
+            String s = api.getInformation();
+        }catch(ForbiddenException e){
+            //System.out.println(e);
+        }
+    }
+    @Step("Quit client without admin rights")
+    public void quitNonAdminClient(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_noadmin");
+        api.close();
     }
 }

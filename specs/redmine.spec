@@ -47,7 +47,7 @@ Tags: redmine_groups
 Login to Redmine as user in group with admin rights, test if administration
 privileges are given and test opposite with user not in group with admin rights
 
-* Redmine-Login "admin" with password "password" with admin rights
+* Redmine-Login "admin" with password "admin123" with admin rights
 * Access Administration
 * Logout of Redmine as user with admin rights
 * Redmine-Login "dummyuser" with password "dummyuser123" without admin rights
