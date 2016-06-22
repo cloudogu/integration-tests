@@ -100,4 +100,38 @@ public class JenkinsSteps {
         openJenkins();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
+    /*-----------------------------------
+    Szenario 5
+    -----------------------------------*/
+    @Step("Jenkins-Login <user> with password <password> with admin rights")
+    public void loginToTestAdminRights(String user, String password){
+        openJenkins();
+        loginToCasJenkins(user, password);
+    }
+    @Step("Access Manage Jenkins")
+    public void accessManageJenkinsPage(){
+        JenkinsPage page = EcoSystem.getPage(JenkinsPage.class);
+        page.goToManageJenkinsPage();
+        assertThat(Driver.webDriver.getTitle(),is("Manage Jenkins [Jenkins]"));
+    }
+    @Step("Logout of Jenkins as user with admin rights")
+    public void logoutOfCasAsAdmin(){
+        logOutOfCas();
+    }
+    @Step("Jenkins-Login <user> with password <password> without admin rights")
+    public void loginToTestNoAdminRights(String user, String password){
+        openJenkins();
+        loginToCasJenkins(user, password);
+    }
+    @Step("Try to access Manage Jenkins")
+    public void accessTryManageJenkinsPage(){
+        JenkinsPage page = EcoSystem.getPage(JenkinsPage.class);
+        page.goToManageJenkinsPage();
+        Boolean accessDenied = page.AccessDenied();
+        assertThat(accessDenied,is(true));
+    }
+    @Step("Logout of Jenkins as user without admin rights")
+    public void logoutOfCasNotAsAdmin(){
+        logOutOfCas();
+    }
 }

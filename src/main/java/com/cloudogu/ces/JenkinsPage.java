@@ -25,6 +25,10 @@ public class JenkinsPage {
         logOut.click();
     }
     
+    public void goToManageJenkinsPage(){
+        Driver.webDriver.get(EcoSystem.getUrl("/jenkins/manage"));
+    }
+    
     public void goToConfigurationPage(String user, WebDriverWait wait){        
         WebElement menuSelector = wait.until(ExpectedConditions.elementToBeClickable(By.linkText(user)));
         menuSelector.click();
@@ -43,5 +47,15 @@ public class JenkinsPage {
     public String getCurrentUsername(){
         WebElement currentUser = Driver.webDriver.findElement(By.tagName("b"));
         return currentUser.getText();
+    }
+    
+    public Boolean AccessDenied(){
+        Boolean denied = false;
+        String xpath = "//body/div[@id='page-body']/div[@id='main-panel']/h1";
+        String accessDenied = Driver.webDriver.findElement(By.xpath(xpath)).getText();
+        if(accessDenied.equals("Access Denied")){
+            denied = true;
+        }
+        return denied;
     }
 }

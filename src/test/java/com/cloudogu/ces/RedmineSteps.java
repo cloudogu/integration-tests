@@ -119,4 +119,38 @@ public class RedmineSteps {
         openRedmine();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
+    /*-----------------------------------
+    Szenario 5
+    -----------------------------------*/
+    @Step("Redmine-Login <user> with password <password> with admin rights")
+    public void loginToTestAdminRights(String user, String password){
+        openRedmine();
+        loginToCasRedmine(user, password);
+    }
+    @Step("Access Administration")
+    public void accessAdministrationPage(){
+        RedminePage page = EcoSystem.getPage(RedminePage.class);
+        page.goToAdministrationPage();
+        assertThat(Driver.webDriver.getTitle(),is("Administration - Redmine"));
+    }
+    @Step("Logout of Redmine as user with admin rights")
+    public void logoutOfCasAsAdmin(){
+        logOutOfCas();
+    }
+    @Step("Redmine-Login <user> with password <password> without admin rights")
+    public void loginToTestNoAdminRights(String user, String password){
+        openRedmine();
+        loginToCasRedmine(user, password);
+    }
+    @Step("Try to access Administration")
+    public void accessTryAdministrationPage(){
+        RedminePage page = EcoSystem.getPage(RedminePage.class);
+        page.goToAdministrationPage();
+        Boolean accessDenied = page.AccessDenied();
+        assertThat(accessDenied,is(true));
+    }
+    @Step("Logout of Redmine as user without admin rights")
+    public void logoutOfCasNotAsAdmin(){
+        logOutOfCas();
+    }
 }

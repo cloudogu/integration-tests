@@ -35,7 +35,21 @@ Single Sign Out
 ---------------
 Tags: jenkins_sso
 
-Log in to Jenkins and test Single Sign out via cas/logout
+Login to Jenkins and test Single Sign out via cas/logout
 
 * Jenkins-Login "admin" with password "admin123" for Single Sign out
 * Log out from Jenkins via cas/logout
+
+Groups
+------
+Tags: jenkins_groups
+
+Login to Jenkins as user in group with admin rights, test if administration
+privileges are given and test opposite with user not in group with admin rights
+
+* Jenkins-Login "admin" with password "admin123" with admin rights
+* Access Manage Jenkins
+* Logout of Jenkins as user with admin rights
+* Jenkins-Login "dummyuser" with password "dummyuser123" without admin rights
+* Try to Access Manage Jenkins
+* Logout of Jenkins as user without admin rights 
