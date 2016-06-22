@@ -12,7 +12,7 @@ Tags: usermgt_auth
 Test Usermgt Cas Authentication Workflow
 
 * Open Usermgt
-* Usermgt-Login "admin" with password "admin123"
+* Usermgt-Login "admin" with password "password"
 * Logout of Usermgt
 
 
@@ -22,7 +22,7 @@ Tags: usermgt_api_up
 
 Test API by accessing json-file without Cas Authentication
 
-* Access Usermgt API via REST client for "admin" with password "admin123"
+* Access Usermgt API via REST client for "admin" with password "password"
 
 
 Single Sign Out
@@ -31,5 +31,5 @@ Tags: usermgt_sso
 
 Log in to Usermgt and test Single Sign out via cas/logout
 
-* Usermgt-Login "admin" with password "admin123" for Single Sign out
+* Usermgt-Login "admin" with password "password" for Single Sign out
 * Log out from Usermgt via cas/logout 

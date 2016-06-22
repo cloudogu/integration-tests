@@ -12,7 +12,7 @@ Tags: nexus_auth
 Test Nexus Cas Authentication Workflow
 
 * Open Nexus
-* Nexus-Login "admin" with password "admin123"
+* Nexus-Login "admin" with password "password"
 * Logout of Nexus
 
 
@@ -22,7 +22,7 @@ Tags: nexus_api_up
 
 Test API by accessing json-file without Cas Authentication
 
-* Access Nexus API via REST client for "admin" with password "admin123"
+* Access Nexus API via REST client for "admin" with password "password"
 
 
 REST token API key
@@ -31,7 +31,7 @@ Tags: nexus_api_key
 
 Obtain key from Nexus and use it to log in
 
-* Obtain Nexus key with "admin" and "admin123"
+* Obtain Nexus key with "admin" and "password"
 * Nexus-Login with key
 
 
@@ -41,5 +41,5 @@ Tags: nexus_sso
 
 Log in to Nexus and test Single Sign out via cas/logout
 
-* Nexus-Login "admin" with password "admin123" for Single Sign out
+* Nexus-Login "admin" with password "password" for Single Sign out
 * Log out from Jenkins via cas/logout
