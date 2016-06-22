@@ -53,10 +53,24 @@ public class NexusSteps {
     @Step("Access Nexus API via REST client for <user> with password <password>")
     public void createRESTClientForNexusAPI(String user, String password){
         NexusAPI api = new NexusAPI(user,password);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("api", api);
+        scenarioStore.put("user", user);
+    }
+    @Step("Obtain Nexus json file")
+    public void compareJsonFile(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        NexusAPI api = (NexusAPI) scenarioStore.get("api");
+        String user = (String) scenarioStore.get("user");
         JsonNode jnode = api.getInformation(); 
         Iterator<JsonNode> elements = jnode.elements();       
         String url = elements.next().get(0).get("resourceURI").asText();
         assertThat(url, is(EcoSystem.getUrl("/nexus/service/local/users/"+user)));
+    }
+    @Step("Close Nexus API REST client")
+    public void closeRestClient(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        NexusAPI api = (NexusAPI) scenarioStore.get("api");
         api.close();
     }
     /*-----------------------------------

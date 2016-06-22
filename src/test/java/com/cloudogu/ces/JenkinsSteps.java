@@ -53,9 +53,21 @@ public class JenkinsSteps {
     @Step("Access Jenkins API via REST client for <user> with password <password>")
     public void createRESTClientForJenkinsAPI(String user, String password){
         JenkinsAPI api = new JenkinsAPI(user,password);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("api", api);      
+    }
+    @Step("Obtain Jenkins json file")
+    public void compareJsonFile(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        JenkinsAPI api = (JenkinsAPI) scenarioStore.get("api");
         JsonNode jnode = api.getInformation();
         String url = jnode.get("primaryView").get("url").asText();
         assertThat(url, is(EcoSystem.getUrl("/jenkins/")));
+    }
+    @Step("Close Jenkins API REST client")
+    public void closeRestClient(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        JenkinsAPI api = (JenkinsAPI) scenarioStore.get("api");
         api.close();
     }
     

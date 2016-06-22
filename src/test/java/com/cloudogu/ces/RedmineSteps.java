@@ -55,6 +55,15 @@ public class RedmineSteps {
     @Step("Access Redmine API via REST client for <user> with password <password>")
     public void createRESTClientForRedmineAPI(String user, String password){
         RedmineAPI api = new RedmineAPI(user,password);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("api", api);
+        scenarioStore.put("user", user);        
+    }
+    @Step("Obtain Redmine json file")
+    public void compareJsonFile(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        RedmineAPI api = (RedmineAPI) scenarioStore.get("api");
+        String user = (String) scenarioStore.get("user");
         String xmlFile = api.getInformation();
         Document doc = EcoSystem.buildXmlDocument(xmlFile);
         NodeList list = doc.getElementsByTagName("firstname");
@@ -65,9 +74,13 @@ public class RedmineSteps {
             }            
         }
         assertThat(userName, is(user));
+    }
+    @Step("Close Redmine API REST client")
+    public void closeRestClient(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        RedmineAPI api = (RedmineAPI) scenarioStore.get("api");
         api.close();
     }
-    
     /*-----------------------------------
     Szenario 3
     -----------------------------------*/

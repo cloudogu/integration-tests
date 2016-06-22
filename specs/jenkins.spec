@@ -23,6 +23,8 @@ Tags: jenkins_api_up
 Test API by accessing json-file without Cas Authentication
 
 * Access Jenkins API via REST client for "admin" with password "password"
+* Obtain Jenkins json file
+* Close Jenkins API REST client
 
 
 REST token API key

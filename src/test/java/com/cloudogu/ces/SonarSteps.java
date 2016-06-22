@@ -10,10 +10,11 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
+import java.util.Iterator;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import org.openqa.selenium.By;
 
@@ -53,6 +54,15 @@ public class SonarSteps {
     @Step("Access Sonar API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
         SonarAPI api = new SonarAPI(user,password);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("api", api);
+        scenarioStore.put("user", user);
+    }
+    @Step("Obtain Sonar json file")
+    public void compareJsonFile(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SonarAPI api = (SonarAPI) scenarioStore.get("api");
+        String user = (String) scenarioStore.get("user");
         JsonNode jnode = api.getInformation();        
         JsonNode root = jnode.get("users");
         String userName = "";
@@ -63,8 +73,13 @@ public class SonarSteps {
             }
         }
         assertThat(userName, is(user));
-        api.close();
     }
+    @Step("Close Sonar API REST client")
+    public void closeRestClient(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SonarAPI api = (SonarAPI) scenarioStore.get("api");
+        api.close();
+    }    
     /*-----------------------------------
     Szenario 3
     -----------------------------------*/

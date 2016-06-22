@@ -23,6 +23,8 @@ Tags: redmine_api_up
 Test API by accessing json-file without Cas Authentication
 
 * Access Redmine API via REST client for "admin" with password "password"
+* Obtain Redmine json file
+* Close Redmine API REST client
 
 
 REST token API key

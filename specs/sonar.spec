@@ -23,6 +23,8 @@ Tags: sonar_api_up
 Test API by accessing json-file without Cas Authentication
 
 * Access Sonar API via REST client for "admin" with password "password"
+* Obtain Sonar json file
+* Close Sonar API REST client
 
 
 REST token API key

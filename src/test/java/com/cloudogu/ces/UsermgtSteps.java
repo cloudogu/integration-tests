@@ -7,6 +7,8 @@ package com.cloudogu.ces;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
+import com.thoughtworks.gauge.datastore.DataStore;
+import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
@@ -45,10 +47,19 @@ public class UsermgtSteps {
     }
     /*-----------------------------------
     Szenario 2
-    -----------------------------------*/
+    -----------------------------------*/   
     @Step("Access Usermgt API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
         UsermgtAPI api = new UsermgtAPI(user,password);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("api", api);
+        scenarioStore.put("user", user);
+    }
+    @Step("Obtain Usermgt json file")
+    public void compareJsonFile(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        UsermgtAPI api = (UsermgtAPI) scenarioStore.get("api");
+        String user = (String) scenarioStore.get("user");
         JsonNode jnode = api.getInformation();        
         JsonNode root = jnode.get("entries");
         String userName = "";
@@ -59,8 +70,13 @@ public class UsermgtSteps {
             }
         }
         assertThat(userName, is(user));
-        api.close();
     }
+    @Step("Close Usermgt API REST client")
+    public void closeRestClient(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        UsermgtAPI api = (UsermgtAPI) scenarioStore.get("api");
+        api.close();
+    } 
     /*-----------------------------------
     Szenario 3
     -----------------------------------*/

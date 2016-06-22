@@ -53,6 +53,15 @@ public class SCMSteps {
     @Step("Access SCM API via REST client for <user> with password <password>")
     public void createRESTClientForSCMAPI(String user, String password){
         SCMAPI api = new SCMAPI(user,password);
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("api", api);
+        scenarioStore.put("user", user);
+    }
+    @Step("Obtain SCM json file")
+    public void compareJsonFile(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SCMAPI api = (SCMAPI) scenarioStore.get("api");
+        String user = (String) scenarioStore.get("user");
         String xmlFile = api.getInformation();        
         Document doc = EcoSystem.buildXmlDocument(xmlFile);
         NodeList list = doc.getElementsByTagName("displayName");
@@ -63,6 +72,11 @@ public class SCMSteps {
             }            
         }
         assertThat(userName, is(user));
+    }
+    @Step("Close SCM API REST client")
+    public void closeRestClient(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SCMAPI api = (SCMAPI) scenarioStore.get("api");
         api.close();
     }
     /*-----------------------------------
