@@ -15,6 +15,7 @@ import static org.hamcrest.Matchers.startsWith;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import org.openqa.selenium.By;
 
 /**
  *
@@ -113,5 +114,42 @@ public class SonarSteps {
         // be sure we are redirected to cas
         openSonar();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    /*-----------------------------------
+    Szenario 5
+    -----------------------------------*/
+    @Step("Sonar-Login <user> with password <password> with admin rights")
+    public void loginToTestAdminRights(String user, String password){
+        openSonar();
+        loginToCasSonar(user, password);
+    }
+    @Step("Access Administration of Sonar page")
+    public void accessAdministrationPage(){
+        SonarPage page = EcoSystem.getPage(SonarPage.class);
+        page.goToAdministrationPage();
+        String xpathNavHeadline = Driver.webDriver.findElement(By.xpath(
+                "//body/div/nav[2]/div/ul/li/a")).getText();
+        assertThat(xpathNavHeadline, is("Administration"));
+    }
+    @Step("Logout of Sonar as user with admin rights")
+    public void logoutOfCasAsAdmin(){
+        logOutOfCas();
+    }
+    @Step("Sonar-Login <user> with password <password> without admin rights")
+    public void loginToTestNoAdminRights(String user, String password){
+        openSonar();
+        loginToCasSonar(user, password);
+    }
+    @Step("Try to access Administration of Sonar page")
+    public void accessTryAdministrationPage(){
+        SonarPage page = EcoSystem.getPage(SonarPage.class);
+        page.goToAdministrationPage();
+        Boolean accessDenied = page.AccessDenied();
+        assertThat(accessDenied,is(true));
+    }
+    @Step("Logout of Sonar as user without admin rights")
+    public void logoutOfCasNotAsAdmin(){
+        Driver.webDriver.get(EcoSystem.getUrl("/sonar"));
+        logOutOfCas();
     }
 }

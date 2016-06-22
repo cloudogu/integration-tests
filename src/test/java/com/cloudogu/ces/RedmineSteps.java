@@ -127,7 +127,7 @@ public class RedmineSteps {
         openRedmine();
         loginToCasRedmine(user, password);
     }
-    @Step("Access Administration")
+    @Step("Access Administration of Redmine page")
     public void accessAdministrationPage(){
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.goToAdministrationPage();
@@ -142,7 +142,7 @@ public class RedmineSteps {
         openRedmine();
         loginToCasRedmine(user, password);
     }
-    @Step("Try to access Administration")
+    @Step("Try to access Administration of Redmine page")
     public void accessTryAdministrationPage(){
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.goToAdministrationPage();

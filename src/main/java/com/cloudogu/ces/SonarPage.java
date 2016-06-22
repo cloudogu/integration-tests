@@ -113,4 +113,19 @@ public class SonarPage {
             }
         }
     }
+    
+    void goToAdministrationPage() {
+        Driver.webDriver.get(EcoSystem.getUrl("/sonar/settings"));
+    }
+    
+    public Boolean AccessDenied(){
+        Boolean denied = false;
+        String xpath = "//body/div/div/div/form/div";
+        String accessDenied = Driver.webDriver.findElement(By.xpath(xpath)).getText();
+        if(accessDenied.equals("You are not authorized to access this page. "
+                + "Please log in with more privileges and try again.")){
+            denied = true;
+        }
+        return denied;
+    }
 }
