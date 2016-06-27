@@ -58,4 +58,18 @@ public class JenkinsPage {
         }
         return denied;
     }
+    
+    public String getUserName(){
+        String userName = "";
+        String xpath = "//body/div[5]/div[2]/form/table/tbody/tr/td[3]/input";
+        userName = Driver.webDriver.findElement(By.xpath(xpath)).getAttribute("value");
+        return userName;
+    }
+    
+    public String getEmail(){
+        String email = "";
+        String xpath = "//body/div[5]/div[2]/form/table/tbody/tr[17]/td[3]/input";
+        email = Driver.webDriver.findElement(By.xpath(xpath)).getAttribute("value");
+        return email;
+    }
 }

@@ -28,6 +28,6 @@ public class CasPage {
         passwordInput.sendKeys(password);
         submitButton.click();
     }
-    
+
     
 }

@@ -23,7 +23,7 @@ import static org.junit.Assert.assertThat;
  */
 public class NexusSteps {
     /*-----------------------------------
-    Szenario 1
+    Szenario 1 Authentication
     -----------------------------------*/
     @Step("Open Nexus")
     public void openNexus(){
@@ -48,7 +48,7 @@ public class NexusSteps {
         openNexus();
     }
     /*-----------------------------------
-    Szenario 2
+    Szenario 2 REST API u+p
     -----------------------------------*/
     @Step("Access Nexus API via REST client for <user> with password <password>")
     public void createRESTClientForNexusAPI(String user, String password){
@@ -74,7 +74,7 @@ public class NexusSteps {
         api.close();
     }
     /*-----------------------------------
-    Szenario 3
+    Szenario 3 REST token API key
     -----------------------------------*/
     @Step("Obtain Nexus key with <user> and <password>")
     public void obtainNexusKey(){
@@ -85,7 +85,7 @@ public class NexusSteps {
         //stub: todo
     }   
     /*-----------------------------------
-    Szenario 4
+    Szenario 4 Single Sign Out
     -----------------------------------*/
     @Step("Nexus-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
@@ -100,14 +100,14 @@ public class NexusSteps {
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
-    Szenario 5
+    Szenario 5 Groups
     -----------------------------------*/
     @Step("Access Nexus API as <user> with password <password> with admin rights")
     public void accessRestApiAsAdmin(String user, String password){
         NexusAPI api = new NexusAPI(user,password);
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("user", user);
-        scenarioStore.put("nexus_api_admin",api);
+        scenarioStore.put("nexus_api_admin",api);       
     }
     @Step("Check if access to Nexus file accepted")
     public void acceptAccessAsAdmin(){

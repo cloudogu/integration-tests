@@ -24,7 +24,7 @@ import org.w3c.dom.NodeList;
 public class RedmineSteps {
     
     /*-----------------------------------
-    Szenario 1
+    Szenario 1 Authentication
     -----------------------------------*/
     @Step("Open Redmine")
     public void openRedmine(){
@@ -50,7 +50,7 @@ public class RedmineSteps {
     }
     
     /*-----------------------------------
-    Szenario 2
+    Szenario 2 REST API u+p
     -----------------------------------*/
     @Step("Access Redmine API via REST client for <user> with password <password>")
     public void createRESTClientForRedmineAPI(String user, String password){
@@ -82,7 +82,7 @@ public class RedmineSteps {
         api.close();
     }
     /*-----------------------------------
-    Szenario 3
+    Szenario 3 REST token API key
     -----------------------------------*/
     @Step("Obtain Redmine key with <username> and <password>")
     public void obtainRedmineKey(String username, String password){       
@@ -118,7 +118,7 @@ public class RedmineSteps {
         api.close();
     }
     /*-----------------------------------
-    Szenario 4
+    Szenario 4 Single Sign Out
     -----------------------------------*/
     @Step("Redmine-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
@@ -133,7 +133,7 @@ public class RedmineSteps {
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
-    Szenario 5
+    Szenario 5 Groups
     -----------------------------------*/
     @Step("Redmine-Login <user> with password <password> with admin rights")
     public void loginToTestAdminRights(String user, String password){

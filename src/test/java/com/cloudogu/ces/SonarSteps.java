@@ -24,7 +24,7 @@ import org.openqa.selenium.By;
  */
 public class SonarSteps {
     /*-----------------------------------
-    Szenario 1
+    Szenario 1 Authentication
     -----------------------------------*/
     @Step("Open Sonar")
     public void openSonar(){
@@ -49,7 +49,7 @@ public class SonarSteps {
         openSonar();
     }
     /*-----------------------------------
-    Szenario 2
+    Szenario 2 REST API u+p
     -----------------------------------*/
     @Step("Access Sonar API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
@@ -81,7 +81,7 @@ public class SonarSteps {
         api.close();
     }    
     /*-----------------------------------
-    Szenario 3
+    Szenario 3 REST token API key
     -----------------------------------*/
     @Step("Obtain Sonar token with <username> and <password>")
     public void obtainSonarToken(String username, String password){       
@@ -116,7 +116,7 @@ public class SonarSteps {
         api.close();
     }
     /*-----------------------------------
-    Szenario 4
+    Szenario 4 Single Sign Out
     -----------------------------------*/
     @Step("Sonar-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
@@ -131,7 +131,7 @@ public class SonarSteps {
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
-    Szenario 5
+    Szenario 5 Groups
     -----------------------------------*/
     @Step("Sonar-Login <user> with password <password> with admin rights")
     public void loginToTestAdminRights(String user, String password){

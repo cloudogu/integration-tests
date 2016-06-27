@@ -21,7 +21,7 @@ import static org.junit.Assert.assertThat;
  */
 public class UsermgtSteps {
     /*-----------------------------------
-    Szenario 1
+    Szenario 1 Authentication
     -----------------------------------*/
     @Step("Open Usermgt")
     public void openUsermgt(){
@@ -46,7 +46,7 @@ public class UsermgtSteps {
         openUsermgt();
     }
     /*-----------------------------------
-    Szenario 2
+    Szenario 2 REST API u+p
     -----------------------------------*/   
     @Step("Access Usermgt API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
@@ -65,8 +65,8 @@ public class UsermgtSteps {
         String userName = "";
         for(int i=0; i<root.size();i++){
             JsonNode inner = root.get(i);
-            if(inner.get("displayName").asText().equals(user)){
-                userName = inner.get("displayName").asText();
+            if(inner.get("givenname").asText().equals(user)){
+                userName = inner.get("givenname").asText();
             }
         }
         assertThat(userName, is(user));
@@ -78,7 +78,7 @@ public class UsermgtSteps {
         api.close();
     } 
     /*-----------------------------------
-    Szenario 3
+    Szenario 3 Single Sign Out
     -----------------------------------*/
     @Step("Usermgt-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){

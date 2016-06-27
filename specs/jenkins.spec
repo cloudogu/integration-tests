@@ -60,3 +60,16 @@ privileges are given and test opposite with user not in group with admin rights
 * Jenkins-Login "dummyuser" with password "dummyuser123" without admin rights
 * Try to Access Manage Jenkins
 * Logout of Jenkins as user without admin rights 
+
+
+User Attributes
+---------------
+Tags: jenkins_user_att
+
+Login to Jenkins as admin user and look up if user data are the same as in 
+usermgt
+
+* Obtain user attributes of "admin" with "password" from usermgt
+* Switch to Jenkins user site
+* Compare user attributes with data of Jenkins
+* Log out of Jenkins User Attributes

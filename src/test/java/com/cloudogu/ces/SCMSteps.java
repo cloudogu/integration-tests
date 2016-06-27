@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
  */
 public class SCMSteps {
     /*-----------------------------------
-    Szenario 1
+    Szenario 1 Authentication
     -----------------------------------*/
     @Step("Open SCM")
     public void openSCM(){
@@ -48,7 +48,7 @@ public class SCMSteps {
         openSCM();
     }
     /*-----------------------------------
-    Szenario 2
+    Szenario 2 REST API u+p
     -----------------------------------*/
     @Step("Access SCM API via REST client for <user> with password <password>")
     public void createRESTClientForSCMAPI(String user, String password){
@@ -80,7 +80,7 @@ public class SCMSteps {
         api.close();
     }
     /*-----------------------------------
-    Szenario 3
+    Szenario 3 Single Sign Out
     -----------------------------------*/
     @Step("SCM-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
@@ -95,7 +95,7 @@ public class SCMSteps {
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
-    Szenario 4
+    Szenario 4 Groups
     -----------------------------------*/
     @Step("Access SCM API as <user> with password <password> with admin rights")
     public void accessRestApiAsAdmin(String user, String password){

@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class JenkinsSteps {
     
     /*-----------------------------------
-    Szenario 1
+    Szenario 1 Authentication
     -----------------------------------*/
     @Step("Open Jenkins")
     public void openJenkins() {
@@ -48,7 +48,7 @@ public class JenkinsSteps {
     }
     
     /*-----------------------------------
-    Szenario 2
+    Szenario 2 REST API u+p
     -----------------------------------*/
     @Step("Access Jenkins API via REST client for <user> with password <password>")
     public void createRESTClientForJenkinsAPI(String user, String password){
@@ -72,7 +72,7 @@ public class JenkinsSteps {
     }
     
     /*-----------------------------------
-    Szenario 3
+    Szenario 3 REST token API key
     -----------------------------------*/
     @Step("Obtain Jenkins token with <username> and <password>")
     public void obtainJenkinsToken(String username, String password){       
@@ -98,7 +98,7 @@ public class JenkinsSteps {
         createRESTClientForJenkinsAPI(user,token);
     }
     /*-----------------------------------
-    Szenario 4
+    Szenario 4 Single Sign Out
     -----------------------------------*/
     @Step("Jenkins-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
@@ -113,7 +113,7 @@ public class JenkinsSteps {
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
-    Szenario 5
+    Szenario 5 Groups
     -----------------------------------*/
     @Step("Jenkins-Login <user> with password <password> with admin rights")
     public void loginToTestAdminRights(String user, String password){
@@ -144,6 +144,62 @@ public class JenkinsSteps {
     }
     @Step("Logout of Jenkins as user without admin rights")
     public void logoutOfCasNotAsAdmin(){
+        logOutOfCas();
+    }
+    /*-----------------------------------
+    Szenario 6 User Attributes
+    -----------------------------------*/
+    @Step("Obtain user attributes of <user> with <password> from usermgt")
+    public void getUserData(String user, String password){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        assertThat(Driver.webDriver.getTitle(),containsString("CAS – Central Authentication Service"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        UsermgtAPI api = new UsermgtAPI(user,password);
+        JsonNode jnode = api.getInformation();
+        JsonNode root = jnode.get("entries");
+        
+        String givenName = ""; 
+        String surname = "";
+        String displayName = ""; 
+        String email = "";
+        
+        for(int i=0; i<root.size();i++){
+            JsonNode inner = root.get(i);
+            if(inner.get("givenname").asText().equals(user)){
+                givenName = inner.get("givenname").asText();
+                surname = inner.get("surname").asText();
+                displayName = inner.get("displayName").asText();
+                email = inner.get("mail").asText();
+            }
+        }
+        scenarioStore.put("givenname",givenName);
+        scenarioStore.put("displayName",displayName);
+        scenarioStore.put("surname",surname);
+        scenarioStore.put("mail",email);
+    }
+    @Step("Switch to Jenkins user site")
+    public void goToJenkinsUserSite(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String givenName = (String) scenarioStore.get("givenname");
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/jenkins/user/"+givenName+"/configure"));
+        
+    }
+    @Step("Compare user attributes with data of Jenkins")
+    public void compareWithJenkinsData(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String displayName = (String) scenarioStore.get("displayName");
+        String email = (String) scenarioStore.get("mail");
+        
+        JenkinsPage page = EcoSystem.getPage(JenkinsPage.class);
+        assertThat(page.getUserName(),is(displayName));
+        assertThat(page.getEmail(),is(email));
+    }
+    @Step("Log out of Jenkins User Attributes")
+    public void logOut(){
         logOutOfCas();
     }
 }
