@@ -149,7 +149,7 @@ public class JenkinsSteps {
     /*-----------------------------------
     Szenario 6 User Attributes
     -----------------------------------*/
-    @Step("Obtain user attributes of <user> with <password> from usermgt")
+    @Step("Obtain user attributes of <user> with <password> from usermgt for Jenkins")
     public void getUserData(String user, String password){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         

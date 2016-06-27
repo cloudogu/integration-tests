@@ -59,4 +59,17 @@ privileges are given and test opposite with user not in group with admin rights
 * Logout of Redmine as user with admin rights
 * Redmine-Login "dummyuser" with password "dummyuser123" without admin rights
 * Try to access Administration of Redmine page
-* Logout of Redmine as user without admin rights 
+* Logout of Redmine as user without admin rights
+
+
+User Attributes
+---------------
+Tags: redmine_user_att
+
+Login to Redmine as admin user and look up if user data are the same as in 
+usermgt
+
+* Obtain user attributes of "admin" with "password" from usermgt for Redmine
+* Switch to Redmine user site
+* Compare user attributes with data of Redmine
+* Log out of Redmine User Attributes 

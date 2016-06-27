@@ -42,5 +42,4 @@ public class NexusPage {
         }
         return currentUser.getText();
     }
-
 }

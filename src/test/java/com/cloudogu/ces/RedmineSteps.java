@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
@@ -164,6 +165,62 @@ public class RedmineSteps {
     }
     @Step("Logout of Redmine as user without admin rights")
     public void logoutOfCasNotAsAdmin(){
+        logOutOfCas();
+    }
+    /*-----------------------------------
+    Szenario 6 User Attributes
+    -----------------------------------*/
+    @Step("Obtain user attributes of <user> with <password> from usermgt for Redmine")
+    public void getUserData(String user, String password){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        assertThat(Driver.webDriver.getTitle(),containsString("CAS – Central Authentication Service"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        UsermgtAPI api = new UsermgtAPI(user,password);
+        JsonNode jnode = api.getInformation();
+        JsonNode root = jnode.get("entries");
+        
+        String givenName = ""; 
+        String surname = "";
+        String displayName = ""; 
+        String email = "";
+        
+        for(int i=0; i<root.size();i++){
+            JsonNode inner = root.get(i);
+            if(inner.get("givenname").asText().equals(user)){
+                givenName = inner.get("givenname").asText();
+                surname = inner.get("surname").asText();
+                displayName = inner.get("displayName").asText();
+                email = inner.get("mail").asText();
+            }
+        }
+        scenarioStore.put("givenname",givenName);
+        scenarioStore.put("displayName",displayName);
+        scenarioStore.put("surname",surname);
+        scenarioStore.put("mail",email);
+    }
+    @Step("Switch to Redmine user site")
+    public void goToRedmineUserSite(){
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/redmine/my/account"));
+        
+    }
+    @Step("Compare user attributes with data of Redmine")
+    public void compareWithRedmineData(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String firstName = (String) scenarioStore.get("givenname");
+        String lastName = (String) scenarioStore.get("surname");
+        String email = (String) scenarioStore.get("mail");
+        
+        RedminePage page = EcoSystem.getPage(RedminePage.class);
+        assertThat(page.getFirstName(),is(firstName));
+        assertThat(page.getLastName(),is(lastName));
+        assertThat(page.getEmail(),is(email));
+    }
+    @Step("Log out of Redmine User Attributes")
+    public void logOut(){
         logOutOfCas();
     }
 }

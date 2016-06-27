@@ -6,6 +6,8 @@
 package com.cloudogu.ces;
 
 import driver.Driver;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,5 +62,27 @@ public class RedminePage {
             denied = true;
         }
         return denied;
+    }
+    
+    public String getFirstName(){
+        assertThat(Driver.webDriver.getCurrentUrl(),is(EcoSystem.getUrl("/redmine/my/account")));
+        String firstName = "";
+        String xpath = "//body/div/div/div/div[@id='main']/div[2]/form/div/fieldset/p/input";
+        firstName = Driver.webDriver.findElement(By.xpath(xpath)).getAttribute("value");
+        return firstName;
+    }
+    public String getLastName(){
+        assertThat(Driver.webDriver.getCurrentUrl(),is(EcoSystem.getUrl("/redmine/my/account")));
+        String firstName = "";
+        String xpath = "//body/div/div/div/div[@id='main']/div[2]/form/div/fieldset/p[2]/input";
+        firstName = Driver.webDriver.findElement(By.xpath(xpath)).getAttribute("value");
+        return firstName;
+    }
+    public String getEmail(){
+        assertThat(Driver.webDriver.getCurrentUrl(),is(EcoSystem.getUrl("/redmine/my/account")));
+        String firstName = "";
+        String xpath = "//body/div/div/div/div[@id='main']/div[2]/form/div/fieldset/p[3]/input";
+        firstName = Driver.webDriver.findElement(By.xpath(xpath)).getAttribute("value");
+        return firstName;
     }
 }

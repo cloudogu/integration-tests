@@ -69,7 +69,7 @@ Tags: jenkins_user_att
 Login to Jenkins as admin user and look up if user data are the same as in 
 usermgt
 
-* Obtain user attributes of "admin" with "password" from usermgt
+* Obtain user attributes of "admin" with "password" from usermgt for Jenkins
 * Switch to Jenkins user site
 * Compare user attributes with data of Jenkins
 * Log out of Jenkins User Attributes
