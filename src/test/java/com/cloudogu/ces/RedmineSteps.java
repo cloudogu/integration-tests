@@ -185,6 +185,8 @@ public class RedmineSteps {
         String displayName = api.getDisplayName(); 
         String email = api.getEmail();
         
+        api.close();
+        
         scenarioStore.put("givenname",givenName);
         scenarioStore.put("displayName",displayName);
         scenarioStore.put("surname",surname);

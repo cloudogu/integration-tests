@@ -59,6 +59,5 @@ Login to SCM as admin user and look up if user data are the same as in
 usermgt
 
 * Obtain user attributes of "admin" with "password" from usermgt for SCM
-* Switch to SCM user site
 * Compare user attributes with data of SCM
 * Log out of SCM User Attributes

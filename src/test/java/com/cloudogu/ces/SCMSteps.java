@@ -145,10 +145,6 @@ public class SCMSteps {
     public void getUserData(String user, String password){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         
-        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
-        assertThat(Driver.webDriver.getTitle(),containsString("CAS – Central Authentication Service"));
-        CasPage casPage = EcoSystem.getPage(CasPage.class);
-        casPage.login(user, password);
         UsermgtAPI api = new UsermgtAPI(user,password);
         SCMAPI scmapi = new SCMAPI(user,password);
         
@@ -157,18 +153,14 @@ public class SCMSteps {
         String displayName = api.getDisplayName(); 
         String email = api.getEmail();
         
+        api.close();
+        
         scenarioStore.put("api", scmapi);
         
         scenarioStore.put("givenname",givenName);
         scenarioStore.put("displayName",displayName);
         scenarioStore.put("surname",surname);
         scenarioStore.put("mail",email);
-    }
-    @Step("Switch to SCM user site")
-    public void goToSCMUserSite(){
-        
-        Driver.webDriver.get(EcoSystem.getUrl("/scm/#userPanel"));       
-       
     }
     @Step("Compare user attributes with data of SCM")
     public void compareWithSCMData(){
@@ -185,6 +177,8 @@ public class SCMSteps {
     }
     @Step("Log out of SCM User Attributes")
     public void logOut(){
-        logOutOfCas();
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SCMAPI api = (SCMAPI) scenarioStore.get("api");
+        api.close();
     }
 }

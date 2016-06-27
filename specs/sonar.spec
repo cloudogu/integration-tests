@@ -59,4 +59,16 @@ privileges are given and test opposite with user not in group with admin rights
 * Logout of Sonar as user with admin rights
 * Sonar-Login "dummyuser" with password "dummyuser123" without admin rights
 * Try to access Administration of Sonar page
-* Logout of Sonar as user without admin rights  
+* Logout of Sonar as user without admin rights
+
+
+User Attributes
+---------------
+Tags: sonar_user_att
+
+Login to Sonar as admin user and look up if user data are the same as in 
+usermgt
+
+* Obtain user attributes of "admin" with "password" from usermgt for Sonar
+* Compare user attributes with data of Sonar
+* Log out of Sonar User Attributes  

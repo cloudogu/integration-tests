@@ -167,4 +167,46 @@ public class SonarSteps {
         Driver.webDriver.get(EcoSystem.getUrl("/sonar"));
         logOutOfCas();
     }
+    /*-----------------------------------
+    Szenario 6 User Attributes
+    -----------------------------------*/
+    @Step("Obtain user attributes of <user> with <password> from usermgt for Sonar")
+    public void getUserData(String user, String password){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        
+        UsermgtAPI api = new UsermgtAPI(user,password);
+        SonarAPI sonarapi = new SonarAPI(user,password);
+        
+        String givenName = api.getGivenName(); 
+        String surname = api.getSurname();
+        String displayName = api.getDisplayName(); 
+        String email = api.getEmail();
+        
+        api.close();
+        
+        scenarioStore.put("api", sonarapi);
+        
+        scenarioStore.put("givenname",givenName);
+        scenarioStore.put("displayName",displayName);
+        scenarioStore.put("surname",surname);
+        scenarioStore.put("mail",email);
+    }
+
+    @Step("Compare user attributes with data of Sonar")
+    public void compareWithSonarData(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String firstName = (String) scenarioStore.get("givenname");
+        String email = (String) scenarioStore.get("mail");
+        
+        SonarAPI api = (SonarAPI) scenarioStore.get("api");
+        assertThat(api.getFirstName(),is(firstName));
+        assertThat(api.getEmail(),is(email));
+    }
+    
+    @Step("Log out of Sonar User Attributes")
+    public void logOut(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        SonarAPI api = (SonarAPI) scenarioStore.get("api");
+        api.close();
+    }
 }
