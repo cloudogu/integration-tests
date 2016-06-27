@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
@@ -136,5 +137,54 @@ public class SCMSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_noadmin");
         api.close();
+    }
+    /*-----------------------------------
+    Szenario 5 User Attributes
+    -----------------------------------*/
+    @Step("Obtain user attributes of <user> with <password> from usermgt for SCM")
+    public void getUserData(String user, String password){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        assertThat(Driver.webDriver.getTitle(),containsString("CAS – Central Authentication Service"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        UsermgtAPI api = new UsermgtAPI(user,password);
+        SCMAPI scmapi = new SCMAPI(user,password);
+        
+        String givenName = api.getGivenName(); 
+        String surname = api.getSurname();
+        String displayName = api.getDisplayName(); 
+        String email = api.getEmail();
+        
+        scenarioStore.put("api", scmapi);
+        
+        scenarioStore.put("givenname",givenName);
+        scenarioStore.put("displayName",displayName);
+        scenarioStore.put("surname",surname);
+        scenarioStore.put("mail",email);
+    }
+    @Step("Switch to SCM user site")
+    public void goToSCMUserSite(){
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/scm/#userPanel"));       
+       
+    }
+    @Step("Compare user attributes with data of SCM")
+    public void compareWithSCMData(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String firstName = (String) scenarioStore.get("givenname");
+        String displayName = (String) scenarioStore.get("displayName");
+        String email = (String) scenarioStore.get("mail");
+        
+        SCMAPI api = (SCMAPI) scenarioStore.get("api");
+        assertThat(api.getFirstName(),is(firstName));
+        assertThat(api.getDisplayName(),is(displayName));
+        assertThat(api.getEmail(),is(email));
+        api.close();
+    }
+    @Step("Log out of SCM User Attributes")
+    public void logOut(){
+        logOutOfCas();
     }
 }

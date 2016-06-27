@@ -49,3 +49,16 @@ privileges are given and test opposite with user not in group with admin rights
 * Access SCM API as "dummyuser" with password "dummyuser123" without admin rights
 * Check if access not accepted
 * Quit client without admin rights
+
+
+User Attributes
+---------------
+Tags: scm_user_att
+
+Login to SCM as admin user and look up if user data are the same as in 
+usermgt
+
+* Obtain user attributes of "admin" with "password" from usermgt for SCM
+* Switch to SCM user site
+* Compare user attributes with data of SCM
+* Log out of SCM User Attributes

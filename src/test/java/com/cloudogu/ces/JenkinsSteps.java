@@ -158,23 +158,12 @@ public class JenkinsSteps {
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
         UsermgtAPI api = new UsermgtAPI(user,password);
-        JsonNode jnode = api.getInformation();
-        JsonNode root = jnode.get("entries");
         
-        String givenName = ""; 
-        String surname = "";
-        String displayName = ""; 
-        String email = "";
-        
-        for(int i=0; i<root.size();i++){
-            JsonNode inner = root.get(i);
-            if(inner.get("givenname").asText().equals(user)){
-                givenName = inner.get("givenname").asText();
-                surname = inner.get("surname").asText();
-                displayName = inner.get("displayName").asText();
-                email = inner.get("mail").asText();
-            }
-        }
+        String givenName = api.getGivenName(); 
+        String surname = api.getSurname();
+        String displayName = api.getDisplayName(); 
+        String email = api.getEmail();
+
         scenarioStore.put("givenname",givenName);
         scenarioStore.put("displayName",displayName);
         scenarioStore.put("surname",surname);
