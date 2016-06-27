@@ -62,6 +62,17 @@ public final class EcoSystem {
         return webElementToReturn;
     }
     
+    public static void createNewUser(String tmpuser, String tmppw){
+        
+        UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);
+        Driver.webDriver.get(EcoSystem.getUrl("/#/users"));
+        
+        if(!usermgtPage.userExists(tmpuser)){
+            usermgtPage.clickCreateUserButton();
+            usermgtPage.createNewUser(tmpuser,tmppw);
+        }
+    }
+    
     public static Document buildXmlDocument(String xml){
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         Document doc = null;

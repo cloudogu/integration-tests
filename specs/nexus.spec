@@ -57,6 +57,7 @@ privileges are given and test opposite with user not in group with admin rights
 * Access Nexus API as "admin" with password "password" with admin rights
 * Check if access to Nexus file accepted
 * Quit Nexus client with admin rights
-* Access Nexus API as "dummyuser" with password "dummyuser123" without admin rights
+* Create "dummyuser" with password "dummyuser123" in Jenkins
+* Access Nexus API without admin rights
 * Check if access to Nexus file not accepted
 * Quit Nexus client without admin rights

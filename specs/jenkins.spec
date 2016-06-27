@@ -57,7 +57,8 @@ privileges are given and test opposite with user not in group with admin rights
 * Jenkins-Login "admin" with password "password" with admin rights
 * Access Manage Jenkins
 * Logout of Jenkins as user with admin rights
-* Jenkins-Login "dummyuser" with password "dummyuser123" without admin rights
+* Create "dummyuser" with password "dummyuser123" in Jenkins
+* Jenkins-Login without admin rights
 * Try to access Manage Jenkins
 * Logout of Jenkins as user without admin rights 
 

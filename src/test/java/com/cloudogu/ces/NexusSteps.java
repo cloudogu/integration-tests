@@ -107,6 +107,7 @@ public class NexusSteps {
         NexusAPI api = new NexusAPI(user,password);
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("user", user);
+        scenarioStore.put("password", password);
         scenarioStore.put("nexus_api_admin",api);       
     }
     @Step("Check if access to Nexus file accepted")
@@ -125,10 +126,27 @@ public class NexusSteps {
         NexusAPI api = (NexusAPI) scenarioStore.get("nexus_api_admin");
         api.close();
     }
-    @Step("Access Nexus API as <user> with password <password> without admin rights")
-    public void accessRestApiNotAsAdmin(String user, String password){
-        NexusAPI api = new NexusAPI(user,password);
+    @Step("Create <tmpuser> with password <tmppw> in Nexus")
+    public void createNewUser(String tmpuser, String tmppw){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("user");
+        String password = (String) scenarioStore.get("password");       
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        
+        EcoSystem.createNewUser(tmpuser, tmppw);
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        scenarioStore.put("tmpuser", tmpuser);
+        scenarioStore.put("tmppw", tmppw);
+    }
+    @Step("Access Nexus API without admin rights")
+    public void accessRestApiNotAsAdmin(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("tmpuser");
+        String password = (String) scenarioStore.get("tmppw");
+        NexusAPI api = new NexusAPI(user,password);        
         scenarioStore.put("nexus_api_noadmin",api);
     }
     @Step("Check if access to Nexus file not accepted")
