@@ -36,7 +36,9 @@ public class JenkinsSteps {
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(username, password);
         JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
-        assertThat(jenkinsPage.getCurrentUsername(), is(username));
+        UsermgtAPI api = new UsermgtAPI(username, password);
+        String displayName = api.getDisplayName();
+        assertThat(jenkinsPage.getCurrentUsername(), is(displayName));
         assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
     }
     
@@ -133,7 +135,10 @@ public class JenkinsSteps {
     @Step("Jenkins-Login <user> with password <password> without admin rights")
     public void loginToTestNoAdminRights(String user, String password){
         openJenkins();
-        loginToCasJenkins(user, password);
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
     }
     @Step("Try to access Manage Jenkins")
     public void accessTryManageJenkinsPage(){

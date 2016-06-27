@@ -29,10 +29,13 @@ public class JenkinsPage {
         Driver.webDriver.get(EcoSystem.getUrl("/jenkins/manage"));
     }
     
-    public void goToConfigurationPage(String user, WebDriverWait wait){        
-        WebElement menuSelector = wait.until(ExpectedConditions.elementToBeClickable(By.linkText(user)));
+    public void goToConfigurationPage(String user, WebDriverWait wait){
+        String xpathToMenuSelector = "//body/div[2]/div/div[2]/span/a";
+        WebElement menuSelector = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath(xpathToMenuSelector)));
         menuSelector.click();
-        WebElement menuItemConfigure = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Configure")));
+        WebElement menuItemConfigure = wait.until(
+                ExpectedConditions.elementToBeClickable(By.linkText("Configure")));
         menuItemConfigure.click();
     }
     

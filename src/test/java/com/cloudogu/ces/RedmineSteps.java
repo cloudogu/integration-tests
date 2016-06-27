@@ -5,7 +5,6 @@
  */
 package com.cloudogu.ces;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;

@@ -8,11 +8,6 @@ package com.cloudogu.ces;
 import com.fasterxml.jackson.databind.JsonNode;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 /**
  *

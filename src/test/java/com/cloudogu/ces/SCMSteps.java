@@ -5,7 +5,6 @@
  */
 package com.cloudogu.ces;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
@@ -62,16 +61,9 @@ public class SCMSteps {
     public void compareJsonFile(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SCMAPI api = (SCMAPI) scenarioStore.get("api");
-        String user = (String) scenarioStore.get("user");
-        String xmlFile = api.getInformation();        
-        Document doc = EcoSystem.buildXmlDocument(xmlFile);
-        NodeList list = doc.getElementsByTagName("displayName");
-        String userName = "";
-        for(int i = 0; i<list.getLength();i++){
-            if(list.item(i).getTextContent().equals(user)){
-                userName = list.item(i).getTextContent();
-            }            
-        }
+        String user = (String) scenarioStore.get("user");      
+        String userName = api.getFirstName();
+        
         assertThat(userName, is(user));
     }
     @Step("Close SCM API REST client")
