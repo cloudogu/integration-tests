@@ -46,7 +46,8 @@ privileges are given and test opposite with user not in group with admin rights
 * Access SCM API as "admin" with password "password" with admin rights
 * Check if access accepted
 * Quit client with admin rights
-* Access SCM API as "dummyuser" with password "dummyuser123" without admin rights
+* Create "dummyuser" with password "dummyuser123" in SCM
+* Access SCM API without admin rights
 * Check if access not accepted
 * Quit client without admin rights
 

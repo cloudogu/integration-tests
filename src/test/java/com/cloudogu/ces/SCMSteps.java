@@ -92,8 +92,10 @@ public class SCMSteps {
     -----------------------------------*/
     @Step("Access SCM API as <user> with password <password> with admin rights")
     public void accessRestApiAsAdmin(String user, String password){
-        SCMAPI api = new SCMAPI(user,password);
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("user", user);
+        scenarioStore.put("password", password);
+        SCMAPI api = new SCMAPI(user,password);       
         scenarioStore.put("scm_api_admin",api);
     }
     @Step("Check if access accepted")
@@ -108,10 +110,28 @@ public class SCMSteps {
         SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_admin");
         api.close();
     }
-    @Step("Access SCM API as <user> with password <password> without admin rights")
-    public void accessRestApiNotAsAdmin(String user, String password){
-        SCMAPI api = new SCMAPI(user,password);
+    @Step("Create <tmpuser> with password <tmppw> in SCM")
+    public void createNewUser(String tmpuser, String tmppw){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("user");
+        String password = (String) scenarioStore.get("password");
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        
+        EcoSystem.createNewUser(tmpuser, tmppw);
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        scenarioStore.put("tmpuser", tmpuser);
+        scenarioStore.put("tmppw", tmppw);
+    }
+    @Step("Access SCM API without admin rights")
+    public void accessRestApiNotAsAdmin(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("tmpuser");
+        String password = (String) scenarioStore.get("tmppw"); 
+        SCMAPI api = new SCMAPI(user,password);
         scenarioStore.put("scm_api_noadmin",api);
     }
     @Step("Check if access not accepted")

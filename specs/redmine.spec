@@ -57,7 +57,8 @@ privileges are given and test opposite with user not in group with admin rights
 * Redmine-Login "admin" with password "password" with admin rights
 * Access Administration of Redmine page
 * Logout of Redmine as user with admin rights
-* Redmine-Login "dummyuser" with password "dummyuser123" without admin rights
+* Create "dummyuser" with password "dummyuser123" in Redmine
+* Redmine-Login without admin rights
 * Try to access Administration of Redmine page
 * Logout of Redmine as user without admin rights
 
