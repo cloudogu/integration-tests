@@ -9,8 +9,6 @@ import driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -29,26 +27,30 @@ public class JenkinsPage {
         Driver.webDriver.get(EcoSystem.getUrl("/jenkins/manage"));
     }
     
-    public void goToConfigurationPage(String user, WebDriverWait wait){
+    public void goToConfigurationPage(String user){
         String xpathToMenuSelector = "//body/div[2]/div/div[2]/span/a";
-        WebElement menuSelector = wait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath(xpathToMenuSelector)));
+        WebElement menuSelector = EcoSystem.findElementByClickable(
+                By.xpath(xpathToMenuSelector));
         menuSelector.click();
-        WebElement menuItemConfigure = wait.until(
-                ExpectedConditions.elementToBeClickable(By.linkText("Configure")));
+        
+        WebElement menuItemConfigure = EcoSystem.findElementByClickable(
+                By.linkText("Configure"));
         menuItemConfigure.click();
     }
     
-    public String getToken(WebDriverWait wait){
+    public String getToken(){
         String token = "";
-        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.id("yui-gen1")));
+        WebElement button = EcoSystem.findElementByClickable(By.id("yui-gen1"));
         button.click();
-        token = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("apiToken"))).getAttribute("value");
+        
+        token = EcoSystem.findElementByLocated(By.id("apiToken"))
+                .getAttribute("value");
         return token;
     }
     
     public String getCurrentUsername(){
-        WebElement currentUser = Driver.webDriver.findElement(By.tagName("b"));
+        String xpath = "//body/div[2]/div/div[2]/span/a/b";
+        WebElement currentUser = Driver.webDriver.findElement(By.xpath(xpath));
         return currentUser.getText();
     }
     

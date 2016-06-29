@@ -13,8 +13,8 @@ import driver.Driver;
 import java.util.Iterator;
 import javax.ws.rs.ForbiddenException;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -76,8 +76,9 @@ public class NexusSteps {
     /*-----------------------------------
     Szenario 3 REST token API key
     -----------------------------------*/
+    // not working - problem to get the key
     @Step("Obtain Nexus key with <user> and <password>")
-    public void obtainNexusKey(){
+    public void obtainNexusKey(String user, String password){
         //stub: todo
     }
     @Step("Nexus-Login with key")

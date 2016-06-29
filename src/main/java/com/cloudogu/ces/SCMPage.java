@@ -23,8 +23,8 @@ public class SCMPage {
     public WebElement getLogout(){
         WebDriver driver = Driver.webDriver;
         WebDriverWait wait = new WebDriverWait(driver,10);
-        WebElement logout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Log out")));
-           //WebElement logout = EcoSystem.searchElementByTagAndAttribute("a","id","ext-gen51");
+        WebElement logout = wait.until(
+                ExpectedConditions.elementToBeClickable(By.linkText("Log out")));
         return logout;
     }
     
@@ -39,8 +39,7 @@ public class SCMPage {
     
     public String getCurrentUsername(){
         WebDriver driver = Driver.webDriver;
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        WebElement currentUser = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("scm-userinfo-tip")));
+        WebElement currentUser = EcoSystem.findElementByLocated(By.id("scm-userinfo-tip"));
         return currentUser.getText();
     }    
     

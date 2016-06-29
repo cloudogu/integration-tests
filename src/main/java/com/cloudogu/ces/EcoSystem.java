@@ -27,6 +27,8 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -61,6 +63,25 @@ public final class EcoSystem {
         }
         return webElementToReturn;
     }
+    
+    public static WebElement findElementByClickable(By by){        
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
+        return element;
+    }
+    
+    public static WebElement findElementByLocated(By by){        
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
+        return element;
+    }
+    
+    public static boolean attributeContainsBy(By by, String attribute, String value){        
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
+        boolean contains = wait.until(ExpectedConditions.attributeContains(by, attribute, value));
+        return contains;
+    }
+    
     
     public static void createNewUser(String tmpuser, String tmppw){
         

@@ -6,12 +6,12 @@
 package com.cloudogu.ces;
 
 import driver.Driver;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  *
@@ -32,20 +32,22 @@ public class RedminePage {
     }
 
     public String getCurrentUsername() {
-        WebElement currentUsername = EcoSystem.searchElementByTagAndAttribute("a","class","user active");
+        String xpath = "//body/div/div/div/div/div[2]/a";
+        WebElement currentUsername = EcoSystem.findElementByClickable(
+                By.xpath(xpath));
         return currentUsername.getText();
     }
     
-    public void goToMyAccountPage(WebDriverWait wait){        
-        WebElement myAccount = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My account")));
+    public void goToMyAccountPage(){        
+        WebElement myAccount = EcoSystem.findElementByClickable(By.linkText("My account"));
         myAccount.click();       
     }
     
-    public String getKey(WebDriverWait wait){
+    public String getKey(){
         String key = "";
-        WebElement showKey = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Show")));
+        WebElement showKey = EcoSystem.findElementByClickable(By.linkText("Show"));
         showKey.click();
-        key = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("api-access-key"))).getText();
+        key = EcoSystem.findElementByLocated(By.id("api-access-key")).getText();
         return key;
     }
 

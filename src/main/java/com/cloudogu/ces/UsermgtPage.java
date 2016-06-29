@@ -6,17 +6,11 @@
 package com.cloudogu.ces;
 
 import driver.Driver;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -25,9 +19,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class UsermgtPage {
 
     public WebElement getLogout() {
-        WebDriver driver = Driver.webDriver;
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement logout = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("LOGOUT")));
+        WebElement logout = EcoSystem.findElementByLocated(
+                By.linkText("LOGOUT"));
         return logout;
     }
 
@@ -41,9 +34,8 @@ public class UsermgtPage {
     }
 
     public String getCurrentUsername() {
-        WebDriver driver = Driver.webDriver;
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement currentUser = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("html/body/div[@class='container ng-scope']/h1")));
+        WebElement currentUser = EcoSystem.findElementByLocated(
+                By.xpath("html/body/div[@class='container ng-scope']/h1"));
         return currentUser.getText();
     }
 
@@ -106,16 +98,13 @@ public class UsermgtPage {
     public void deleteUser(String username) {
 
         Driver.webDriver.get(EcoSystem.getUrl("/#/user/" + username));
-        WebDriverWait wait = new WebDriverWait(Driver.webDriver, 10);
         
         String xpath = "//body/div[2]/div[2]/div/div/form/button[2]";
-        WebElement remove = wait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+        WebElement remove = EcoSystem.findElementByClickable(By.xpath(xpath));
         remove.click();
 
         String xpathRm = "//body/div[5]/div/div/div[3]/button";
-        WebElement removeOk = wait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath(xpathRm)));
+        WebElement removeOk = EcoSystem.findElementByClickable(By.xpath(xpathRm));
         removeOk.click();
 
     }

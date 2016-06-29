@@ -12,7 +12,6 @@ import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -37,8 +36,9 @@ public class JenkinsSteps {
         casPage.login(username, password);
         JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
         UsermgtAPI api = new UsermgtAPI(username, password);
-        String displayName = api.getDisplayName();
-        assertThat(jenkinsPage.getCurrentUsername(), is(displayName));
+        String user = api.getDisplayName();
+        
+        assertThat(jenkinsPage.getCurrentUsername(), is(user));
         assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
     }
     
@@ -80,11 +80,11 @@ public class JenkinsSteps {
     public void obtainJenkinsToken(String username, String password){       
         openJenkins();
         loginToCasJenkins(username, password);        
-        WebDriverWait wait = new WebDriverWait(Driver.webDriver,10);
+
         JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
-        jenkinsPage.goToConfigurationPage(username,wait);        
+        jenkinsPage.goToConfigurationPage(username);        
         assertThat(Driver.webDriver.getTitle(), containsString("Configuration"));
-        String token = jenkinsPage.getToken(wait);
+        String token = jenkinsPage.getToken();
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("username",username);
         scenarioStore.put("jenkins-user-token", token);
@@ -194,12 +194,12 @@ public class JenkinsSteps {
         casPage.login(user, password);
         UsermgtAPI api = new UsermgtAPI(user,password);
         
-        String givenName = api.getGivenName(); 
+        String username = api.getUsername(); 
         String surname = api.getSurname();
         String displayName = api.getDisplayName(); 
         String email = api.getEmail();
 
-        scenarioStore.put("givenname",givenName);
+        scenarioStore.put("username",username);
         scenarioStore.put("displayName",displayName);
         scenarioStore.put("surname",surname);
         scenarioStore.put("mail",email);
@@ -207,9 +207,9 @@ public class JenkinsSteps {
     @Step("Switch to Jenkins user site")
     public void goToJenkinsUserSite(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
-        String givenName = (String) scenarioStore.get("givenname");
+        String username = (String) scenarioStore.get("username");
         
-        Driver.webDriver.get(EcoSystem.getUrl("/jenkins/user/"+givenName+"/configure"));
+        Driver.webDriver.get(EcoSystem.getUrl("/jenkins/user/"+username+"/configure"));
         
     }
     @Step("Compare user attributes with data of Jenkins")

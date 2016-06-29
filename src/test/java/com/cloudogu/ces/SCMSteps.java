@@ -11,8 +11,8 @@ import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import javax.ws.rs.ForbiddenException;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -166,7 +166,7 @@ public class SCMSteps {
         UsermgtAPI api = new UsermgtAPI(user,password);
         SCMAPI scmapi = new SCMAPI(user,password);
         
-        String givenName = api.getGivenName(); 
+        String username = api.getUsername(); 
         String surname = api.getSurname();
         String displayName = api.getDisplayName(); 
         String email = api.getEmail();
@@ -175,7 +175,7 @@ public class SCMSteps {
         
         scenarioStore.put("api", scmapi);
         
-        scenarioStore.put("givenname",givenName);
+        scenarioStore.put("username",username);
         scenarioStore.put("displayName",displayName);
         scenarioStore.put("surname",surname);
         scenarioStore.put("mail",email);
@@ -183,12 +183,12 @@ public class SCMSteps {
     @Step("Compare user attributes with data of SCM")
     public void compareWithSCMData(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
-        String firstName = (String) scenarioStore.get("givenname");
+        String username = (String) scenarioStore.get("username");
         String displayName = (String) scenarioStore.get("displayName");
         String email = (String) scenarioStore.get("mail");
         
         SCMAPI api = (SCMAPI) scenarioStore.get("api");
-        assertThat(api.getFirstName(),is(firstName));
+        assertThat(api.getFirstName(),is(username));
         assertThat(api.getDisplayName(),is(displayName));
         assertThat(api.getEmail(),is(email));
         api.close();

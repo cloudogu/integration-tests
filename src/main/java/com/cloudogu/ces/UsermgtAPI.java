@@ -34,6 +34,22 @@ public class UsermgtAPI {
                   .get(JsonNode.class);
     }
     
+    public String getUsername(){
+        JsonNode jnode = getInformation();
+        JsonNode root = jnode.get("entries");
+        
+        String givenName = ""; 
+
+        
+        for(int i=0; i<root.size();i++){
+            JsonNode inner = root.get(i);
+            if(inner.get("username").asText().equals(username)){
+                givenName = inner.get("username").asText();
+            }
+        }
+        return givenName;
+    }
+    
     public String getGivenName(){
         JsonNode jnode = getInformation();
         JsonNode root = jnode.get("entries");
@@ -43,7 +59,7 @@ public class UsermgtAPI {
         
         for(int i=0; i<root.size();i++){
             JsonNode inner = root.get(i);
-            if(inner.get("givenname").asText().equals(username)){
+            if(inner.get("username").asText().equals(username)){
                 givenName = inner.get("givenname").asText();
             }
         }
@@ -58,7 +74,7 @@ public class UsermgtAPI {
         
         for(int i=0; i<root.size();i++){
             JsonNode inner = root.get(i);
-            if(inner.get("givenname").asText().equals(username)){
+            if(inner.get("username").asText().equals(username)){
                 surname = inner.get("surname").asText();
             }
         }
@@ -73,7 +89,7 @@ public class UsermgtAPI {
         
         for(int i=0; i<root.size();i++){
             JsonNode inner = root.get(i);
-            if(inner.get("givenname").asText().equals(username)){
+            if(inner.get("username").asText().equals(username)){
                 mail = inner.get("mail").asText();
             }
         }
@@ -88,7 +104,7 @@ public class UsermgtAPI {
         
         for(int i=0; i<root.size();i++){
             JsonNode inner = root.get(i);
-            if(inner.get("givenname").asText().equals(username)){
+            if(inner.get("username").asText().equals(username)){
                 displayName = inner.get("displayName").asText();
             }
         }

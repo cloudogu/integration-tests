@@ -11,8 +11,8 @@ import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -65,8 +65,8 @@ public class UsermgtSteps {
         String userName = "";
         for(int i=0; i<root.size();i++){
             JsonNode inner = root.get(i);
-            if(inner.get("givenname").asText().equals(user)){
-                userName = inner.get("givenname").asText();
+            if(inner.get("username").asText().equals(user)){
+                userName = inner.get("username").asText();
             }
         }
         assertThat(userName, is(user));

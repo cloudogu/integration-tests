@@ -10,13 +10,11 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
-import java.util.Iterator;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.junit.Assert.assertThat;
 import org.openqa.selenium.By;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  *
@@ -87,12 +85,14 @@ public class SonarSteps {
     public void obtainSonarToken(String username, String password){       
         openSonar();
         loginToCasSonar(username, password);        
-        WebDriverWait wait = new WebDriverWait(Driver.webDriver,10);
+
         SonarPage sonarPage = EcoSystem.getPage(SonarPage.class);
-        String token = sonarPage.obtainToken(username,wait);        
+        String token = sonarPage.obtainToken(username); 
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("username",username);
         scenarioStore.put("sonar-user-token", token);
+        
         logOutOfCas();
     }
     
@@ -208,7 +208,7 @@ public class SonarSteps {
         UsermgtAPI api = new UsermgtAPI(user,password);
         SonarAPI sonarapi = new SonarAPI(user,password);
         
-        String givenName = api.getGivenName(); 
+        String username = api.getUsername(); 
         String surname = api.getSurname();
         String displayName = api.getDisplayName(); 
         String email = api.getEmail();
@@ -217,7 +217,7 @@ public class SonarSteps {
         
         scenarioStore.put("api", sonarapi);
         
-        scenarioStore.put("givenname",givenName);
+        scenarioStore.put("username",username);
         scenarioStore.put("displayName",displayName);
         scenarioStore.put("surname",surname);
         scenarioStore.put("mail",email);
@@ -226,11 +226,11 @@ public class SonarSteps {
     @Step("Compare user attributes with data of Sonar")
     public void compareWithSonarData(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
-        String firstName = (String) scenarioStore.get("givenname");
+        String username = (String) scenarioStore.get("username");
         String email = (String) scenarioStore.get("mail");
         
         SonarAPI api = (SonarAPI) scenarioStore.get("api");
-        assertThat(api.getFirstName(),is(firstName));
+        assertThat(api.getFirstName(),is(username));
         assertThat(api.getEmail(),is(email));
     }
     

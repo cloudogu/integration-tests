@@ -9,7 +9,7 @@
                 <goal>test</goal>
             </goals>
             <properties>
-                <eco.system>https://192.168.115.152</eco.system>
+                <eco.system>https://192.168.115.136</eco.system>
             </properties>
         </action>
         <action>
@@ -25,7 +25,7 @@
                 <exec.args>-classpath %classpath ${packageClassName}</exec.args>
                 <exec.executable>java</exec.executable>
                 <exec.classpathScope>${classPathScope}</exec.classpathScope>
-                <eco.system>https://192.168.115.152</eco.system>
+                <eco.system>https://192.168.115.136</eco.system>
             </properties>
         </action>
     </actions>
