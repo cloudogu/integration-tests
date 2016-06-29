@@ -7,7 +7,7 @@ Some Nexus integration tests
 
 Authentication
 --------------
-Tags: nexus, auth
+Tags: nexus, workflow
 
 Test Nexus Cas Authentication Workflow
 

@@ -7,7 +7,7 @@ Some Sonar integration tests
 
 Authentication
 --------------
-Tags: sonar, auth
+Tags: sonar, workflow
 
 Test Sonar Cas Authentication Workflow
 

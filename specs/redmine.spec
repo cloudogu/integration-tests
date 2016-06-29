@@ -7,7 +7,7 @@ Some Redmine integration tests
 
 Authentication
 --------------
-Tags: redmine, auth
+Tags: redmine, workflow
 
 Test Redmine Cas Authentication Workflow
 

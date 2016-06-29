@@ -7,7 +7,7 @@ Some Usermgt integration tests
 
 Authentication
 --------------
-Tags: usermgt, auth
+Tags: usermgt, workflow
 
 Test Usermgt Cas Authentication Workflow
 

@@ -6,7 +6,7 @@ Some SCM integration tests
 
 Authentication
 --------------
-Tags: scm, auth
+Tags: scm, workflow
 
 Test SCM Cas Authentication Workflow
 

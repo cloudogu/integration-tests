@@ -22,9 +22,10 @@ public class NexusAPI {
     }
     
     public JsonNode getInformation(){
-        return client.target(EcoSystem.getUrl("/nexus/service/local/users"))
+        JsonNode node = client.target(EcoSystem.getUrl("/nexus/service/local/users"))
                   .request(MediaType.APPLICATION_JSON_TYPE)
                   .get(JsonNode.class);
+        return node;
     }
     
     public void close(){
