@@ -7,7 +7,7 @@ Some Sonar integration tests
 
 Authentication
 --------------
-Tags: sonar_auth
+Tags: sonar, auth
 
 Test Sonar Cas Authentication Workflow
 
@@ -18,7 +18,7 @@ Test Sonar Cas Authentication Workflow
 
 REST API u+p
 --------------
-Tags: sonar_api_up
+Tags: sonar, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
@@ -29,7 +29,7 @@ Test API by accessing json-file without Cas Authentication
 
 REST token API key
 ------------------
-Tags: sonar_api_token
+Tags: sonar, rest_api_token
 
 Obtain token from Sonar and use it to log in
 
@@ -39,7 +39,7 @@ Obtain token from Sonar and use it to log in
 
 Single Sign Out
 ---------------
-Tags: sonar_sso
+Tags: sonar, single_sign_out
 
 Log in to Sonar and test Single Sign out via cas/logout
 
@@ -49,7 +49,7 @@ Log in to Sonar and test Single Sign out via cas/logout
 
 Groups
 ------
-Tags: sonar_groups
+Tags: sonar, groups
 
 Login to Sonar as user in group with admin rights, test if administration
 privileges are given and test opposite with user not in group with admin rights
@@ -57,14 +57,15 @@ privileges are given and test opposite with user not in group with admin rights
 * Sonar-Login "admin" with password "password" with admin rights
 * Access Administration of Sonar page
 * Logout of Sonar as user with admin rights
-* Sonar-Login "dummyuser" with password "dummyuser123" without admin rights
+* Create "dummyuser" with password "dummyuser123" in Sonar
+* Sonar-Login without admin rights
 * Try to access Administration of Sonar page
 * Logout of Sonar as user without admin rights
 
 
 User Attributes
 ---------------
-Tags: sonar_user_att
+Tags: sonar, attributes
 
 Login to Sonar as admin user and look up if user data are the same as in 
 usermgt

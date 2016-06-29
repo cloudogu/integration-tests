@@ -7,7 +7,7 @@ Some Nexus integration tests
 
 Authentication
 --------------
-Tags: nexus_auth
+Tags: nexus, auth
 
 Test Nexus Cas Authentication Workflow
 
@@ -18,7 +18,7 @@ Test Nexus Cas Authentication Workflow
 
 REST API u+p
 --------------
-Tags: nexus_api_up
+Tags: nexus, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
@@ -29,7 +29,7 @@ Test API by accessing json-file without Cas Authentication
 
 REST token API key
 ------------------
-Tags: nexus_api_key
+Tags: nexus, rest_api_token
 
 Obtain key from Nexus and use it to log in
 
@@ -39,7 +39,7 @@ Obtain key from Nexus and use it to log in
 
 Single Sign Out
 ---------------
-Tags: nexus_sso
+Tags: nexus, single_sign_out
 
 Log in to Nexus and test Single Sign out via cas/logout
 
@@ -49,7 +49,7 @@ Log in to Nexus and test Single Sign out via cas/logout
 
 Groups
 ------
-Tags: nexus_groups
+Tags: nexus, groups
 
 Access Nexus-API as user in group with admin rights, test if administration
 privileges are given and test opposite with user not in group with admin rights

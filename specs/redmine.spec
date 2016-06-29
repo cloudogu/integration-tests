@@ -7,7 +7,7 @@ Some Redmine integration tests
 
 Authentication
 --------------
-Tags: redmine_auth
+Tags: redmine, auth
 
 Test Redmine Cas Authentication Workflow
 
@@ -18,7 +18,7 @@ Test Redmine Cas Authentication Workflow
 
 REST API u+p
 --------------
-Tags: redmine_api_up
+Tags: redmine, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
@@ -29,7 +29,7 @@ Test API by accessing json-file without Cas Authentication
 
 REST token API key
 ------------------
-Tags: redmine_api_key
+Tags: redmine, rest_api_token
 
 Obtain key from Redmine and use it to log in
 
@@ -39,7 +39,7 @@ Obtain key from Redmine and use it to log in
 
 Single Sign Out
 ---------------
-Tags: redmine_sso
+Tags: redmine, single_sign_out
 
 Log in to Redmine and test Single Sign out via cas/logout
 
@@ -49,7 +49,7 @@ Log in to Redmine and test Single Sign out via cas/logout
 
 Groups
 ------
-Tags: redmine_groups
+Tags: redmine, groups
 
 Login to Redmine as user in group with admin rights, test if administration
 privileges are given and test opposite with user not in group with admin rights
@@ -65,7 +65,7 @@ privileges are given and test opposite with user not in group with admin rights
 
 User Attributes
 ---------------
-Tags: redmine_user_att
+Tags: redmine, attributes
 
 Login to Redmine as admin user and look up if user data are the same as in 
 usermgt

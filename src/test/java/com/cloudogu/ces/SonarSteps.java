@@ -135,6 +135,9 @@ public class SonarSteps {
     -----------------------------------*/
     @Step("Sonar-Login <user> with password <password> with admin rights")
     public void loginToTestAdminRights(String user, String password){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        scenarioStore.put("user", user);
+        scenarioStore.put("password", password);
         openSonar();
         loginToCasSonar(user, password);
     }
@@ -150,8 +153,27 @@ public class SonarSteps {
     public void logoutOfCasAsAdmin(){
         logOutOfCas();
     }
-    @Step("Sonar-Login <user> with password <password> without admin rights")
-    public void loginToTestNoAdminRights(String user, String password){
+    @Step("Create <tmpuser> with password <tmppw> in Sonar")
+    public void createNewUser(String tmpuser, String tmppw){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("user");
+        String password = (String) scenarioStore.get("password");
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        
+        EcoSystem.createNewUser(tmpuser, tmppw);
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        scenarioStore.put("tmpuser", tmpuser);
+        scenarioStore.put("tmppw", tmppw);
+    }
+    @Step("Sonar-Login without admin rights")
+    public void loginToTestNoAdminRights(){
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("tmpuser");
+        String password = (String) scenarioStore.get("tmppw");
         openSonar();
         loginToCasSonar(user, password);
     }
@@ -166,6 +188,15 @@ public class SonarSteps {
     public void logoutOfCasNotAsAdmin(){
         Driver.webDriver.get(EcoSystem.getUrl("/sonar"));
         logOutOfCas();
+        
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("user");
+        String password = (String) scenarioStore.get("password");
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        EcoSystem.deleteUser((String) scenarioStore.get("tmpuser"));
     }
     /*-----------------------------------
     Szenario 6 User Attributes

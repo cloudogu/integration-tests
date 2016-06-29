@@ -185,8 +185,17 @@ public class RedmineSteps {
         assertThat(accessDenied,is(true));
     }
     @Step("Logout of Redmine as user without admin rights")
-    public void logoutOfCasNotAsAdmin(){
+    public void logoutOfCasNotAsAdmin(){        
         logOutOfCas();
+        
+        DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        String user = (String) scenarioStore.get("user");
+        String password = (String) scenarioStore.get("password");
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        EcoSystem.deleteUser((String) scenarioStore.get("tmpuser"));
     }
     /*-----------------------------------
     Szenario 6 User Attributes

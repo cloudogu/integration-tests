@@ -6,7 +6,7 @@ Some SCM integration tests
 
 Authentication
 --------------
-Tags: scm_auth
+Tags: scm, auth
 
 Test SCM Cas Authentication Workflow
 
@@ -17,7 +17,7 @@ Test SCM Cas Authentication Workflow
 
 REST API u+p
 --------------
-Tags: scm_api_up
+Tags: scm, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
@@ -28,7 +28,7 @@ Test API by accessing json-file without Cas Authentication
 
 Single Sign Out
 ---------------
-Tags: scm_sso
+Tags: scm, single_sign_out
 
 Log in to SCM and test Single Sign out via cas/logout
 
@@ -38,7 +38,7 @@ Log in to SCM and test Single Sign out via cas/logout
 
 Groups
 ------
-Tags: scm_groups
+Tags: scm, groups
 
 Access SCM-API as user in group with admin rights, test if administration
 privileges are given and test opposite with user not in group with admin rights
@@ -54,7 +54,7 @@ privileges are given and test opposite with user not in group with admin rights
 
 User Attributes
 ---------------
-Tags: scm_user_att
+Tags: scm, attributes
 
 Login to SCM as admin user and look up if user data are the same as in 
 usermgt

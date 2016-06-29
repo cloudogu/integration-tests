@@ -14,8 +14,6 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 
 /**
  *
@@ -149,6 +147,14 @@ public class SCMSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_noadmin");
         api.close();
+        
+        String user = (String) scenarioStore.get("user");
+        String password = (String) scenarioStore.get("password");
+        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        EcoSystem.deleteUser((String) scenarioStore.get("tmpuser"));
     }
     /*-----------------------------------
     Szenario 5 User Attributes

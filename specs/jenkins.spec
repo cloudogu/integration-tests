@@ -7,7 +7,7 @@ Some Jenkins integration tests
 
 Authentication
 --------------
-Tags: jenkins_auth
+Tags: jenkins, workflow
 
 Test Jenkins Cas Authentication Workflow
 
@@ -18,7 +18,7 @@ Test Jenkins Cas Authentication Workflow
 
 REST API u+p
 ------------
-Tags: jenkins_api_up
+Tags: jenkins, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
@@ -29,7 +29,7 @@ Test API by accessing json-file without Cas Authentication
 
 REST token API key
 ------------------
-Tags: jenkins_api_token
+Tags: jenkins, rest_api_token
 
 Obtain token from Jenkins and use it to log in
 
@@ -39,7 +39,7 @@ Obtain token from Jenkins and use it to log in
 
 Single Sign Out
 ---------------
-Tags: jenkins_sso
+Tags: jenkins, single_sign_out
 
 Login to Jenkins and test Single Sign out via cas/logout
 
@@ -49,7 +49,7 @@ Login to Jenkins and test Single Sign out via cas/logout
 
 Groups
 ------
-Tags: jenkins_groups
+Tags: jenkins, groups
 
 Login to Jenkins as user in group with admin rights, test if administration
 privileges are given and test opposite with user not in group with admin rights
@@ -65,7 +65,7 @@ privileges are given and test opposite with user not in group with admin rights
 
 User Attributes
 ---------------
-Tags: jenkins_user_att
+Tags: jenkins, attributes
 
 Login to Jenkins as admin user and look up if user data are the same as in 
 usermgt

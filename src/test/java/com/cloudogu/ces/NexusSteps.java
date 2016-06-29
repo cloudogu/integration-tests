@@ -164,5 +164,12 @@ public class NexusSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         NexusAPI api = (NexusAPI) scenarioStore.get("nexus_api_noadmin");
         api.close();
+        
+        String user = (String) scenarioStore.get("user");
+        String password = (String) scenarioStore.get("password");
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(user, password);
+        EcoSystem.deleteUser((String) scenarioStore.get("tmpuser"));
     }
 }

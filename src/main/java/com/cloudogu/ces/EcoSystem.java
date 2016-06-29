@@ -73,6 +73,16 @@ public final class EcoSystem {
         }
     }
     
+    public static void deleteUser(String user){
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt/#/users"));
+        UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);
+
+        if(usermgtPage.userExists(user)){
+            usermgtPage.deleteUser(user);
+        }
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+    }
+    
     public static Document buildXmlDocument(String xml){
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         Document doc = null;

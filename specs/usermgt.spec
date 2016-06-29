@@ -7,7 +7,7 @@ Some Usermgt integration tests
 
 Authentication
 --------------
-Tags: usermgt_auth
+Tags: usermgt, auth
 
 Test Usermgt Cas Authentication Workflow
 
@@ -18,7 +18,7 @@ Test Usermgt Cas Authentication Workflow
 
 REST API u+p
 --------------
-Tags: usermgt_api_up
+Tags: usermgt, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
@@ -29,7 +29,7 @@ Test API by accessing json-file without Cas Authentication
 
 Single Sign Out
 ---------------
-Tags: usermgt_sso
+Tags: usermgt, single_sign_out
 
 Log in to Usermgt and test Single Sign out via cas/logout
 
