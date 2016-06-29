@@ -34,7 +34,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 /**
- *
+ * 
  * @author malte
  */
 public final class EcoSystem {
@@ -51,25 +51,60 @@ public final class EcoSystem {
     public static <T> T getPage(Class<T> pageClass){
         return PageFactory.initElements(Driver.webDriver, pageClass);
     }
-    
+    /**
+     * Creates WebDriverWait object that waits up to 5 seconds to find an
+     * element until it is clickable and returns it.
+     * 
+     * @param by Mechanism to locate element
+     * @return found element
+     */
     public static WebElement findElementByClickable(By by){        
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
         return element;
     }
-    
+    /**
+     * Creates WebDriverWait object that waits up to 5 seconds to find an 
+     * element until it is clickable and returns it.
+     * 
+     * @param by Mechanism to locate element
+     * @return found element
+     */
     public static WebElement findElementByLocated(By by){        
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
         return element;
     }
-    
+    /**
+     * Creates WebDriverWait object that waits up to 5 seconds to find an
+     * element depending on attributeContains method. If the element is found a
+     * true will be returned.
+     * 
+     * @param by Mechanism to locate element
+     * @param attribute attribute of element to search for
+     * @param value value of the attribute
+     * @return true if element found
+     */
     public static boolean attributeContainsBy(By by, String attribute, String value){        
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
         boolean contains = wait.until(ExpectedConditions.attributeContains(by, attribute, value));
         return contains;
     }
-    
+    public static boolean textPresentInElementBy(WebElement currentUser, String username){        
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
+        boolean contains = wait.until(ExpectedConditions.textToBePresentInElement(currentUser, username));
+        return contains;
+    }
+    /**
+     * Reads the child node of root by a certain name and then tries to find it’s
+     * child node. Then it compares its value with the user String. If its true
+     * the user String will be returned.
+     * @param root JsonNode root
+     * @param firstChild String name of first child node
+     * @param secondChild String name of child node's child
+     * @param user String to compare child node's child's value with
+     * @return String if value equals String user
+     */
     public static String readUserFromJson(JsonNode root, String firstChild,
             String secondChild, String user){
         JsonNode firstNode = root.get(firstChild);
@@ -83,7 +118,12 @@ public final class EcoSystem {
         }
         return userName;
     }
-    
+    /**
+     * Creates a new user on the usermgt page with name tmpuser and password
+     * tmppw.
+     * @param tmpuser Name of the new user
+     * @param tmppw Password of the new user
+     */
     public static void createNewUser(String tmpuser, String tmppw){
         
         UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);
@@ -94,7 +134,10 @@ public final class EcoSystem {
             usermgtPage.createNewUser(tmpuser,tmppw);
         }
     }
-    
+    /**
+     * Delete an existing user on the usermgt page with name user.
+     * @param user 
+     */
     public static void deleteUser(String user){
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt/#/users"));
         UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);

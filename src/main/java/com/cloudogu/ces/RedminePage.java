@@ -8,8 +8,6 @@ package com.cloudogu.ces;
 import driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -55,7 +53,7 @@ public class RedminePage {
         Driver.webDriver.get(EcoSystem.getUrl("/redmine/admin"));
     }
     
-    public Boolean AccessDenied(){
+    public boolean AccessDenied(){
         Boolean denied = false;
         String xpath = "//body/div[@id='wrapper']/div[@id='wrapper2']"
                 + "/div[@id='wrapper3']/div[@id='main']/div[@id='content']/h2";

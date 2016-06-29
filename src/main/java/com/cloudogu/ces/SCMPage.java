@@ -5,14 +5,10 @@
  */
 package com.cloudogu.ces;
 
-import driver.Driver;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -21,10 +17,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SCMPage {
     
     public WebElement getLogout(){
-        WebDriver driver = Driver.webDriver;
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        WebElement logout = wait.until(
-                ExpectedConditions.elementToBeClickable(By.linkText("Log out")));
+        WebElement logout = EcoSystem.findElementByClickable(
+                By.linkText("Log out"));
         return logout;
     }
     
@@ -38,7 +32,6 @@ public class SCMPage {
     }
     
     public String getCurrentUsername(){
-        WebDriver driver = Driver.webDriver;
         WebElement currentUser = EcoSystem.findElementByLocated(By.id("scm-userinfo-tip"));
         return currentUser.getText();
     }    

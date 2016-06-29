@@ -54,7 +54,7 @@ public class JenkinsPage {
         return currentUser.getText();
     }
     
-    public Boolean AccessDenied(){
+    public boolean AccessDenied(){
         Boolean denied = false;
         String xpath = "//body/div[@id='page-body']/div[@id='main-panel']/h1";
         String accessDenied = Driver.webDriver.findElement(By.xpath(xpath)).getText();

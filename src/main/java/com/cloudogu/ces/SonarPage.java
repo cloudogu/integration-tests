@@ -11,8 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -43,11 +41,12 @@ public class SonarPage {
     }
 
     public String getCurrentUsername(String username) {
-        WebElement currentUser = null;
-        String user = "";
-        WebDriverWait wait = new WebDriverWait(Driver.webDriver, 10);
-        currentUser = Driver.webDriver.findElement(By.xpath(XPATH_NAVBAR_MAIN + "/a/span[2]"));
-        if (wait.until(ExpectedConditions.textToBePresentInElement(currentUser, username))) {
+        String user = null;
+        
+        WebElement currentUser = Driver.webDriver.findElement(
+                By.xpath(XPATH_NAVBAR_MAIN + "/a/span[2]"));
+ 
+        if (EcoSystem.textPresentInElementBy(currentUser, username)) {
             user = currentUser.getText();
         }
         return user;
