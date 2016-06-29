@@ -5,13 +5,13 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import driver.Driver;
 import java.io.IOException;
 import java.io.StringReader;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.net.ssl.SSLContext;
@@ -52,18 +52,6 @@ public final class EcoSystem {
         return PageFactory.initElements(Driver.webDriver, pageClass);
     }
     
-    public static WebElement searchElementByTagAndAttribute(String tag, String attribute, String attributeName){
-        List<WebElement> webElements = Driver.webDriver.findElements(By.tagName(tag));       
-        WebElement webElementToReturn = null;  
-        for(WebElement webElement : webElements){
-            if(webElement.getAttribute(attribute).equals(attributeName)){
-                webElementToReturn = webElement;
-                return webElementToReturn;
-            }
-        }
-        return webElementToReturn;
-    }
-    
     public static WebElement findElementByClickable(By by){        
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
@@ -82,6 +70,19 @@ public final class EcoSystem {
         return contains;
     }
     
+    public static String readUserFromJson(JsonNode root, String firstChild,
+            String secondChild, String user){
+        JsonNode firstNode = root.get(firstChild);
+        
+        String userName = null;
+        for(int i=0; i<firstNode.size();i++){
+            JsonNode secondNode = firstNode.get(i);
+            if(secondNode.get(secondChild).asText().equals(user)){
+                userName = secondNode.get(secondChild).asText();
+            }
+        }
+        return userName;
+    }
     
     public static void createNewUser(String tmpuser, String tmppw){
         

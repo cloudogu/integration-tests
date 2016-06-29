@@ -27,15 +27,19 @@ public class SonarSteps {
     @Step("Open Sonar")
     public void openSonar(){
         Driver.webDriver.get(EcoSystem.getUrl("/sonar"));
+        
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     
     @Step("Sonar-Login <user> with password <pwd>")
     public void loginToCasSonar(String user, String pwd){
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
+        
         SonarPage sonarPage = EcoSystem.getPage(SonarPage.class);
+        
         assertThat(sonarPage.getCurrentUsername(user), is(user));
         assertThat(Driver.webDriver.getTitle(), containsString("Sonar"));
     }
@@ -44,6 +48,7 @@ public class SonarSteps {
     public void logOutOfCas(){   
         SonarPage page = EcoSystem.getPage(SonarPage.class);
         page.logout();
+        
         openSonar();
     }
     /*-----------------------------------
@@ -52,6 +57,7 @@ public class SonarSteps {
     @Step("Access Sonar API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
         SonarAPI api = new SonarAPI(user,password);
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("api", api);
         scenarioStore.put("user", user);
@@ -61,15 +67,11 @@ public class SonarSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SonarAPI api = (SonarAPI) scenarioStore.get("api");
         String user = (String) scenarioStore.get("user");
+        
         JsonNode jnode = api.getInformation();        
-        JsonNode root = jnode.get("users");
-        String userName = "";
-        for(int i=0; i<root.size();i++){
-            JsonNode inner = root.get(i);
-            if(inner.get("login").asText().equals(user)){
-                userName = inner.get("login").asText();
-            }
-        }
+        
+        String userName = EcoSystem.readUserFromJson(jnode, "users", "login", user);
+        
         assertThat(userName, is(user));
     }
     @Step("Close Sonar API REST client")
@@ -103,15 +105,10 @@ public class SonarSteps {
         String token = (String) scenarioStore.get("sonar-user-token");
         
         SonarAPI api = new SonarAPI(token,"disabled");
-        JsonNode jnode = api.getInformation();        
-        JsonNode root = jnode.get("users");
-        String userName = "";
-        for(int i=0; i<root.size();i++){
-            JsonNode inner = root.get(i);
-            if(inner.get("login").asText().equals(user)){
-                userName = inner.get("login").asText();
-            }
-        }
+        JsonNode jnode = api.getInformation();  
+        
+        String userName = EcoSystem.readUserFromJson(jnode, "users", "login", user);
+        
         assertThat(userName, is(user));
         api.close();
     }
@@ -138,6 +135,7 @@ public class SonarSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("user", user);
         scenarioStore.put("password", password);
+        
         openSonar();
         loginToCasSonar(user, password);
     }
@@ -145,6 +143,7 @@ public class SonarSteps {
     public void accessAdministrationPage(){
         SonarPage page = EcoSystem.getPage(SonarPage.class);
         page.goToAdministrationPage();
+        
         String xpathNavHeadline = Driver.webDriver.findElement(By.xpath(
                 "//body/div/nav[2]/div/ul/li/a")).getText();
         assertThat(xpathNavHeadline, is("Administration"));

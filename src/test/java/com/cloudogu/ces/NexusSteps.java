@@ -10,7 +10,6 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
-import java.util.Iterator;
 import javax.ws.rs.ForbiddenException;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.startsWith;
@@ -34,6 +33,7 @@ public class NexusSteps {
     @Step("Nexus-Login <user> with password <pwd>")
     public void loginToCasNexus(String user, String pwd){
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
         NexusPage nexusPage = EcoSystem.getPage(NexusPage.class);
@@ -45,6 +45,7 @@ public class NexusSteps {
     public void logOutOfCas(){   
         NexusPage page = EcoSystem.getPage(NexusPage.class);
         page.logout();
+        
         openNexus();
     }
     /*-----------------------------------
@@ -53,6 +54,7 @@ public class NexusSteps {
     @Step("Access Nexus API via REST client for <user> with password <password>")
     public void createRESTClientForNexusAPI(String user, String password){
         NexusAPI api = new NexusAPI(user,password);
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("api", api);
         scenarioStore.put("user", user);
@@ -62,10 +64,11 @@ public class NexusSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         NexusAPI api = (NexusAPI) scenarioStore.get("api");
         String user = (String) scenarioStore.get("user");
-        JsonNode jnode = api.getInformation(); 
-        Iterator<JsonNode> elements = jnode.elements();       
-        String url = elements.next().get(0).get("resourceURI").asText();
-        assertThat(url, is(EcoSystem.getUrl("/nexus/service/local/users/"+user)));
+        
+        JsonNode root = api.getInformation();
+
+        String username =  EcoSystem.readUserFromJson(root, "data", "userId", user);
+        assertThat(username, is(user));
     }
     @Step("Close Nexus API REST client")
     public void closeRestClient(){
@@ -106,6 +109,7 @@ public class NexusSteps {
     @Step("Access Nexus API as <user> with password <password> with admin rights")
     public void accessRestApiAsAdmin(String user, String password){
         NexusAPI api = new NexusAPI(user,password);
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("user", user);
         scenarioStore.put("password", password);
@@ -116,10 +120,11 @@ public class NexusSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("user");
         NexusAPI api = (NexusAPI) scenarioStore.get("nexus_api_admin");
-        JsonNode jnode = api.getInformation();
-        Iterator<JsonNode> elements = jnode.elements();       
-        String url = elements.next().get(0).get("resourceURI").asText();
-        assertThat(url, is(EcoSystem.getUrl("/nexus/service/local/users/"+user)));
+        
+        JsonNode root = api.getInformation();
+
+        String username =  EcoSystem.readUserFromJson(root, "data", "userId", user);
+        assertThat(username, is(user));
     }
     @Step("Quit Nexus client with admin rights")
     public void quitAdminClient(){
@@ -131,7 +136,8 @@ public class NexusSteps {
     public void createNewUser(String tmpuser, String tmppw){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("user");
-        String password = (String) scenarioStore.get("password");       
+        String password = (String) scenarioStore.get("password");
+        
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
@@ -147,6 +153,7 @@ public class NexusSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("tmpuser");
         String password = (String) scenarioStore.get("tmppw");
+        
         NexusAPI api = new NexusAPI(user,password);        
         scenarioStore.put("nexus_api_noadmin",api);
     }
@@ -168,6 +175,7 @@ public class NexusSteps {
         
         String user = (String) scenarioStore.get("user");
         String password = (String) scenarioStore.get("password");
+        
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);

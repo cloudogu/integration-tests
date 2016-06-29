@@ -38,40 +38,31 @@ public class SCMAPI {
     }
     
     public String getFirstName(){
-        JsonNode root = getInformationJson();        
-        String firstName = "";
-        for(int i=0; i<root.size();i++){
-            JsonNode inner = root.get(i);
-            if(inner.get("name").asText().equals(username)){
-                firstName = inner.get("name").asText();
-            }
-        }
-        return firstName;
+        String mail = getItemFromJson("name", "name");     
+        return mail;
     }
     
     public String getDisplayName(){
-        JsonNode root = getInformationJson();        
-        String displayName = "";
-        for(int i=0; i<root.size();i++){
-            JsonNode inner = root.get(i);
-            if(inner.get("name").asText().equals(username)){
-                displayName = inner.get("displayName").asText();
-            }
-        }
-        return displayName;
-    }
-    
-    public String getEmail(){
-        JsonNode root = getInformationJson();        
-        String mail = "";
-        for(int i=0; i<root.size();i++){
-            JsonNode inner = root.get(i);
-            if(inner.get("name").asText().equals(username)){
-                mail = inner.get("mail").asText();
-            }
-        }
+        String mail = getItemFromJson("name", "displayName");     
         return mail;
     }
+    
+    public String getEmail(){     
+        String mail = getItemFromJson("name", "mail");     
+        return mail;
+    }
+    
+    private String getItemFromJson(String user, String item){
+        JsonNode root = getInformationJson();        
+        String itemToReturn = null;
+        for(int i=0; i<root.size();i++){
+            JsonNode inner = root.get(i);
+            if(inner.get(user).asText().equals(username)){
+                itemToReturn = inner.get(item).asText();
+            }
+        }
+        return itemToReturn;
+    } 
     
     public void close(){
         this.client.close();

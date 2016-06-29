@@ -32,8 +32,10 @@ public class JenkinsSteps {
     @Step("Jenkins-Login <username> with password <password>")
     public void loginToCasJenkins(String username, String password){
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(username, password);
+        
         JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
         UsermgtAPI api = new UsermgtAPI(username, password);
         String user = api.getDisplayName();
@@ -55,6 +57,7 @@ public class JenkinsSteps {
     @Step("Access Jenkins API via REST client for <user> with password <password>")
     public void createRESTClientForJenkinsAPI(String user, String password){
         JenkinsAPI api = new JenkinsAPI(user,password);
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("api", api);      
     }
@@ -62,14 +65,17 @@ public class JenkinsSteps {
     public void compareJsonFile(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         JenkinsAPI api = (JenkinsAPI) scenarioStore.get("api");
+        
         JsonNode jnode = api.getInformation();
         String url = jnode.get("primaryView").get("url").asText();
+        
         assertThat(url, is(EcoSystem.getUrl("/jenkins/")));
     }
     @Step("Close Jenkins API REST client")
     public void closeRestClient(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         JenkinsAPI api = (JenkinsAPI) scenarioStore.get("api");
+        
         api.close();
     }
     
@@ -82,12 +88,16 @@ public class JenkinsSteps {
         loginToCasJenkins(username, password);        
 
         JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
-        jenkinsPage.goToConfigurationPage(username);        
+        jenkinsPage.goToConfigurationPage(username);   
+        
         assertThat(Driver.webDriver.getTitle(), containsString("Configuration"));
+        
         String token = jenkinsPage.getToken();
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("username",username);
         scenarioStore.put("jenkins-user-token", token);
+        
         logOutOfCas();
     }
     
@@ -122,6 +132,7 @@ public class JenkinsSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("user", user);
         scenarioStore.put("password", password);
+        
         openJenkins();
         loginToCasJenkins(user, password);
     }
@@ -139,7 +150,8 @@ public class JenkinsSteps {
     public void createNewUser(String tmpuser, String tmppw){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("user");
-        String password = (String) scenarioStore.get("password");       
+        String password = (String) scenarioStore.get("password");
+        
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
@@ -155,17 +167,22 @@ public class JenkinsSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("tmpuser");
         String password = (String) scenarioStore.get("tmppw");
+        
         openJenkins();
+        
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
+        
         assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
     }
     @Step("Try to access Manage Jenkins")
     public void accessTryManageJenkinsPage(){
         JenkinsPage page = EcoSystem.getPage(JenkinsPage.class);
         page.goToManageJenkinsPage();
-        Boolean accessDenied = page.AccessDenied();
+        
+        boolean accessDenied = page.AccessDenied();
         assertThat(accessDenied,is(true));
     }
     @Step("Logout of Jenkins as user without admin rights")

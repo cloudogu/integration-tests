@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
 
@@ -20,10 +21,16 @@ public class RedmineAPI {
         this.client = EcoSystem.createRestClient(username, password);
     }
     
-    public String getInformation(){
+    public String getInformationXML(){
         return client.target(EcoSystem.getUrl("/redmine/users.xml"))
                   .request(MediaType.APPLICATION_XML_TYPE)
                   .get(String.class);
+    }
+    
+    public JsonNode getInformation(){
+        return client.target(EcoSystem.getUrl("/redmine/users.json"))
+                  .request(MediaType.APPLICATION_JSON_TYPE)
+                  .get(JsonNode.class);
     }
     
     public void close(){

@@ -5,14 +5,13 @@
  */
 package com.cloudogu.ces;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.startsWith;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -34,9 +33,12 @@ public class RedmineSteps {
     @Step("Redmine-Login <user> with password <pwd>")
     public void loginToCasRedmine(String user, String pwd){
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
+        
         RedminePage redminePage = EcoSystem.getPage(RedminePage.class);
+        
         assertThat(redminePage.getCurrentUsername(), is(user));
         assertThat(Driver.webDriver.getTitle(), containsString("Redmine"));
     }
@@ -45,6 +47,7 @@ public class RedmineSteps {
     public void logOutOfCas(){
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.logout();
+        
         openRedmine();
     }
     
@@ -54,6 +57,7 @@ public class RedmineSteps {
     @Step("Access Redmine API via REST client for <user> with password <password>")
     public void createRESTClientForRedmineAPI(String user, String password){
         RedmineAPI api = new RedmineAPI(user,password);
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("api", api);
         scenarioStore.put("user", user);        
@@ -63,15 +67,11 @@ public class RedmineSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         RedmineAPI api = (RedmineAPI) scenarioStore.get("api");
         String user = (String) scenarioStore.get("user");
-        String xmlFile = api.getInformation();
-        Document doc = EcoSystem.buildXmlDocument(xmlFile);
-        NodeList list = doc.getElementsByTagName("login");
-        String userName = "";
-        for(int i = 0; i<list.getLength();i++){
-            if(list.item(i).getTextContent().equals(user)){
-                userName = list.item(i).getTextContent();
-            }            
-        }
+        
+        JsonNode jnode = api.getInformation();
+        
+        String userName = EcoSystem.readUserFromJson(jnode, "users", "login", user);
+                
         assertThat(userName, is(user));
     }
     @Step("Close Redmine API REST client")
@@ -109,16 +109,10 @@ public class RedmineSteps {
         String user = (String) scenarioStore.get("redmine-user");
         
         RedmineAPI api = new RedmineAPI(key,"disabled");
-        String xmlFile = api.getInformation();
-        Document doc = EcoSystem.buildXmlDocument(xmlFile);
-        NodeList list = doc.getElementsByTagName("login");
+        JsonNode jnode = api.getInformation();
         
-        String userName = "";
-        for(int i = 0; i<list.getLength();i++){
-            if(list.item(i).getTextContent().equals(user)){
-                userName = list.item(i).getTextContent();
-            }            
-        }
+        String userName = EcoSystem.readUserFromJson(jnode, "users", "login", user);
+                
         assertThat(userName, is(user));
         
         api.close();

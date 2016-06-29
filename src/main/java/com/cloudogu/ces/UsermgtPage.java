@@ -46,9 +46,12 @@ public class UsermgtPage {
         createBtn.click();
     }
 
-    public void createNewUserExt(String username, String givenname, String surname, String displayName, String mail,
+    public void createNewUserExt(String username, String givenname,
+            String surname, String displayName, String mail,
             String password) {
-
+        
+        assertThat(Driver.webDriver.getCurrentUrl(), is(EcoSystem.getUrl("/usermgt/#/user/")));
+        
         WebElement input_username = Driver.webDriver.findElement(By.id("username"));
         input_username.sendKeys(username);
 
@@ -74,13 +77,14 @@ public class UsermgtPage {
     }
 
     public void createNewUser(String username, String password) {
-        createNewUserExt(username, username, username, username, username + "@" + username + ".de", password);
+        createNewUserExt(username, username, username, username,
+                username + "@" + username + ".de", password);
     }
 
     public boolean userExists(String username) {
         assertThat(Driver.webDriver.getCurrentUrl(),is(EcoSystem.getUrl("/usermgt/#/users")));
         
-        Boolean userExists = false;
+        boolean userExists = false;
         String xpath = "//body/div[2]/table/tbody";
         WebElement tableroot = Driver.webDriver.findElement(By.xpath(xpath));
         List<WebElement> tablerow = tableroot.findElements(By.xpath(".//tr"));

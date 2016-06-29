@@ -32,9 +32,12 @@ public class SCMSteps {
     @Step("SCM-Login <user> with password <pwd>")
     public void loginToCasSCM(String user, String pwd){
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
+        
         SCMPage scmPage = EcoSystem.getPage(SCMPage.class);
+        
         assertThat(scmPage.getCurrentUsername(), is(user));
         assertThat(Driver.webDriver.getTitle(), containsString("SCM Manager"));
     }
@@ -51,6 +54,7 @@ public class SCMSteps {
     @Step("Access SCM API via REST client for <user> with password <password>")
     public void createRESTClientForSCMAPI(String user, String password){
         SCMAPI api = new SCMAPI(user,password);
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("api", api);
         scenarioStore.put("user", user);
@@ -59,7 +63,8 @@ public class SCMSteps {
     public void compareJsonFile(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SCMAPI api = (SCMAPI) scenarioStore.get("api");
-        String user = (String) scenarioStore.get("user");      
+        String user = (String) scenarioStore.get("user");
+        
         String userName = api.getFirstName();
         
         assertThat(userName, is(user));
@@ -67,6 +72,7 @@ public class SCMSteps {
     @Step("Close SCM API REST client")
     public void closeRestClient(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
+        
         SCMAPI api = (SCMAPI) scenarioStore.get("api");
         api.close();
     }
@@ -93,6 +99,7 @@ public class SCMSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("user", user);
         scenarioStore.put("password", password);
+        
         SCMAPI api = new SCMAPI(user,password);       
         scenarioStore.put("scm_api_admin",api);
     }
@@ -100,12 +107,14 @@ public class SCMSteps {
     public void acceptAccessAsAdmin(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_admin");
+        
         assertThat(api.getInformation(),startsWith("<?xml"));
     }
     @Step("Quit client with admin rights")
     public void quitAdminClient(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_admin");
+        
         api.close();
     }
     @Step("Create <tmpuser> with password <tmppw> in SCM")
@@ -129,6 +138,7 @@ public class SCMSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("tmpuser");
         String password = (String) scenarioStore.get("tmppw"); 
+        
         SCMAPI api = new SCMAPI(user,password);
         scenarioStore.put("scm_api_noadmin",api);
     }
@@ -136,6 +146,7 @@ public class SCMSteps {
     public void acceptAccessNotAsAdmin(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SCMAPI api = (SCMAPI) scenarioStore.get("scm_api_noadmin");
+        
         try{
             String s = api.getInformation();
         }catch(ForbiddenException e){
@@ -197,6 +208,7 @@ public class SCMSteps {
     public void logOut(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SCMAPI api = (SCMAPI) scenarioStore.get("api");
+        
         api.close();
     }
 }

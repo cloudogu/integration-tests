@@ -32,9 +32,12 @@ public class UsermgtSteps {
     @Step("Usermgt-Login <user> with password <pwd>")
     public void loginToCasUsermgt(String user, String pwd){
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
+        
         UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);
+        
         assertThat(usermgtPage.getCurrentUsername(), is(user.toUpperCase()));
         assertThat(Driver.webDriver.getTitle(), containsString("User Management"));
     }
@@ -43,6 +46,7 @@ public class UsermgtSteps {
     public void logOutOfCas(){   
         UsermgtPage page = EcoSystem.getPage(UsermgtPage.class);
         page.logout();
+        
         openUsermgt();
     }
     /*-----------------------------------
@@ -51,6 +55,7 @@ public class UsermgtSteps {
     @Step("Access Usermgt API via REST client for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
         UsermgtAPI api = new UsermgtAPI(user,password);
+        
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("api", api);
         scenarioStore.put("user", user);
@@ -60,21 +65,18 @@ public class UsermgtSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         UsermgtAPI api = (UsermgtAPI) scenarioStore.get("api");
         String user = (String) scenarioStore.get("user");
+        
         JsonNode jnode = api.getInformation();        
-        JsonNode root = jnode.get("entries");
-        String userName = "";
-        for(int i=0; i<root.size();i++){
-            JsonNode inner = root.get(i);
-            if(inner.get("username").asText().equals(user)){
-                userName = inner.get("username").asText();
-            }
-        }
+        
+        String userName = EcoSystem.readUserFromJson(jnode, "entries", "username", user);
+               
         assertThat(userName, is(user));
     }
     @Step("Close Usermgt API REST client")
     public void closeRestClient(){
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         UsermgtAPI api = (UsermgtAPI) scenarioStore.get("api");
+        
         api.close();
     } 
     /*-----------------------------------
@@ -90,6 +92,7 @@ public class UsermgtSteps {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openUsermgt();
+        
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
 }
