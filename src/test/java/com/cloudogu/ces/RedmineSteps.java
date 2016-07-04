@@ -54,7 +54,7 @@ public class RedmineSteps {
     /*-----------------------------------
     Szenario 2 REST API u+p
     -----------------------------------*/
-    @Step("Access Redmine API via REST client for <user> with password <password>")
+    @Step("Create REST client to access Redmine API for <user> with password <password>")
     public void createRESTClientForRedmineAPI(String user, String password){
         RedmineAPI api = new RedmineAPI(user,password);
         

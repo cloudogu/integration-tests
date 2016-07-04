@@ -22,7 +22,7 @@ Tags: sonar, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
-* Access Sonar API via REST client for "admin" with password "password"
+* Create REST client to access Sonar API for "admin" with password "password"
 * Obtain Sonar json file
 * Close Sonar API REST client
 

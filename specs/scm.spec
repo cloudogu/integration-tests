@@ -21,7 +21,7 @@ Tags: scm, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
-* Access SCM API via REST client for "admin" with password "password"
+* Create REST client to access SCM API for "admin" with password "password"
 * Obtain SCM json file
 * Close SCM API REST client
 

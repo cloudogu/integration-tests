@@ -22,7 +22,7 @@ Tags: nexus, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
-* Access Nexus API via REST client for "admin" with password "password"
+* Create REST client to access Nexus API for "admin" with password "password"
 * Obtain Nexus json file
 * Close Nexus API REST client
 

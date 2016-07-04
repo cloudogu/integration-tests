@@ -54,7 +54,7 @@ public class SonarSteps {
     /*-----------------------------------
     Szenario 2 REST API u+p
     -----------------------------------*/
-    @Step("Access Sonar API via REST client for <user> with password <password>")
+    @Step("Create REST client to access Sonar API for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
         SonarAPI api = new SonarAPI(user,password);
         

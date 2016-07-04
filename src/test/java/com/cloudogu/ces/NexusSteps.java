@@ -51,7 +51,7 @@ public class NexusSteps {
     /*-----------------------------------
     Szenario 2 REST API u+p
     -----------------------------------*/
-    @Step("Access Nexus API via REST client for <user> with password <password>")
+    @Step("Create REST client to access Nexus API for <user> with password <password>")
     public void createRESTClientForNexusAPI(String user, String password){
         NexusAPI api = new NexusAPI(user,password);
         

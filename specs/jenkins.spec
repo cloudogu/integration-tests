@@ -22,7 +22,7 @@ Tags: jenkins, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
-* Access Jenkins API via REST client for "admin" with password "password"
+* Create REST client to access Jenkins API for "admin" with password "password"
 * Obtain Jenkins json file
 * Close Jenkins API REST client
 

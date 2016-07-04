@@ -22,7 +22,7 @@ Tags: usermgt, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
-* Access Usermgt API via REST client for "admin" with password "password"
+* Create REST client to access Usermgt API for "admin" with password "password"
 * Obtain Usermgt json file
 * Close Usermgt API REST client
 

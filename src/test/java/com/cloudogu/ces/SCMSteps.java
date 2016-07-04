@@ -51,7 +51,7 @@ public class SCMSteps {
     /*-----------------------------------
     Szenario 2 REST API u+p
     -----------------------------------*/
-    @Step("Access SCM API via REST client for <user> with password <password>")
+    @Step("Create REST client to access SCM API for <user> with password <password>")
     public void createRESTClientForSCMAPI(String user, String password){
         SCMAPI api = new SCMAPI(user,password);
         

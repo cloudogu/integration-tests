@@ -54,7 +54,7 @@ public class JenkinsSteps {
     /*-----------------------------------
     Szenario 2 REST API u+p
     -----------------------------------*/
-    @Step("Access Jenkins API via REST client for <user> with password <password>")
+    @Step("Create REST client to access Jenkins API for <user> with password <password>")
     public void createRESTClientForJenkinsAPI(String user, String password){
         JenkinsAPI api = new JenkinsAPI(user,password);
         

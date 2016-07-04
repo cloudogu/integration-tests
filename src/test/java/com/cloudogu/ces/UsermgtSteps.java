@@ -52,7 +52,7 @@ public class UsermgtSteps {
     /*-----------------------------------
     Szenario 2 REST API u+p
     -----------------------------------*/   
-    @Step("Access Usermgt API via REST client for <user> with password <password>")
+    @Step("Create REST client to access Usermgt API for <user> with password <password>")
     public void createRESTClientForSonarAPI(String user, String password){
         UsermgtAPI api = new UsermgtAPI(user,password);
         
