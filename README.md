@@ -37,21 +37,24 @@ mvn gauge:execute
 It is necessary to have chromedriver installed on your system to run integration tests via Google Chrome. Google Chrome is preferable to Firefox due to connection issues.
 
 - Assuming you are running a 64-bit OS, download the latest version of chromedriver and unzip it.
-
-    wget -N http://chromedriver.storage.googleapis.com/2.10/chromedriver_linux64.zip -P ~/Downloads
-
-    unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
-
+```
+wget -N http://chromedriver.storage.googleapis.com/2.10/chromedriver_linux64.zip -P ~/Downloads
+```
+```
+unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
+```
 - Make the file you just extracted executable and move it to `/usr/local/share`.
-
-    chmod +x ~/Download/chromedriver
-
-    sudo mv -f ~/Downloads/chromedriver /usr/local/share/chromedriver
-
+```
+chmod +x ~/Download/chromedriver
+```
+```
+sudo mv -f ~/Downloads/chromedriver /usr/local/share/chromedriver
+```
 - Now create symlinks to chromedriver.
-
-    sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-
-    sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
-
+```
+sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+```
+```   
+sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+```
 - Now chromedriver will be found by your system.    
