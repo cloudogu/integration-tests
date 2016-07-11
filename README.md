@@ -115,7 +115,6 @@ usermgt         | ... with Usermgt
 sonar           | ... Sonar                                 
 nexus           | ... with Nexus                            
 scm             | ... with SCM                              
-----------------|-------------------------------------------
 workflow        | Starts all Workflow tests                 
 rest_api        | Starts all REST Api tests                 
 rest_api_token  | Starts REST Api tests using tokens/keys   
@@ -125,12 +124,12 @@ attributes      | Starts tests to check user attributes
 
 Besides using only one tag it is possible to use a set of tags, assumed the certain set is defined. To use multiple tags use `mvn test -Dtags="${tag0},${tag1}"`. For example: The command `mvn test -Dtags="jenkins, workflow"` will test the workflow of Jenkins. Allowed tag combinations are presented in the table:
 
-Scenario tag      | Specification tags
-------------------|--------------      
-                  | jenkins  | redmine  | usermgt  | sonar | nexus | scm       
-workflow          | *yes*    | *yes*    | *yes*    | *yes* | *yes* | *yes*      
-rest_api          | *yes*    | *yes*    | *yes*    | *yes* | *yes* | *yes*      
-rest_api_token    | *yes*    | *yes*    | *no*     | *yes* | *yes* | *no*       
-single_sign_out   | *yes*    | *yes*    | *yes*    | *yes* | *yes* | *yes*      
-groups            | *yes*    | *yes*    | *no*     | *yes* | *yes* | *yes*       
-attributes        | *yes*    | *yes*    | *no*     | *yes* | *no*  | *yes*      
+
+Tags              | jenkins  | redmine  | usermgt  | sonar | nexus | scm
+---               | ---      |---       |     ---  |   --- |    ---|---
+**workflow**      | *yes*    | *yes*    | *yes*    | *yes* | *yes* | *yes*      
+**rest_api**      | *yes*    | *yes*    | *yes*    | *yes* | *yes* | *yes*      
+**rest_api_token**  | *yes*  | *yes*    | *no*     | *yes* | *yes* | *no*       
+**single_sign_out** | *yes*  | *yes*    | *yes*    | *yes* | *yes* | *yes*      
+**groups**        | *yes*    | *yes*    | *no*     | *yes* | *yes* | *yes*       
+**attributes**    | *yes*    | *yes*    | *no*     | *yes* | *no*  | *yes*      
