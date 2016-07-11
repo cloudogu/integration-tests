@@ -86,3 +86,15 @@ sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
 ```
 - Now chromedriver will be found on your system.    
+
+# Executing integration-tests
+
+If you are in the `integration-tests` folder, you might configurate the test using the command line as follows without changing `gauge_jvm_args` manually in the file `./env/default/java.properties`:
+```
+gauge_jvm_args= -Deco.system=${url} mvn test
+```
+e.g. if the url is `https://192.168.115.136`
+```
+gauge_jvm_args= -Deco.system=https://192.168.115.136 mvn test
+```
+This command will define `-D` the system property `eco.system` which is needed for the test environment and execute `mvn test` to start the integration-tests with that property. The specified url should be the same url to open cloudogu in the browser. Once configured integration tests can be started with `mvn test`.

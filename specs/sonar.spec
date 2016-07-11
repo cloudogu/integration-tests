@@ -12,7 +12,7 @@ Tags: sonar, workflow
 Test Sonar Cas Authentication Workflow
 
 * Open Sonar
-* Sonar-Login "admin" with password "password"
+* Sonar-Login "admin" with password "adminpw"
 * Logout of Sonar
 
 
@@ -22,7 +22,7 @@ Tags: sonar, rest_api
 
 Test API by accessing json-file without Cas Authentication
 
-* Create REST client to access Sonar API for "admin" with password "password"
+* Create REST client to access Sonar API for "admin" with password "adminpw"
 * Obtain Sonar json file
 * Close Sonar API REST client
 
@@ -33,7 +33,7 @@ Tags: sonar, rest_api_token
 
 Obtain token from Sonar and use it to log in
 
-* Obtain Sonar token with "admin" and "password"
+* Obtain Sonar token with "admin" and "adminpw"
 * Sonar-Login with token
 
 
@@ -43,7 +43,7 @@ Tags: sonar, single_sign_out
 
 Log in to Sonar and test Single Sign out via cas/logout
 
-* Sonar-Login "admin" with password "password" for Single Sign out
+* Sonar-Login "admin" with password "adminpw" for Single Sign out
 * Log out from Sonar via cas/logout
 
 
@@ -54,7 +54,7 @@ Tags: sonar, groups
 Login to Sonar as user in group with admin rights, test if administration
 privileges are given and test opposite with user not in group with admin rights
 
-* Sonar-Login "admin" with password "password" with admin rights
+* Sonar-Login "admin" with password "adminpw" with admin rights
 * Access Administration of Sonar page
 * Logout of Sonar as user with admin rights
 * Create "dummyuser" with password "dummyuser123" in Sonar
@@ -70,7 +70,7 @@ Tags: sonar, attributes
 Login to Sonar as admin user and look up if user data are the same as in 
 usermgt
 
-* Obtain user attributes of "admin" with "password" from usermgt for Sonar
+* Obtain user attributes of "admin" with "adminpw" from usermgt for Sonar
 * Compare user attributes with data of Sonar
 * Log out of Sonar User Attributes 
 

@@ -101,7 +101,7 @@ public class UsermgtPage {
 
     public void deleteUser(String username) {
 
-        Driver.webDriver.get(EcoSystem.getUrl("/#/user/" + username));
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt/#/user/" + username));
         
         String xpath = "//body/div[2]/div[2]/div/div/form/button[2]";
         WebElement remove = EcoSystem.findElementByClickable(By.xpath(xpath));

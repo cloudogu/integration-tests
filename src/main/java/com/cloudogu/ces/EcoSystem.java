@@ -125,9 +125,8 @@ public final class EcoSystem {
      * @param tmppw Password of the new user
      */
     public static void createNewUser(String tmpuser, String tmppw){
-        
+        Driver.webDriver.get(EcoSystem.getUrl("/usermgt/#/users"));
         UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);
-        Driver.webDriver.get(EcoSystem.getUrl("/#/users"));
         
         if(!usermgtPage.userExists(tmpuser)){
             usermgtPage.clickCreateUserButton();

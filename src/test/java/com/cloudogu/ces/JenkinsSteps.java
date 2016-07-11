@@ -99,7 +99,7 @@ public class JenkinsSteps {
         scenarioStore.put("username",username);
         scenarioStore.put("jenkins-user-token", token);
         
-        logOutOfCas();
+        logOutViaCasLogout();
     }
     
     @Step("Jenkins-Login with token")
@@ -145,7 +145,7 @@ public class JenkinsSteps {
     }
     @Step("Logout of Jenkins as user with admin rights")
     public void logoutOfCasAsAdmin(){
-        logOutOfCas();
+        logOutViaCasLogout();
     }
     @Step("Create <tmpuser> with password <tmppw> in Jenkins")
     public void createNewUser(String tmpuser, String tmppw){
@@ -192,7 +192,7 @@ public class JenkinsSteps {
         String user = (String) scenarioStore.get("user");
         String password = (String) scenarioStore.get("password");
         
-        logOutOfCas();
+        logOutViaCasLogout();
         
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
@@ -242,7 +242,7 @@ public class JenkinsSteps {
     }
     @Step("Log out of Jenkins User Attributes")
     public void logOut(){
-        logOutOfCas();
+        logOutViaCasLogout();
     }
     /*-----------------------------------
     Tear down after each scenario

@@ -22,7 +22,7 @@ public class JenkinsPage {
     
     public WebElement getLogout(){
         String xpath = "//body/div[2]/div[1]/div[2]/span/a[2]";
-        WebElement logOut = Driver.webDriver.findElement(By.xpath(xpath));
+        WebElement logOut = EcoSystem.findElementByClickable((By.xpath(xpath)));
         return logOut;
     }
     
