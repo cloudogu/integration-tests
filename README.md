@@ -107,31 +107,30 @@ This command will define `-D` the system property `eco.system` which is needed f
 
 While `mvn test` will start all Gauge specifications defined in the integration-tests, it might be useful only to start certain tests. The scenarios inside the specification files are marked with tags. So if only that scenario should be started you have to enter `mvn test -Dtags=${tag}` where `${tag}` is predefined in the spec files in the `specs` directory. An command could be `mvn test -Dtags=jenkins` to start all Jenkins scenarios. The following values for `${tag}` are allowed:
 
-Tag             | Definition
----             | ----------
-jenkins         | Starts all tests associated with Jenkins
-redmine         | ... with Redmine
-usermgt         | ... with Usermgt
-sonar           | ... Sonar
-nexus           | ... with Nexus
-scm             | ... with SCM
-
-workflow        | Starts all Workflow tests
-rest_api        | Starts all REST Api tests
-rest_api_token  | Starts REST Api tests using tokens/keys
-single_sign_out | Starts all Single Sign Out tests
-groups          | Starts tests involving groups
-attributes      | Starts tests to check user attributes
+Tag             | Definition                                
+---             | ----------                                    
+jenkins         | Starts all tests associated with Jenkins  
+redmine         | ... with Redmine                          
+usermgt         | ... with Usermgt                          
+sonar           | ... Sonar                                 
+nexus           | ... with Nexus                            
+scm             | ... with SCM                              
+----------------|-------------------------------------------
+workflow        | Starts all Workflow tests                 
+rest_api        | Starts all REST Api tests                 
+rest_api_token  | Starts REST Api tests using tokens/keys   
+single_sign_out | Starts all Single Sign Out tests          
+groups          | Starts tests involving groups             
+attributes      | Starts tests to check user attributes     
 
 Besides using only one tag it is possible to use a set of tags, assumed the certain set is defined. To use multiple tags use `mvn test -Dtags="${tag0},${tag1}"`. For example: The command `mvn test -Dtags="jenkins, workflow"` will test the workflow of Jenkins. Allowed tag combinations are presented in the table:
 
-Specification tag | Scenario tags
------------------ | -------------
-                  | workflow | rest_api | rest_api_token | single_sign_out | groups | attributes
-                  |---------:|---------:|---------------:|----------------:|-------:|-----------:|
-jenkins           | yes      | yes      | yes            | yes             | yes    | yes
-redmine           | yes      | yes      | yes            | yes             | yes    | yes
-usermgt           | yes      | yes      | no             | yes             | no     | no
-sonar             | yes      | yes      | yes            | yes             | yes    | yes
-nexus             | yes      | yes      | yes            | yes             | yes    | no
-scm               | yes      | yes      | no             | yes             | yes    | yes
+Scenario tag      | Specification tags
+------------------|--------------      
+                  | jenkins  | redmine  | usermgt  | sonar | nexus | scm       
+workflow          | *yes*    | *yes*    | *yes*    | *yes* | *yes* | *yes*      
+rest_api          | *yes*    | *yes*    | *yes*    | *yes* | *yes* | *yes*      
+rest_api_token    | *yes*    | *yes*    | *no*     | *yes* | *yes* | *no*       
+single_sign_out   | *yes*    | *yes*    | *yes*    | *yes* | *yes* | *yes*      
+groups            | *yes*    | *yes*    | *no*     | *yes* | *yes* | *yes*       
+attributes        | *yes*    | *yes*    | *no*     | *yes* | *no*  | *yes*      
