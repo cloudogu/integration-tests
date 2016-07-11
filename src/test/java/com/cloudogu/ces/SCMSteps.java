@@ -47,6 +47,7 @@ public class SCMSteps {
         SCMPage page = EcoSystem.getPage(SCMPage.class);
         page.logout();
         openSCM();
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     /*-----------------------------------
     Szenario 2 REST API u+p
@@ -210,5 +211,12 @@ public class SCMSteps {
         SCMAPI api = (SCMAPI) scenarioStore.get("api");
         
         api.close();
+    }
+    /*-----------------------------------
+    Tear down after each scenario
+    -----------------------------------*/
+    @Step("Tear down logout for SCM")
+    public void tearDownLogout(){
+        EcoSystem.tearDownLogout();
     }
 }

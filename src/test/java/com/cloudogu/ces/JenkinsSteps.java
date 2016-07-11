@@ -49,6 +49,7 @@ public class JenkinsSteps {
         JenkinsPage page = EcoSystem.getPage(JenkinsPage.class);
         page.logout();
         openJenkins();
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     
     /*-----------------------------------
@@ -242,5 +243,12 @@ public class JenkinsSteps {
     @Step("Log out of Jenkins User Attributes")
     public void logOut(){
         logOutOfCas();
+    }
+    /*-----------------------------------
+    Tear down after each scenario
+    -----------------------------------*/
+    @Step("Tear down logout for Jenkins")
+    public void tearDownLogout(){
+        EcoSystem.tearDownLogout();
     }
 }

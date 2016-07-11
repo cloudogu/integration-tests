@@ -61,3 +61,9 @@ privileges are given and test opposite with user not in group with admin rights
 * Access Nexus API without admin rights
 * Check if access to Nexus file not accepted
 * Quit Nexus client without admin rights
+
+___
+
+Tear down step to assure log out
+
+* Tear down logout for Nexus

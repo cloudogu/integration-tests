@@ -74,3 +74,9 @@ usermgt
 * Switch to Redmine user site
 * Compare user attributes with data of Redmine
 * Log out of Redmine User Attributes 
+
+___
+
+Tear down step to assure log out
+
+* Tear down logout for Redmine

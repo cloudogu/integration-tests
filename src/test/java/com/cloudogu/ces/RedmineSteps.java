@@ -47,8 +47,8 @@ public class RedmineSteps {
     public void logOutOfCas(){
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.logout();
-        
         openRedmine();
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     
     /*-----------------------------------
@@ -243,5 +243,12 @@ public class RedmineSteps {
     @Step("Log out of Redmine User Attributes")
     public void logOut(){
         logOutOfCas();
+    }
+    /*-----------------------------------
+    Tear down after each scenario
+    -----------------------------------*/
+    @Step("Tear down logout for Redmine")
+    public void tearDownLogout(){
+        EcoSystem.tearDownLogout();
     }
 }

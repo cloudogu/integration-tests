@@ -35,3 +35,9 @@ Log in to Usermgt and test Single Sign out via cas/logout
 
 * Usermgt-Login "admin" with password "password" for Single Sign out
 * Log out from Usermgt via cas/logout 
+
+___
+
+Tear down step to assure log out
+
+* Tear down logout for Usermgt

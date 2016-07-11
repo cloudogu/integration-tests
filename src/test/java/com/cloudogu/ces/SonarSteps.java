@@ -47,9 +47,9 @@ public class SonarSteps {
     @Step("Logout of Sonar")
     public void logOutOfCas(){   
         SonarPage page = EcoSystem.getPage(SonarPage.class);
-        page.logout();
-        
+        page.logout();        
         openSonar();
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     /*-----------------------------------
     Szenario 2 REST API u+p
@@ -238,5 +238,12 @@ public class SonarSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         SonarAPI api = (SonarAPI) scenarioStore.get("api");
         api.close();
+    }
+    /*-----------------------------------
+    Tear down after each scenario
+    -----------------------------------*/
+    @Step("Tear down logout for Sonar")
+    public void tearDownLogout(){
+        EcoSystem.tearDownLogout();
     }
 }

@@ -12,7 +12,7 @@ Tags: jenkins, workflow
 Test Jenkins Cas Authentication Workflow
 
 * Open Jenkins
-* Jenkins-Login "admin" with password "password"
+* Jenkins-Login "admin" with password "admin123"
 * Logout of Jenkins
 
 
@@ -74,3 +74,10 @@ usermgt
 * Switch to Jenkins user site
 * Compare user attributes with data of Jenkins
 * Log out of Jenkins User Attributes
+
+
+___
+
+Tear down step to assure log out
+
+* Tear down logout for Jenkins

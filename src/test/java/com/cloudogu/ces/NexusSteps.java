@@ -45,8 +45,8 @@ public class NexusSteps {
     public void logOutOfCas(){   
         NexusPage page = EcoSystem.getPage(NexusPage.class);
         page.logout();
-        
         openNexus();
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     /*-----------------------------------
     Szenario 2 REST API u+p
@@ -180,5 +180,12 @@ public class NexusSteps {
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
         EcoSystem.deleteUser((String) scenarioStore.get("tmpuser"));
+    }
+    /*-----------------------------------
+    Tear down after each scenario
+    -----------------------------------*/
+    @Step("Tear down logout for Nexus")
+    public void tearDownLogout(){
+        EcoSystem.tearDownLogout();
     }
 }

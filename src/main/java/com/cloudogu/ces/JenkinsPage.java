@@ -8,7 +8,6 @@ package com.cloudogu.ces;
 import driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 /**
  *
@@ -16,11 +15,15 @@ import org.openqa.selenium.support.FindBy;
  */
 public class JenkinsPage {
     
-    @FindBy(linkText = "log out")
-    private WebElement logOut;
     
     public void logout(){
-        logOut.click();
+        getLogout().click();
+    }
+    
+    public WebElement getLogout(){
+        String xpath = "//body/div[2]/div[1]/div[2]/span/a[2]";
+        WebElement logOut = Driver.webDriver.findElement(By.xpath(xpath));
+        return logOut;
     }
     
     public void goToManageJenkinsPage(){

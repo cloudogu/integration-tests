@@ -45,9 +45,9 @@ public class UsermgtSteps {
     @Step("Logout of Usermgt")
     public void logOutOfCas(){   
         UsermgtPage page = EcoSystem.getPage(UsermgtPage.class);
-        page.logout();
-        
+        page.logout();        
         openUsermgt();
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     /*-----------------------------------
     Szenario 2 REST API u+p
@@ -94,5 +94,12 @@ public class UsermgtSteps {
         openUsermgt();
         
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    /*-----------------------------------
+    Tear down after each scenario
+    -----------------------------------*/
+    @Step("Tear down logout for Usermgt")
+    public void tearDownLogout(){
+        EcoSystem.tearDownLogout();
     }
 }

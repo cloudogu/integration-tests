@@ -148,6 +148,12 @@ public final class EcoSystem {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     
+    public static void tearDownLogout(){
+        if(!Driver.webDriver.getTitle().equals("CAS – Central Authentication Service")){
+            Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        }
+    }
+    
     public static Document buildXmlDocument(String xml){
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         Document doc = null;

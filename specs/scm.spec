@@ -62,3 +62,9 @@ usermgt
 * Obtain user attributes of "admin" with "password" from usermgt for SCM
 * Compare user attributes with data of SCM
 * Log out of SCM User Attributes
+
+___
+
+Tear down step to assure log out
+
+* Tear down logout for SCM

@@ -72,4 +72,10 @@ usermgt
 
 * Obtain user attributes of "admin" with "password" from usermgt for Sonar
 * Compare user attributes with data of Sonar
-* Log out of Sonar User Attributes  
+* Log out of Sonar User Attributes 
+
+___
+
+Tear down step to assure log out
+
+* Tear down logout for Sonar 
