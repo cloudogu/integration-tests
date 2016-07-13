@@ -1,5 +1,5 @@
 #![Cloudogu logo](./images/logo.png)
-# Website
+# Integrations-Tests
 https://cloudogu.com
 
 This repository consists of integration-tests for the cloudogu ecosystem setup via setup.json. The tests are implemented in Java inside a Maven project which uses Selenium and Gauge as plugins for testing using automated browser input.
