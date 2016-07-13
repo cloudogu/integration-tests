@@ -5,16 +5,17 @@ https://cloudogu.com
 This repository consists of integration-tests for the cloudogu ecosystem setup via setup.json. The tests are implemented in Java inside a Maven project which uses Selenium and Gauge as plugins for testing using automated browser input.
 
 ### Quick start
-* Install [maven](https://maven.apache.org/download.cgi)
-* Install [gauge](http://getgauge.io/get-started)
-* Install [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
-* Make sure Google Chrome is installed
-* Make sure repository cloudogu/ecosystem is cloned
+* Prerequisites:
+ - Install [maven](https://maven.apache.org/download.cgi)
+ - Install [gauge](http://getgauge.io/get-started)
+ - Install [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+ - Make sure Google Chrome is installed
+ - Make sure repository cloudogu/ecosystem is cloned
 * Clone repository cloudogu/integration-tests
 * Start ecosystem via `vagrant up`
 * Make sure there is an admin rights user `admin` with password `adminpw`
 * Go into your integration-tests repository
-* If your ecosystem `url` is `https://192.168.115.112` do one of the following:
+* If your ecosystem url is `https://192.168.115.112` do one of the following:
   * Set `gauge_jvm_args=-Deco.system=${url}` in file `env/default/java.properties` for persistence
   * Or type `gauge_jvm_args=-Deco.system=${url} mvn test` without saving the url
 * `mvn test` will start the test phase
