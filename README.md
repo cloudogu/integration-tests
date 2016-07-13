@@ -11,9 +11,11 @@ This repository consists of integration-tests for the cloudogu ecosystem setup v
 * Make sure Google Chrome is installed
 * Make sure repository cloudogu/ecosystem is cloned
 * Clone repository cloudogu/integration-tests
+* Start ecosystem via `vagrant up`
+* Make sure there is an admin rights user `admin` with password `adminpw`
 * Go into your integration-tests repository
 * If your ecosystem `url` is `https://192.168.115.112` do one of the following:
-  * Insert `gauge_jvm_args=-Deco.system=${url}` in file `env/default/java.properties` for persistence
+  * Set `gauge_jvm_args=-Deco.system=${url}` in file `env/default/java.properties` for persistence
   * Or type `gauge_jvm_args=-Deco.system=${url} mvn test` without saving the url
 * `mvn test` will start the test phase
 
@@ -21,7 +23,7 @@ This repository consists of integration-tests for the cloudogu ecosystem setup v
 * Use [NetBeans](https://netbeans.org/downloads/index.html) or similiar IDEs to open integration-tests project
 * Feel free to create additional spec files inside `specs/` directory using gauge markdown
 * [gauge documentation](http://getgauge.io/documentation/user/current/) should help you to implement quickly
-* Selenium cares for browser automation [Selenium documentation](http://www.seleniumhq.org/docs/index.jsp)
+* [Selenium](http://www.seleniumhq.org/docs/index.jsp) cares for browser automation
 * Take a look at the two driver classes written in Java which instantiate a WebDriver
 * `@BeforeSuite` hooked driver method will be executed before testing single Steps
 * There are three types of Java-classes in the source directory
@@ -29,15 +31,14 @@ This repository consists of integration-tests for the cloudogu ecosystem setup v
 * API classes to access REST APIs via client
 * EcoSystem class consisting of globally used methods
 * Implement steps writing Java classes in the test directory with `@Step` annotation
-* A Step like `* Login as "admin" with password "adminpw"` must be implemented:
+* A Step like `* Login as "admin" with password "adminpw"` must be implemented as:
 ```java
 @Step("Login as <user> with password <password>")
 public void login(String user, String password){
-  // some test code...
+  // some test code injecting user as "admin" and password as "adminpw"
 }
-
 ```
-
+* Now feel free to implement your own Steps
 
 ---
 ### What is Cloudogu?
