@@ -31,14 +31,8 @@ public class JenkinsPage {
     }
     
     public void goToConfigurationPage(String user){
-        String xpathToMenuSelector = "//body/div[2]/div/div[2]/span/a";
-        WebElement menuSelector = EcoSystem.findElementByClickable(
-                By.xpath(xpathToMenuSelector));
-        menuSelector.click();
-        
-        WebElement menuItemConfigure = EcoSystem.findElementByClickable(
-                By.linkText("Configure"));
-        menuItemConfigure.click();
+        String url = EcoSystem.getUrl("/jenkins/user/"+user+"/configure");
+        Driver.webDriver.get(url);
     }
     
     public String getToken(){
@@ -59,9 +53,9 @@ public class JenkinsPage {
     
     public boolean AccessDenied(){
         Boolean denied = false;
-        String xpath = "//body/div[@id='page-body']/div[@id='main-panel']/h1";
-        String accessDenied = Driver.webDriver.findElement(By.xpath(xpath)).getText();
-        if(accessDenied.equals("Access Denied")){
+        String xpath = "//body/div[@id='page-body']/div[@id='main-panel']/p";
+        String accessDenied = Driver.webDriver.findElement(By.xpath(xpath)).getAttribute("class");
+        if(accessDenied.equals("error")){
             denied = true;
         }
         return denied;

@@ -1,0 +1,10 @@
+{
+	"Flags": {
+		"-dir": "/home/malte/Repositories/integration-tests",
+		"-tags": "sonar"
+	},
+	"FailedItems": [
+		"specs/sonar.spec:30",
+		"specs/sonar.spec:50"
+	]
+}

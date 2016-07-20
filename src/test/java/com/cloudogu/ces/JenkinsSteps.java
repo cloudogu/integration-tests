@@ -89,9 +89,9 @@ public class JenkinsSteps {
         loginToCasJenkins(username, password);        
 
         JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
-        jenkinsPage.goToConfigurationPage(username);   
+        jenkinsPage.goToConfigurationPage(username);
         
-        assertThat(Driver.webDriver.getTitle(), containsString("Configuration"));
+        assertThat(Driver.webDriver.getCurrentUrl(), is(EcoSystem.getUrl("/jenkins/user/admin/configure")));
         
         String token = jenkinsPage.getToken();
         
@@ -141,7 +141,7 @@ public class JenkinsSteps {
     public void accessManageJenkinsPage(){
         JenkinsPage page = EcoSystem.getPage(JenkinsPage.class);
         page.goToManageJenkinsPage();
-        assertThat(Driver.webDriver.getTitle(),is("Manage Jenkins [Jenkins]"));
+        assertThat(Driver.webDriver.getCurrentUrl(),is(EcoSystem.getUrl("/jenkins/manage")));
     }
     @Step("Logout of Jenkins as user with admin rights")
     public void logoutOfCasAsAdmin(){
