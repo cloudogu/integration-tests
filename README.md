@@ -13,11 +13,11 @@ This repository consists of integration-tests for the cloudogu ecosystem setup v
  - Make sure repository cloudogu/ecosystem is cloned
 * Clone repository cloudogu/integration-tests
 * Start ecosystem via `vagrant up`
-* Make sure there is an admin rights user `admin` with password `adminpw`
+* Make sure there is an user `admin` with password `adminpw` in the cesAdmin group (take a look in the user management to make sure)
 * Go into your integration-tests repository
 * If your ecosystem url is `https://192.168.115.112` do one of the following:
-  * Set `gauge_jvm_args=-Deco.system=${url}` in file `env/default/java.properties` for persistence
-  * Or type `gauge_jvm_args=-Deco.system=${url} mvn test` without saving the url
+  * Set `gauge_jvm_args=-Deco.system=https://192.168.115.112` inside the file `env/default/java.properties` for persistence
+  * Or type `gauge_jvm_args=-Deco.system=https://192.168.115.112 mvn test` without saving the url
 * `mvn test` will start the test phase
 
 ### Development
