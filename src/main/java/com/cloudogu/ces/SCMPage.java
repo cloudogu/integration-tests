@@ -17,8 +17,9 @@ import org.openqa.selenium.WebElement;
 public class SCMPage {
     
     public WebElement getLogout(){
+        String xpath = "//body/div[2]/div[2]/div/div[6]/div[2]/div/div/div/div/ul/li/a";
         WebElement logout = EcoSystem.findElementByClickable(
-                By.linkText("Log out"));
+                By.xpath(xpath));
         return logout;
     }
     

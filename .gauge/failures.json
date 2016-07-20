@@ -1,9 +1,9 @@
 {
 	"Flags": {
-		"-dir": "/home/malte/Repositories/integration-tests",
-		"-tags": "sonar"
+		"-dir": "/home/malte/Repositories/integration-tests"
 	},
 	"FailedItems": [
+		"specs/redmine.spec:19",
 		"specs/sonar.spec:30",
 		"specs/sonar.spec:50"
 	]

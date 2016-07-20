@@ -36,14 +36,16 @@ public class RedminePage {
         return currentUsername.getText();
     }
     
-    public void goToMyAccountPage(){        
-        WebElement myAccount = EcoSystem.findElementByClickable(By.linkText("My account"));
+    public void goToMyAccountPage(){
+        String xpath = "//body/div/div/div/div/div/ul/li/a";
+        WebElement myAccount = EcoSystem.findElementByClickable(By.xpath(xpath));
         myAccount.click();       
     }
     
     public String getKey(){
         String key = "";
-        WebElement showKey = EcoSystem.findElementByClickable(By.linkText("Show"));
+        String xpath = "//body/div/div/div/div[3]/div/div/a";
+        WebElement showKey = EcoSystem.findElementByClickable(By.xpath(xpath));
         showKey.click();
         key = EcoSystem.findElementByLocated(By.id("api-access-key")).getText();
         return key;

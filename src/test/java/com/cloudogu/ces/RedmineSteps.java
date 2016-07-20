@@ -92,7 +92,7 @@ public class RedmineSteps {
         RedminePage redminePage = EcoSystem.getPage(RedminePage.class);
         redminePage.goToMyAccountPage();
         
-        assertThat(Driver.webDriver.getTitle(), containsString("My account"));
+        assertThat(Driver.webDriver.getCurrentUrl(), is(EcoSystem.getUrl("/redmine/my/account")));
         String key = redminePage.getKey();
         
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
