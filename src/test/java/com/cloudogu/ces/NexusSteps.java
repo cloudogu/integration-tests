@@ -45,7 +45,7 @@ public class NexusSteps {
     public void logOutOfCas(){   
         NexusPage page = EcoSystem.getPage(NexusPage.class);
         page.logout();
-        openNexus();
+        openNexusApp();
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     /*-----------------------------------
@@ -93,14 +93,14 @@ public class NexusSteps {
     -----------------------------------*/
     @Step("Nexus-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
-        openNexus();
-        loginToCasNexus(user, password);                
+        openNexusApp();
+        loginToCasNexusApp(user, password);                
     }
     @Step("Log out from Nexus via cas/logout")
     public void logOutViaCasLogout(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
-        openNexus();
+        openNexusApp();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
@@ -188,4 +188,16 @@ public class NexusSteps {
     public void tearDownLogout(){
         EcoSystem.tearDownLogout();
     }
+    
+    private void openNexusApp() {
+        EcoSystem.openApp("nexus");
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    
+    private void loginToCasNexusApp(String username, String password){
+        EcoSystem.loginToCasApp(username, password);
+        assertThat(Driver.webDriver.getTitle(), containsString("Nexus"));
+    }
+
 }

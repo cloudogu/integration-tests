@@ -48,7 +48,7 @@ public class SonarSteps {
     public void logOutOfCas(){   
         SonarPage page = EcoSystem.getPage(SonarPage.class);
         page.logout();        
-        openSonar();
+        openSonarApp();
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     /*-----------------------------------
@@ -85,8 +85,8 @@ public class SonarSteps {
     -----------------------------------*/
     @Step("Obtain Sonar token with <username> and <password>")
     public void obtainSonarToken(String username, String password){       
-        openSonar();
-        loginToCasSonar(username, password);        
+        openSonarApp();
+        loginToCasSonarApp(username, password);        
 
         SonarPage sonarPage = EcoSystem.getPage(SonarPage.class);
         String token = sonarPage.obtainToken(username); 
@@ -95,7 +95,7 @@ public class SonarSteps {
         scenarioStore.put("username",username);
         scenarioStore.put("sonar-user-token", token);
         
-        logOutOfCas();
+        logOutViaCasLogoutApp();
     }
     
     @Step("Sonar-Login with token")
@@ -117,14 +117,14 @@ public class SonarSteps {
     -----------------------------------*/
     @Step("Sonar-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
-        openSonar();
-        loginToCasSonar(user, password);                
+        openSonarApp();
+        loginToCasSonarApp(user, password);                
     }
     @Step("Log out from Sonar via cas/logout")
     public void logOutViaCasLogout(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
-        openSonar();
+        openSonarApp();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
@@ -136,8 +136,8 @@ public class SonarSteps {
         scenarioStore.put("user", user);
         scenarioStore.put("password", password);
         
-        openSonar();
-        loginToCasSonar(user, password);
+        openSonarApp();
+        loginToCasSonarApp(user, password);
     }
     @Step("Access Administration of Sonar page")
     public void accessAdministrationPage(){
@@ -150,7 +150,7 @@ public class SonarSteps {
     }
     @Step("Logout of Sonar as user with admin rights")
     public void logoutOfCasAsAdmin(){
-        logOutOfCas();
+        logOutViaCasLogoutApp();
     }
     @Step("Create <tmpuser> with password <tmppw> in Sonar")
     public void createNewUser(String tmpuser, String tmppw){
@@ -173,8 +173,8 @@ public class SonarSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("tmpuser");
         String password = (String) scenarioStore.get("tmppw");
-        openSonar();
-        loginToCasSonar(user, password);
+        openSonarApp();
+        loginToCasSonarApp(user, password);
     }
     @Step("Try to access Administration of Sonar page")
     public void accessTryAdministrationPage(){
@@ -186,7 +186,7 @@ public class SonarSteps {
     @Step("Logout of Sonar as user without admin rights")
     public void logoutOfCasNotAsAdmin(){
         Driver.webDriver.get(EcoSystem.getUrl("/sonar"));
-        logOutOfCas();
+        logOutViaCasLogoutApp();
         
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("user");
@@ -245,5 +245,23 @@ public class SonarSteps {
     @Step("Tear down logout for Sonar")
     public void tearDownLogout(){
         EcoSystem.tearDownLogout();
+    }
+    
+    private void openSonarApp() {
+        EcoSystem.openApp("sonar");
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    
+    private void loginToCasSonarApp(String username, String password){
+        EcoSystem.loginToCasApp(username, password);
+        assertThat(Driver.webDriver.getTitle(), containsString("Sonar"));
+    }
+
+    private void logOutViaCasLogoutApp(){
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        // be sure we are redirected to cas
+        openSonarApp();
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
 }
