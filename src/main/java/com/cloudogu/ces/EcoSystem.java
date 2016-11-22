@@ -213,4 +213,13 @@ public final class EcoSystem {
         }
 
     }
+    
+    public static void openApp(String appName){
+        Driver.webDriver.get(EcoSystem.getUrl("/"+appName));
+    }
+    
+    public static void loginToCasApp(String username, String password){
+        CasPage casPage = EcoSystem.getPage(CasPage.class);
+        casPage.login(username, password);
+    }  
 }

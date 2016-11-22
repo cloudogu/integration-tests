@@ -46,7 +46,7 @@ public class UsermgtSteps {
     public void logOutOfCas(){   
         UsermgtPage page = EcoSystem.getPage(UsermgtPage.class);
         page.logout();        
-        openUsermgt();
+        openUsermgtApp();
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     /*-----------------------------------
@@ -84,14 +84,14 @@ public class UsermgtSteps {
     -----------------------------------*/
     @Step("Usermgt-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
-        openUsermgt();
-        loginToCasUsermgt(user, password);                
+        openUsermgtApp();
+        loginToCasUsermgtApp(user, password);                
     }
     @Step("Log out from Usermgt via cas/logout")
     public void logOutViaCasLogout(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
-        openUsermgt();
+        openUsermgtApp();
         
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
@@ -101,5 +101,16 @@ public class UsermgtSteps {
     @Step("Tear down logout for Usermgt")
     public void tearDownLogout(){
         EcoSystem.tearDownLogout();
+    }
+    
+    private void openUsermgtApp() {
+        EcoSystem.openApp("usermgt");
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    
+    private void loginToCasUsermgtApp(String username, String password){
+        EcoSystem.loginToCasApp(username, password);
+        assertThat(Driver.webDriver.getTitle(), containsString("User Management"));
     }
 }

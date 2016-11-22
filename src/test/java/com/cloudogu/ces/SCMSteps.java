@@ -46,7 +46,7 @@ public class SCMSteps {
     public void logOutOfCas(){
         SCMPage page = EcoSystem.getPage(SCMPage.class);
         page.logout();
-        openSCM();
+        openSCMApp();
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     /*-----------------------------------
@@ -82,14 +82,14 @@ public class SCMSteps {
     -----------------------------------*/
     @Step("SCM-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
-        openSCM();
-        loginToCasSCM(user, password);                
+        openSCMApp();
+        loginToCasSCMApp(user, password);                
     }
     @Step("Log out from SCM via cas/logout")
     public void logOutViaCasLogout(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
-        openSCM();
+        openSCMApp();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
@@ -218,5 +218,16 @@ public class SCMSteps {
     @Step("Tear down logout for SCM")
     public void tearDownLogout(){
         EcoSystem.tearDownLogout();
+    }
+    
+    private void openSCMApp() {
+        EcoSystem.openApp("scm");
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    
+    private void loginToCasSCMApp(String username, String password){
+        EcoSystem.loginToCasApp(username, password);
+        assertThat(Driver.webDriver.getTitle(), containsString("SCM Manager"));
     }
 }

@@ -48,7 +48,7 @@ public class JenkinsSteps {
     public void logOutOfCas(){
         JenkinsPage page = EcoSystem.getPage(JenkinsPage.class);
         page.logout();
-        openJenkins();
+        openJenkinsApp();
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
     
@@ -85,8 +85,8 @@ public class JenkinsSteps {
     -----------------------------------*/
     @Step("Obtain Jenkins token with <username> and <password>")
     public void obtainJenkinsToken(String username, String password){       
-        openJenkins();
-        loginToCasJenkins(username, password);        
+        openJenkinsApp();
+        loginToCasJenkinsApp(username, password);        
 
         JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
         jenkinsPage.goToConfigurationPage(username);
@@ -99,7 +99,7 @@ public class JenkinsSteps {
         scenarioStore.put("username",username);
         scenarioStore.put("jenkins-user-token", token);
         
-        logOutViaCasLogout();
+        logOutViaCasLogoutApp();
     }
     
     @Step("Jenkins-Login with token")
@@ -108,21 +108,22 @@ public class JenkinsSteps {
         String user = (String) scenarioStore.get("username");
         String token = (String) scenarioStore.get("jenkins-user-token");
         
-        createRESTClientForJenkinsAPI(user,token);
+        JenkinsAPI api = new JenkinsAPI(user,token);
+        api.close();
     }
     /*-----------------------------------
     Szenario 4 Single Sign Out
     -----------------------------------*/
     @Step("Jenkins-Login <user> with password <password> for Single Sign out")
     public void loginToTestSingleSignOut(String user, String password){
-        openJenkins();
-        loginToCasJenkins(user, password);                
+        openJenkinsApp();
+        loginToCasJenkinsApp(user, password);                
     }
     @Step("Log out from Jenkins via cas/logout")
     public void logOutViaCasLogout(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
-        openJenkins();
+        openJenkinsApp();
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
     /*-----------------------------------
@@ -134,8 +135,8 @@ public class JenkinsSteps {
         scenarioStore.put("user", user);
         scenarioStore.put("password", password);
         
-        openJenkins();
-        loginToCasJenkins(user, password);
+        openJenkinsApp();
+        loginToCasJenkinsApp(user, password);
     }
     @Step("Access Manage Jenkins")
     public void accessManageJenkinsPage(){
@@ -145,7 +146,7 @@ public class JenkinsSteps {
     }
     @Step("Logout of Jenkins as user with admin rights")
     public void logoutOfCasAsAdmin(){
-        logOutViaCasLogout();
+        logOutViaCasLogoutApp();
     }
     @Step("Create <tmpuser> with password <tmppw> in Jenkins")
     public void createNewUser(String tmpuser, String tmppw){
@@ -169,7 +170,7 @@ public class JenkinsSteps {
         String user = (String) scenarioStore.get("tmpuser");
         String password = (String) scenarioStore.get("tmppw");
         
-        openJenkins();
+        openJenkinsApp();
         
         assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
         
@@ -192,7 +193,7 @@ public class JenkinsSteps {
         String user = (String) scenarioStore.get("user");
         String password = (String) scenarioStore.get("password");
         
-        logOutViaCasLogout();
+        logOutViaCasLogoutApp();
         
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
@@ -242,7 +243,7 @@ public class JenkinsSteps {
     }
     @Step("Log out of Jenkins User Attributes")
     public void logOut(){
-        logOutViaCasLogout();
+        logOutViaCasLogoutApp();
     }
     /*-----------------------------------
     Tear down after each scenario
@@ -250,5 +251,23 @@ public class JenkinsSteps {
     @Step("Tear down logout for Jenkins")
     public void tearDownLogout(){
         EcoSystem.tearDownLogout();
+    }
+    
+    private void openJenkinsApp() {
+        EcoSystem.openApp("jenkins");
+        // be sure we are redirected to cas
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+    }
+    
+    private void loginToCasJenkinsApp(String username, String password){
+        EcoSystem.loginToCasApp(username, password);
+        assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
+    }
+
+    private void logOutViaCasLogoutApp(){
+        Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
+        // be sure we are redirected to cas
+        openJenkinsApp();
+        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
     }
 }
