@@ -34,64 +34,64 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 /**
- * 
+ *
  * @author malte
  */
 public final class EcoSystem {
 
     private static final String BASE_URL = System.getProperty("eco.system");
-    
+
     private EcoSystem() {
     }
-    
+
     public static String getUrl(String suffix){
         return BASE_URL.concat(suffix);
     }
-    
+
     public static <T> T getPage(Class<T> pageClass){
         return PageFactory.initElements(Driver.webDriver, pageClass);
     }
     /**
-     * Creates WebDriverWait object that waits up to 5 seconds to find an
+     * Creates WebDriverWait object that waits up to 60 seconds to find an
      * element until it is clickable and returns it.
-     * 
+     *
      * @param by Mechanism to locate element
      * @return found element
      */
-    public static WebElement findElementByClickable(By by){        
-        WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
+    public static WebElement findElementByClickable(By by){
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,60);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
         return element;
     }
     /**
-     * Creates WebDriverWait object that waits up to 5 seconds to find an 
+     * Creates WebDriverWait object that waits up to 60 seconds to find an
      * element until it is clickable and returns it.
-     * 
+     *
      * @param by Mechanism to locate element
      * @return found element
      */
-    public static WebElement findElementByLocated(By by){        
-        WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
+    public static WebElement findElementByLocated(By by){
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,60);
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
         return element;
     }
     /**
-     * Creates WebDriverWait object that waits up to 5 seconds to find an
+     * Creates WebDriverWait object that waits up to 60 seconds to find an
      * element depending on attributeContains method. If the element is found a
      * true will be returned.
-     * 
+     *
      * @param by Mechanism to locate element
      * @param attribute attribute of element to search for
      * @param value value of the attribute
      * @return true if element found
      */
-    public static boolean attributeContainsBy(By by, String attribute, String value){        
-        WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
+    public static boolean attributeContainsBy(By by, String attribute, String value){
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,60);
         boolean contains = wait.until(ExpectedConditions.attributeContains(by, attribute, value));
         return contains;
     }
-    public static boolean textPresentInElementBy(WebElement currentUser, String username){        
-        WebDriverWait wait = new WebDriverWait(Driver.webDriver,5);
+    public static boolean textPresentInElementBy(WebElement currentUser, String username){
+        WebDriverWait wait = new WebDriverWait(Driver.webDriver,60);
         boolean contains = wait.until(ExpectedConditions.textToBePresentInElement(currentUser, username));
         return contains;
     }
@@ -108,7 +108,7 @@ public final class EcoSystem {
     public static String readUserFromJson(JsonNode root, String firstChild,
             String secondChild, String user){
         JsonNode firstNode = root.get(firstChild);
-        
+
         String userName = null;
         for(int i=0; i<firstNode.size();i++){
             JsonNode secondNode = firstNode.get(i);
@@ -127,7 +127,7 @@ public final class EcoSystem {
     public static void createNewUser(String tmpuser, String tmppw){
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt/#/users"));
         UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);
-        
+
         if(!usermgtPage.userExists(tmpuser)){
             usermgtPage.clickCreateUserButton();
             usermgtPage.createNewUser(tmpuser,tmppw);
@@ -135,7 +135,7 @@ public final class EcoSystem {
     }
     /**
      * Delete an existing user on the usermgt page with name user.
-     * @param user 
+     * @param user
      */
     public static void deleteUser(String user){
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt/#/users"));
@@ -146,13 +146,13 @@ public final class EcoSystem {
         }
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
     }
-    
+
     public static void tearDownLogout(){
         if(!Driver.webDriver.getTitle().equals("CAS – Central Authentication Service")){
             Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         }
     }
-    
+
     public static Document buildXmlDocument(String xml){
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         Document doc = null;
@@ -166,51 +166,51 @@ public final class EcoSystem {
         }
         return doc;
     }
-    
+
     private static SSLContext createUnsecureSSLContext() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext context = SSLContext.getInstance("TLS");
         context.init(null, new TrustManager[]{new AcceptAllX509TrustManager()}, new java.security.SecureRandom());
         return context;
     }
-    
+
     public static Client createRestClient(String username, String password){
         SSLContext context;
-        
+
         try {
             context = createUnsecureSSLContext();
         } catch (NoSuchAlgorithmException | KeyManagementException ex){
             throw new RuntimeException("could not create unsecure ssl context", ex);
         }
-        
+
 
         HttpAuthenticationFeature basicAuth = HttpAuthenticationFeature.basicBuilder()
-            .credentials(username, password)    
+            .credentials(username, password)
             .build();
-        
+
         return ClientBuilder.newBuilder()
                 .sslContext(context)
                 .register(basicAuth)
                 .register(new JacksonFeature())
                 .build();
-        
+
     }
-    
+
     private static class AcceptAllX509TrustManager implements X509TrustManager {
 
         @Override
         public void checkClientTrusted(X509Certificate[] xcs, String string) throws java.security.cert.CertificateException {
-            
+
         }
 
         @Override
         public void checkServerTrusted(X509Certificate[] xcs, String string) throws java.security.cert.CertificateException {
-            
+
         }
 
         @Override
         public X509Certificate[] getAcceptedIssuers() {
             return new X509Certificate[0];
         }
-        
+
     }
 }
