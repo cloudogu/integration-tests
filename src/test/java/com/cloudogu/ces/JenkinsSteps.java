@@ -39,8 +39,9 @@ public class JenkinsSteps {
         JenkinsPage jenkinsPage = EcoSystem.getPage(JenkinsPage.class);
         UsermgtAPI api = new UsermgtAPI(username, password);
         String user = api.getDisplayName();
-        
-        assertThat(jenkinsPage.getCurrentUsername(), is(user));
+
+        //TODO add propper case-insensitive matcher
+        assertThat(jenkinsPage.getCurrentUsername().toLowerCase(), is(user.toLowerCase()));
         assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
     }
     
