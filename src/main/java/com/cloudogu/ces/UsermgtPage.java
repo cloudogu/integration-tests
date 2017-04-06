@@ -20,7 +20,7 @@ public class UsermgtPage {
 
     public WebElement getLogout() {
         WebElement logout = EcoSystem.findElementByLocated(
-                By.linkText("LOGOUT"));
+                By.linkText("Logout"));
         return logout;
     }
 
