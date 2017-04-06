@@ -1,4 +1,11 @@
+#gauge folders
+.gauge
 logs
 reports
 
+#maven
 /target/
+
+#IDE
+.idea
+integration-tests.iml
