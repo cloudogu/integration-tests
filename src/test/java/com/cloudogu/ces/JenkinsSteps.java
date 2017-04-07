@@ -40,8 +40,7 @@ public class JenkinsSteps {
         UsermgtAPI api = new UsermgtAPI(username, password);
         String user = api.getDisplayName();
 
-        //TODO add propper case-insensitive matcher
-        assertThat(jenkinsPage.getCurrentUsername().toLowerCase(), is(user.toLowerCase()));
+        assertThat(jenkinsPage.getCurrentUsername(), is(equalToIgnoringCase(user)));
         assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
     }
     
