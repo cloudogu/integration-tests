@@ -41,15 +41,17 @@ public class SonarPage {
     }
 
     public String getCurrentUsername(String username) {
-        String user = null;
-        
-        WebElement currentUser = Driver.webDriver.findElement(
-                By.xpath(XPATH_NAVBAR_MAIN + "/a/span[2]"));
+
+        WebElement currentUserElement = Driver.webDriver.findElement(
+                By.xpath(XPATH_NAVBAR_MAIN + "[1]/a"));
  
-        if (EcoSystem.textPresentInElementBy(currentUser, username)) {
-            user = currentUser.getText();
+        if (EcoSystem.textPresentInElementBy(currentUserElement, username)) {
+            // sonar wraps user in spaces
+            return currentUserElement.getText().trim();
+
+        } else {
+            return null;
         }
-        return user;
     }
 
     public String obtainToken(String username) {
