@@ -180,8 +180,9 @@ public class SonarSteps {
     public void accessTryAdministrationPage(){
         SonarPage page = EcoSystem.getPage(SonarPage.class);
         page.goToAdministrationPage();
+
         Boolean accessDenied = page.AccessDenied();
-        assertThat(accessDenied,is(true));
+        assertThat("Expected not be allowed to access the Administration Page, but was allowed.", accessDenied,is(true));
     }
     @Step("Logout of Sonar as user without admin rights")
     public void logoutOfCasNotAsAdmin(){
