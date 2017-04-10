@@ -11,6 +11,8 @@ import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.NotAuthorizedException;
+
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.Matchers.is;
@@ -164,7 +166,10 @@ public class NexusSteps {
         try{
             JsonNode n = api.getInformation();
         }catch(ForbiddenException e){
-            //System.out.println(e);
+            //there seems to be 2 possible exceptions here...
+        }
+        catch(NotAuthorizedException e){
+            //there seems to be 2 possible exceptions here...
         }
     }
     @Step("Quit Nexus client without admin rights")
