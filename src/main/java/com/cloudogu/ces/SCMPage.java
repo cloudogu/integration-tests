@@ -33,7 +33,7 @@ public class SCMPage {
     }
     
     public String getCurrentUsername(){
-        WebElement currentUser = EcoSystem.findElementByLocated(By.id("scm-userinfo-tip"));
+        WebElement currentUser = EcoSystem.findElementByClickable(By.xpath("//*[@id=\"scm-userinfo-tip\"]"));
         return currentUser.getText();
     }    
     

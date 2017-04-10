@@ -10,9 +10,8 @@ import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import javax.ws.rs.ForbiddenException;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.startsWith;
-import static org.hamcrest.Matchers.is;
+
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -38,7 +37,7 @@ public class SCMSteps {
         
         SCMPage scmPage = EcoSystem.getPage(SCMPage.class);
         
-        assertThat(scmPage.getCurrentUsername(), is(user));
+        assertThat(scmPage.getCurrentUsername(), is(equalTo(user)));
         assertThat(Driver.webDriver.getTitle(), containsString("SCM Manager"));
     }
     
