@@ -43,12 +43,12 @@ public class RedminePage {
     }
     
     public String getKey(){
-        String key = "";
-        String xpath = "//body/div/div/div/div[3]/div/div/a";
-        WebElement showKey = EcoSystem.findElementByClickable(By.xpath(xpath));
+
+        //API Key hidden by default - make it show up
+        WebElement showKey = EcoSystem.findElementByClickable(By.xpath("//*[@id=\"sidebar\"]/div/a"));
         showKey.click();
-        key = EcoSystem.findElementByLocated(By.id("api-access-key")).getText();
-        return key;
+
+        return EcoSystem.findElementByClickable(By.xpath("//*[@id=\"api-access-key\"]")).getText();
     }
 
     void goToAdministrationPage() {

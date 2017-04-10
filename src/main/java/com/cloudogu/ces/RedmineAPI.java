@@ -16,7 +16,15 @@ import javax.ws.rs.core.MediaType;
 public class RedmineAPI {
     
     private final Client client;
-    
+
+    /**
+     * Creates an API that is designed to work the Redmine API Token.
+     * @param token The Redmine Access Token that has been created upfront.
+     */
+    public RedmineAPI(String token) {
+        this(token, "");
+    }
+
     public RedmineAPI(String username, String password){
         this.client = EcoSystem.createRestClient(username, password);
     }

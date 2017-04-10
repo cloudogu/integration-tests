@@ -10,9 +10,8 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.startsWith;
-import static org.hamcrest.Matchers.is;
+
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertFalse;
 
@@ -97,7 +96,7 @@ public class RedmineSteps {
         assertThat(Driver.webDriver.getCurrentUrl(), is(EcoSystem.getUrl("/redmine/my/account")));
         String key = redminePage.getKey();
 
-        assertFalse(key.equals(""));
+        assertThat(key, not(isEmptyString()));
 
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("redmine-user", username);
@@ -112,7 +111,7 @@ public class RedmineSteps {
         String key = (String) scenarioStore.get("redmine-user-key");
         String user = (String) scenarioStore.get("redmine-user");
 
-        RedmineAPI api = new RedmineAPI(key,"disabled");
+        RedmineAPI api = new RedmineAPI(key);
         JsonNode jnode = api.getInformation();
 
         String userName = EcoSystem.readUserFromJson(jnode, "users", "login", user);
