@@ -10,6 +10,7 @@ import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
 import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.NotAuthorizedException;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -150,7 +151,10 @@ public class SCMSteps {
         try{
             String s = api.getInformation();
         }catch(ForbiddenException e){
-            //System.out.println(e);
+            //there seems to be 2 possible exceptions here...
+        }
+        catch(NotAuthorizedException e){
+            //there seems to be 2 possible exceptions here...
         }
     }
     @Step("Quit client without admin rights")
