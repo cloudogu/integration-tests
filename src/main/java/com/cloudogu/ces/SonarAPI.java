@@ -18,7 +18,16 @@ public class SonarAPI {
     private final Client client;
     private String username;
     private String password;
-    
+
+
+    /**
+     * Creates an API that is designed to work the Sonar API Token.
+     * @param token The Sonar Access Token that has been created upfront.
+     */
+    public SonarAPI(String token){
+        this(token, "");
+    }
+
     public SonarAPI(String username, String password){
         this.username = username;
         this.password = password;

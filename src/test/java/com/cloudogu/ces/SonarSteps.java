@@ -104,7 +104,7 @@ public class SonarSteps {
         String user = (String) scenarioStore.get("username");
         String token = (String) scenarioStore.get("sonar-user-token");
         
-        SonarAPI api = new SonarAPI(token,"disabled");
+        SonarAPI api = new SonarAPI(token);
         JsonNode jnode = api.getInformation();  
         
         String userName = EcoSystem.readUserFromJson(jnode, "users", "login", user);
