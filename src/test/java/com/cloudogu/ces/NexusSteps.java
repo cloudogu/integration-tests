@@ -17,6 +17,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 /**
  *
@@ -84,11 +85,13 @@ public class NexusSteps {
     // not working - problem to get the key
     @Step("Obtain Nexus key with <user> and <password>")
     public void obtainNexusKey(String user, String password){
-        //stub: todo
+
+        fail("#TNYI: unclear how to obtain the token");
     }
     @Step("Nexus-Login with key")
     public void loginWithNexusKey(){
-        //stub: todo
+
+        fail("#TNYI: unclear how to obtain the token");
     }   
     /*-----------------------------------
     Szenario 4 Single Sign Out
