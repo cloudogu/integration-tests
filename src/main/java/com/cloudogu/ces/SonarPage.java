@@ -117,14 +117,11 @@ public class SonarPage {
         Driver.webDriver.get(EcoSystem.getUrl("/sonar/settings"));
     }
     
-    public Boolean AccessDenied(){
-        Boolean denied = false;
-        String xpath = "//body/div/div/div/form/div";
-        String accessDenied = Driver.webDriver.findElement(By.xpath(xpath)).getText();
-        if(accessDenied.equals("You are not authorized to access this page. "
-                + "Please log in with more privileges and try again.")){
-            denied = true;
-        }
-        return denied;
+    public boolean isAccessPermitted(){
+
+        String errorMessageText = Driver.webDriver.findElement(By.xpath("//*[@id=\"login_form\"]/div[1]")).getText();
+
+        //when error text is not contained, it seems like access is permitted (or text has been moved within the page).
+        return !errorMessageText.contains("not authorized");
     }
 }
