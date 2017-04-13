@@ -45,7 +45,6 @@ public class NexusSteps {
         assertThat(nexusPage.getCurrentUsername(), is(user));
         assertThat(Driver.webDriver.getTitle(), containsString("Nexus"));
 
-        fail();
     }
 
     @Step("Logout of Nexus")
