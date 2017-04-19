@@ -12,7 +12,6 @@ import java.io.StringReader;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
-import java.util.function.Function;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.net.ssl.SSLContext;
@@ -26,7 +25,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -62,7 +60,7 @@ public final class EcoSystem {
      */
     public static WebElement findElementByClickable(By by){
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,60);
-        WebElement element = wait.until((Function<WebDriver, WebElement>)ExpectedConditions.elementToBeClickable(by));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
         return element;
     }
     /**
@@ -74,7 +72,7 @@ public final class EcoSystem {
      */
     public static WebElement findElementByLocated(By by){
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,60);
-        WebElement element = wait.until((Function<WebDriver, WebElement>)ExpectedConditions.presenceOfElementLocated(by));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
         return element;
     }
     /**
@@ -89,12 +87,12 @@ public final class EcoSystem {
      */
     public static boolean attributeContainsBy(By by, String attribute, String value){
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,60);
-        boolean contains = wait.until((Function<WebDriver, Boolean>)ExpectedConditions.attributeContains(by, attribute, value));
+        boolean contains = wait.until(ExpectedConditions.attributeContains(by, attribute, value));
         return contains;
     }
     public static boolean textPresentInElementBy(WebElement currentUser, String username){
         WebDriverWait wait = new WebDriverWait(Driver.webDriver,60);
-        boolean contains = wait.until((Function<WebDriver, Boolean>) ExpectedConditions.textToBePresentInElement(currentUser, username));
+        boolean contains = wait.until(ExpectedConditions.textToBePresentInElement(currentUser, username));
         return contains;
     }
     /**
