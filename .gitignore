@@ -2,6 +2,7 @@
 .gauge
 logs
 reports
+docs
 
 #maven
 /target/
@@ -9,3 +10,4 @@ reports
 #IDE
 .idea
 integration-tests.iml
+
