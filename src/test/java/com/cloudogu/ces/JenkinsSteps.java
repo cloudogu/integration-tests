@@ -176,8 +176,9 @@ public class JenkinsSteps {
         
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
-        
-        assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
+
+        String errorMessage = String.format("Title did not match: was <%s> \r\nCurrent URL %s", Driver.webDriver.getTitle(), Driver.webDriver.getCurrentUrl());
+        assertThat(errorMessage, Driver.webDriver.getTitle(), containsString("Jenkins"));
     }
     @Step("Try to access Manage Jenkins")
     public void accessTryManageJenkinsPage(){
