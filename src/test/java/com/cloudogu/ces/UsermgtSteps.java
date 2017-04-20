@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.cloudogu.ces.verification.Verifier;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
@@ -26,12 +27,12 @@ public class UsermgtSteps {
     @Step("Open Usermgt")
     public void openUsermgt(){
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     
     @Step("Usermgt-Login <user> with password <pwd>")
     public void loginToCasUsermgt(String user, String pwd){
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
         
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
@@ -39,7 +40,7 @@ public class UsermgtSteps {
         UsermgtPage usermgtPage = EcoSystem.getPage(UsermgtPage.class);
         
         assertThat(usermgtPage.getCurrentUsername(), is(user.toUpperCase()));
-        assertThat(Driver.webDriver.getTitle(), containsString("User Management"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("User Management"));
     }
     
     @Step("Logout of Usermgt")
@@ -92,8 +93,8 @@ public class UsermgtSteps {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openUsermgtApp();
-        
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     /*-----------------------------------
     Tear down after each scenario
@@ -106,11 +107,11 @@ public class UsermgtSteps {
     private void openUsermgtApp() {
         EcoSystem.openApp("usermgt");
         // be sure we are redirected to cas
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     
     private void loginToCasUsermgtApp(String username, String password){
         EcoSystem.loginToCasApp(username, password);
-        assertThat(Driver.webDriver.getTitle(), containsString("User Management"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("User Management"));
     }
 }

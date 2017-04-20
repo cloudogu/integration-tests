@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.cloudogu.ces.verification.Verifier;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
@@ -26,12 +27,12 @@ public class JenkinsSteps {
     public void openJenkins() {
         Driver.webDriver.get(EcoSystem.getUrl("/jenkins"));
         // be sure we are redirected to cas
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     
     @Step("Jenkins-Login <username> with password <password>")
     public void loginToCasJenkins(String username, String password){
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
         
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(username, password);
@@ -41,7 +42,7 @@ public class JenkinsSteps {
         String user = api.getDisplayName();
 
         assertThat(jenkinsPage.getCurrentUsername(), is(equalToIgnoringCase(user)));
-        assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Jenkins"));
     }
     
     @Step("Logout of Jenkins")
@@ -124,7 +125,7 @@ public class JenkinsSteps {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openJenkinsApp();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     /*-----------------------------------
     Szenario 5 Groups
@@ -171,14 +172,13 @@ public class JenkinsSteps {
         String password = (String) scenarioStore.get("tmppw");
         
         openJenkinsApp();
-        
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
         
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
 
-        String errorMessage = String.format("Title did not match: was <%s> \r\nCurrent URL %s", Driver.webDriver.getTitle(), Driver.webDriver.getCurrentUrl());
-        assertThat(errorMessage, Driver.webDriver.getTitle(), containsString("Jenkins"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Jenkins"));
     }
     @Step("Try to access Manage Jenkins")
     public void accessTryManageJenkinsPage(){
@@ -209,7 +209,7 @@ public class JenkinsSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
-        assertThat(Driver.webDriver.getTitle(),containsString("CAS – Central Authentication Service"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("CAS – Central Authentication Service"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
         UsermgtAPI api = new UsermgtAPI(user,password);
@@ -257,18 +257,18 @@ public class JenkinsSteps {
     private void openJenkinsApp() {
         EcoSystem.openApp("jenkins");
         // be sure we are redirected to cas
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     
     private void loginToCasJenkinsApp(String username, String password){
         EcoSystem.loginToCasApp(username, password);
-        assertThat(Driver.webDriver.getTitle(), containsString("Jenkins"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Jenkins"));
     }
 
     private void logOutViaCasLogoutApp(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openJenkinsApp();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 }

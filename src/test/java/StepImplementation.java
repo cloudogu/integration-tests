@@ -1,17 +1,18 @@
+import com.cloudogu.ces.verification.Verifier;
 import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.containsString;
 
 public class StepImplementation {
 
     @Step("Navigate to <url>")
     public void navigateTo(String url) {
         Driver.webDriver.get(url);
-        assertTrue(Driver.webDriver.getTitle().contains("Gauge"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Gauge"));
     }
 
     @Step("Go to Gauge Get Started Page")

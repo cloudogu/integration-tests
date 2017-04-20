@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.cloudogu.ces.verification.Verifier;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
@@ -32,18 +33,18 @@ public class NexusSteps {
     @Step("Open Nexus")
     public void openNexus() {
         Driver.webDriver.get(EcoSystem.getUrl("/nexus"));
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     @Step("Nexus-Login <user> with password <pwd>")
     public void loginToCasNexus(String user, String pwd) {
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
 
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user, pwd);
         NexusPage nexusPage = EcoSystem.getPage(NexusPage.class);
         assertThat(nexusPage.getCurrentUsername(), is(user));
-        assertThat(Driver.webDriver.getTitle(), containsString("Nexus"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Nexus"));
 
     }
 
@@ -116,7 +117,7 @@ public class NexusSteps {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openNexusApp();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     /*-----------------------------------
@@ -217,12 +218,12 @@ public class NexusSteps {
     private void openNexusApp() {
         EcoSystem.openApp("nexus");
         // be sure we are redirected to cas
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     private void loginToCasNexusApp(String username, String password) {
         EcoSystem.loginToCasApp(username, password);
-        assertThat(Driver.webDriver.getTitle(), containsString("Nexus"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Nexus"));
     }
 
 }

@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.cloudogu.ces.verification.Verifier;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
@@ -26,12 +27,12 @@ public class SCMSteps {
     @Step("Open SCM")
     public void openSCM(){
         Driver.webDriver.get(EcoSystem.getUrl("/scm"));
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     
     @Step("SCM-Login <user> with password <pwd>")
     public void loginToCasSCM(String user, String pwd){
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
         
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
@@ -39,7 +40,7 @@ public class SCMSteps {
         SCMPage scmPage = EcoSystem.getPage(SCMPage.class);
         
         assertThat(scmPage.getCurrentUsername(), is(equalTo(user)));
-        assertThat(Driver.webDriver.getTitle(), containsString("SCM Manager"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("SCM Manager"));
     }
     
     @Step("Logout of SCM")
@@ -90,7 +91,7 @@ public class SCMSteps {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openSCMApp();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     /*-----------------------------------
     Szenario 4 Groups
@@ -226,11 +227,11 @@ public class SCMSteps {
     private void openSCMApp() {
         EcoSystem.openApp("scm");
         // be sure we are redirected to cas
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     
     private void loginToCasSCMApp(String username, String password){
         EcoSystem.loginToCasApp(username, password);
-        assertThat(Driver.webDriver.getTitle(), containsString("SCM Manager"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("SCM Manager"));
     }
 }

@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.cloudogu.ces.verification.Verifier;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
@@ -27,12 +28,13 @@ public class RedmineSteps {
     @Step("Open Redmine")
     public void openRedmine(){
         Driver.webDriver.get(EcoSystem.getUrl("/redmine"));
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     @Step("Redmine-Login <user> with password <pwd>")
     public void loginToCasRedmine(String user, String pwd){
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
 
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user,pwd);
@@ -40,7 +42,7 @@ public class RedmineSteps {
         RedminePage redminePage = EcoSystem.getPage(RedminePage.class);
 
         assertThat(redminePage.getCurrentUsername(), is(user));
-        assertThat(Driver.webDriver.getTitle(), containsString("Redmine"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Redmine"));
     }
 
     @Step("Logout of Redmine")
@@ -133,7 +135,8 @@ public class RedmineSteps {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openRedmineApp();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
     /*-----------------------------------
     Szenario 5 Groups
@@ -150,7 +153,7 @@ public class RedmineSteps {
     public void accessAdministrationPage(){
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.goToAdministrationPage();
-        assertThat(Driver.webDriver.getTitle(),is("Administration - Redmine"));
+        Verifier.verifyTitle(Driver.webDriver,is("Administration - Redmine"));
     }
     @Step("Logout of Redmine as user with admin rights")
     public void logoutOfCasAsAdmin(){
@@ -208,7 +211,7 @@ public class RedmineSteps {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
 
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
-        assertThat(Driver.webDriver.getTitle(),containsString("CAS – Central Authentication Service"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("CAS – Central Authentication Service"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
         UsermgtAPI api = new UsermgtAPI(user,password);
@@ -258,18 +261,19 @@ public class RedmineSteps {
     private void openRedmineApp() {
         EcoSystem.openApp("redmine");
         // be sure we are redirected to cas
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     private void loginToCasRedmineApp(String username, String password){
         EcoSystem.loginToCasApp(username, password);
-        assertThat(Driver.webDriver.getTitle(), containsString("Redmine"));
+
+        Verifier.verifyTitle(Driver.webDriver, containsString("Redmine"));
     }
 
     private void logOutViaCasLogoutApp(){
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openRedmineApp();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 }

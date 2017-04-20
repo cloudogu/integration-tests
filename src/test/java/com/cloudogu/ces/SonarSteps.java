@@ -5,6 +5,7 @@
  */
 package com.cloudogu.ces;
 
+import com.cloudogu.ces.verification.Verifier;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
@@ -30,12 +31,12 @@ public class SonarSteps {
     public void openSonar() {
         Driver.webDriver.get(EcoSystem.getUrl("/sonar"));
 
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     @Step("Sonar-Login <user> with password <pwd>")
     public void loginToCasSonar(String user, String pwd) {
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
 
         CasPage page = EcoSystem.getPage(CasPage.class);
         page.login(user, pwd);
@@ -43,7 +44,7 @@ public class SonarSteps {
         SonarPage sonarPage = EcoSystem.getPage(SonarPage.class);
 
         assertThat(sonarPage.getCurrentUsername(user), is(user));
-        assertThat(Driver.webDriver.getTitle(), containsString("Sonar"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Sonar"));
     }
 
     @Step("Logout of Sonar")
@@ -133,7 +134,7 @@ public class SonarSteps {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openSonarApp();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     /*-----------------------------------
@@ -268,18 +269,18 @@ public class SonarSteps {
     private void openSonarApp() {
         EcoSystem.openApp("sonar");
         // be sure we are redirected to cas
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     private void loginToCasSonarApp(String username, String password) {
         EcoSystem.loginToCasApp(username, password);
-        assertThat(Driver.webDriver.getTitle(), containsString("Sonar"));
+        Verifier.verifyTitle(Driver.webDriver, containsString("Sonar"));
     }
 
     private void logOutViaCasLogoutApp() {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openSonarApp();
-        assertThat(Driver.webDriver.getTitle(), startsWith("CAS"));
+        Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 }
