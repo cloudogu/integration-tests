@@ -26,15 +26,7 @@ public class CasPage {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
 
-
         submitButton.click();
-
-        try {
-            Thread.sleep(10_000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 
 
