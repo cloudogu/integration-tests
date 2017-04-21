@@ -6,30 +6,30 @@
 package com.cloudogu.ces;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
 
 /**
- *
  * @author malte
  */
 public class NexusAPI {
-    
+
     private final Client client;
-    
-    public NexusAPI(String username, String password){
+
+    public NexusAPI(String username, String password) {
         this.client = EcoSystem.createRestClient(username, password);
     }
-    
-    public JsonNode getInformation(){
+
+    public JsonNode getInformation() {
         JsonNode node = client.target(EcoSystem.getUrl("/nexus/service/local/users"))
-                  .request(MediaType.APPLICATION_JSON_TYPE)
-                  .get(JsonNode.class);
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get(JsonNode.class);
         return node;
     }
-    
-    public void close(){
+
+    public void close() {
         this.client.close();
     }
-    
+
 }

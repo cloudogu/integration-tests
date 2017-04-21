@@ -14,10 +14,8 @@ import driver.Driver;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertFalse;
 
 /**
- *
  * @author malte
  */
 public class RedmineSteps {
@@ -26,18 +24,18 @@ public class RedmineSteps {
     Szenario 1 Authentication
     -----------------------------------*/
     @Step("Open Redmine")
-    public void openRedmine(){
+    public void openRedmine() {
         Driver.webDriver.get(EcoSystem.getUrl("/redmine"));
 
         Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
     @Step("Redmine-Login <user> with password <pwd>")
-    public void loginToCasRedmine(String user, String pwd){
+    public void loginToCasRedmine(String user, String pwd) {
         Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
 
         CasPage page = EcoSystem.getPage(CasPage.class);
-        page.login(user,pwd);
+        page.login(user, pwd);
 
         RedminePage redminePage = EcoSystem.getPage(RedminePage.class);
 
@@ -46,7 +44,7 @@ public class RedmineSteps {
     }
 
     @Step("Logout of Redmine")
-    public void logOutOfCas(){
+    public void logOutOfCas() {
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.logout();
         openRedmineApp();
@@ -57,15 +55,16 @@ public class RedmineSteps {
     Szenario 2 REST API u+p
     -----------------------------------*/
     @Step("Create REST client to access Redmine API for <user> with password <password>")
-    public void createRESTClientForRedmineAPI(String user, String password){
-        RedmineAPI api = new RedmineAPI(user,password);
+    public void createRESTClientForRedmineAPI(String user, String password) {
+        RedmineAPI api = new RedmineAPI(user, password);
 
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("api", api);
         scenarioStore.put("user", user);
     }
+
     @Step("Obtain Redmine json file")
-    public void compareJsonFile(){
+    public void compareJsonFile() {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         RedmineAPI api = (RedmineAPI) scenarioStore.get("api");
         String user = (String) scenarioStore.get("user");
@@ -76,17 +75,19 @@ public class RedmineSteps {
 
         assertThat(userName, is(user));
     }
+
     @Step("Close Redmine API REST client")
-    public void closeRestClient(){
+    public void closeRestClient() {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         RedmineAPI api = (RedmineAPI) scenarioStore.get("api");
         api.close();
     }
+
     /*-----------------------------------
     Szenario 3 REST token API key
     -----------------------------------*/
     @Step("Obtain Redmine key with <username> and <password>")
-    public void obtainRedmineKey(String username, String password){
+    public void obtainRedmineKey(String username, String password) {
         openRedmineApp();
 
         loginToCasRedmineApp(username, password);
@@ -108,7 +109,7 @@ public class RedmineSteps {
     }
 
     @Step("Redmine-Login with key")
-    public void loginWithRedmineKey(){
+    public void loginWithRedmineKey() {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String key = (String) scenarioStore.get("redmine-user-key");
         String user = (String) scenarioStore.get("redmine-user");
@@ -122,45 +123,51 @@ public class RedmineSteps {
 
         api.close();
     }
+
     /*-----------------------------------
     Szenario 4 Single Sign Out
     -----------------------------------*/
     @Step("Redmine-Login <user> with password <password> for Single Sign out")
-    public void loginToTestSingleSignOut(String user, String password){
+    public void loginToTestSingleSignOut(String user, String password) {
         openRedmineApp();
         loginToCasRedmineApp(user, password);
     }
+
     @Step("Log out from Redmine via cas/logout")
-    public void logOutViaCasLogout(){
+    public void logOutViaCasLogout() {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openRedmineApp();
 
         Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
+
     /*-----------------------------------
     Szenario 5 Groups
     -----------------------------------*/
     @Step("Redmine-Login <user> with password <password> with admin rights")
-    public void loginToTestAdminRights(String user, String password){
+    public void loginToTestAdminRights(String user, String password) {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         scenarioStore.put("user", user);
         scenarioStore.put("password", password);
         openRedmineApp();
         loginToCasRedmineApp(user, password);
     }
+
     @Step("Access Administration of Redmine page")
-    public void accessAdministrationPage(){
+    public void accessAdministrationPage() {
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.goToAdministrationPage();
-        Verifier.verifyTitle(Driver.webDriver,is("Administration - Redmine"));
+        Verifier.verifyTitle(Driver.webDriver, is("Administration - Redmine"));
     }
+
     @Step("Logout of Redmine as user with admin rights")
-    public void logoutOfCasAsAdmin(){
+    public void logoutOfCasAsAdmin() {
         logOutViaCasLogoutApp();
     }
+
     @Step("Create <tmpuser> with password <tmppw> in Redmine")
-    public void createNewUser(String tmpuser, String tmppw){
+    public void createNewUser(String tmpuser, String tmppw) {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("user");
         String password = (String) scenarioStore.get("password");
@@ -175,23 +182,26 @@ public class RedmineSteps {
         scenarioStore.put("tmpuser", tmpuser);
         scenarioStore.put("tmppw", tmppw);
     }
+
     @Step("Redmine-Login without admin rights")
-    public void loginToTestNoAdminRights(){
+    public void loginToTestNoAdminRights() {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String user = (String) scenarioStore.get("tmpuser");
         String password = (String) scenarioStore.get("tmppw");
         openRedmineApp();
         loginToCasRedmineApp(user, password);
     }
+
     @Step("Try to access Administration of Redmine page")
-    public void accessTryAdministrationPage(){
+    public void accessTryAdministrationPage() {
         RedminePage page = EcoSystem.getPage(RedminePage.class);
         page.goToAdministrationPage();
         Boolean accessDenied = page.AccessDenied();
-        assertThat(accessDenied,is(true));
+        assertThat(accessDenied, is(true));
     }
+
     @Step("Logout of Redmine as user without admin rights")
-    public void logoutOfCasNotAsAdmin(){
+    public void logoutOfCasNotAsAdmin() {
         logOutViaCasLogoutApp();
 
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
@@ -203,18 +213,19 @@ public class RedmineSteps {
         casPage.login(user, password);
         EcoSystem.deleteUser((String) scenarioStore.get("tmpuser"));
     }
+
     /*-----------------------------------
     Szenario 6 User Attributes
     -----------------------------------*/
     @Step("Obtain user attributes of <user> with <password> from usermgt for Redmine")
-    public void getUserData(String user, String password){
+    public void getUserData(String user, String password) {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
 
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt"));
         Verifier.verifyTitle(Driver.webDriver, containsString("CAS – Central Authentication Service"));
         CasPage casPage = EcoSystem.getPage(CasPage.class);
         casPage.login(user, password);
-        UsermgtAPI api = new UsermgtAPI(user,password);
+        UsermgtAPI api = new UsermgtAPI(user, password);
 
         String givenName = api.getGivenName();
         String surname = api.getSurname();
@@ -223,38 +234,42 @@ public class RedmineSteps {
 
         api.close();
 
-        scenarioStore.put("givenname",givenName);
-        scenarioStore.put("displayName",displayName);
-        scenarioStore.put("surname",surname);
-        scenarioStore.put("mail",email);
+        scenarioStore.put("givenname", givenName);
+        scenarioStore.put("displayName", displayName);
+        scenarioStore.put("surname", surname);
+        scenarioStore.put("mail", email);
     }
+
     @Step("Switch to Redmine user site")
-    public void goToRedmineUserSite(){
+    public void goToRedmineUserSite() {
 
         Driver.webDriver.get(EcoSystem.getUrl("/redmine/my/account"));
 
     }
+
     @Step("Compare user attributes with data of Redmine")
-    public void compareWithRedmineData(){
+    public void compareWithRedmineData() {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
         String firstName = (String) scenarioStore.get("givenname");
         String lastName = (String) scenarioStore.get("surname");
         String email = (String) scenarioStore.get("mail");
 
         RedminePage page = EcoSystem.getPage(RedminePage.class);
-        assertThat(page.getFirstName(),is(firstName));
-        assertThat(page.getLastName(),is(lastName));
-        assertThat(page.getEmail(),is(email));
+        assertThat(page.getFirstName(), is(firstName));
+        assertThat(page.getLastName(), is(lastName));
+        assertThat(page.getEmail(), is(email));
     }
+
     @Step("Log out of Redmine User Attributes")
-    public void logOut(){
+    public void logOut() {
         logOutViaCasLogoutApp();
     }
+
     /*-----------------------------------
     Tear down after each scenario
     -----------------------------------*/
     @Step("Tear down logout for Redmine")
-    public void tearDownLogout(){
+    public void tearDownLogout() {
         EcoSystem.tearDownLogout();
     }
 
@@ -264,13 +279,13 @@ public class RedmineSteps {
         Verifier.verifyTitle(Driver.webDriver, startsWith("CAS"));
     }
 
-    private void loginToCasRedmineApp(String username, String password){
+    private void loginToCasRedmineApp(String username, String password) {
         EcoSystem.loginToCasApp(username, password);
 
         Verifier.verifyTitle(Driver.webDriver, containsString("Redmine"));
     }
 
-    private void logOutViaCasLogoutApp(){
+    private void logOutViaCasLogoutApp() {
         Driver.webDriver.get(EcoSystem.getUrl("/cas/logout"));
         // be sure we are redirected to cas
         openRedmineApp();

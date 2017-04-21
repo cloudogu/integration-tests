@@ -12,16 +12,12 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import driver.Driver;
-import org.junit.Ignore;
 
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotAuthorizedException;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.startsWith;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 /**
  * @author malte
@@ -185,9 +181,7 @@ public class NexusSteps {
         NexusAPI api = (NexusAPI) scenarioStore.get("nexus_api_noadmin");
         try {
             JsonNode n = api.getInformation();
-        } catch (ForbiddenException e) {
-            //there seems to be 2 possible exceptions here...
-        } catch (NotAuthorizedException e) {
+        } catch (ForbiddenException | NotAuthorizedException e) {
             //there seems to be 2 possible exceptions here...
         }
     }

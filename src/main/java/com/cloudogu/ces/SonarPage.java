@@ -6,14 +6,14 @@
 package com.cloudogu.ces;
 
 import driver.Driver;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
- *
  * @author malte
  */
 public class SonarPage {
@@ -44,7 +44,7 @@ public class SonarPage {
 
         WebElement currentUserElement = Driver.webDriver.findElement(
                 By.xpath(XPATH_NAVBAR_MAIN + "[1]/a"));
- 
+
         if (EcoSystem.textPresentInElementBy(currentUserElement, username)) {
             // sonar wraps user in spaces
             return currentUserElement.getText().trim();
@@ -59,28 +59,28 @@ public class SonarPage {
         WebElement linkToAdministration = EcoSystem.findElementByClickable(
                 By.xpath(XPATH_NAVBAR_MAIN_ADMINISTRATION + "/a"));
         linkToAdministration.click();
-        
+
         WebElement securityDropdownButton = EcoSystem.findElementByClickable(
                 By.xpath(XPATH_NAVBAR_SECURITY + "/a"));
         securityDropdownButton.click();
-        
+
         WebElement usersMenuItem = EcoSystem.findElementByClickable(
                 By.xpath(XPATH_NAVBAR_SECURITY + "/ul/li/a"));
         usersMenuItem.click();
-        
+
         WebElement updateTokens = EcoSystem.findElementByClickable(
                 By.xpath(XPATH_LINKTABLE + "/tr/td[5]/a"));
         updateTokens.click();
-        
+
         deleteExistingToken("tmptoken");
-        
+
         // without thread.sleep inputfield will not be found after token deletion
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
             Logger.getLogger(SonarPage.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         WebElement tokenNameInputField = EcoSystem.findElementByClickable(
                 By.xpath(XPATH_TOKENFRAME_BODY + "/form/input"));
         tokenNameInputField.sendKeys("tmptoken");
@@ -89,7 +89,7 @@ public class SonarPage {
         WebElement generatedToken = EcoSystem.findElementByLocated(
                 By.xpath(XPATH_TOKENFRAME_BODY + "/div[2]/table/tbody/tr/td[2]/code"));
         token = generatedToken.getText();
-        
+
         WebElement doneButton = EcoSystem.findElementByClickable(
                 By.xpath("//body/div[@class='modal in']/div[3]/a"));
         doneButton.click();
@@ -100,7 +100,7 @@ public class SonarPage {
     private void deleteExistingToken(String token) {
         List<WebElement> allTokens = Driver.webDriver.findElements(
                 By.xpath(XPATH_ADMINPAGE_USER + "/*/td[1]"));
-        
+
         for (int i = 0; i < allTokens.size(); i++) {
             if (allTokens.get(i).getText().equals(token)) {
                 String append = "/tr[" + (i + 1) + "]/td[3]/div/form";
@@ -112,12 +112,12 @@ public class SonarPage {
             }
         }
     }
-    
+
     void goToAdministrationPage() {
         Driver.webDriver.get(EcoSystem.getUrl("/sonar/settings"));
     }
-    
-    public boolean isAccessPermitted(){
+
+    public boolean isAccessPermitted() {
 
         String errorMessageText = Driver.webDriver.findElement(By.xpath("//*[@id=\"login_form\"]/div[1]")).getText();
 

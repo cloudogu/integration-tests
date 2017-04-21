@@ -6,15 +6,15 @@
 package com.cloudogu.ces;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
 
 /**
- *
  * @author malte
  */
 public class SonarAPI {
-    
+
     private final Client client;
     private String username;
     private String password;
@@ -22,54 +22,55 @@ public class SonarAPI {
 
     /**
      * Creates an API that is designed to work the Sonar API Token.
+     *
      * @param token The Sonar Access Token that has been created upfront.
      */
-    public SonarAPI(String token){
+    public SonarAPI(String token) {
         this(token, "");
     }
 
-    public SonarAPI(String username, String password){
+    public SonarAPI(String username, String password) {
         this.username = username;
         this.password = password;
         this.client = EcoSystem.createRestClient(username, password);
     }
-    
-    public JsonNode getInformation(){
+
+    public JsonNode getInformation() {
         return client.target(EcoSystem.getUrl("/sonar/api/users/search"))
-                  .request(MediaType.APPLICATION_JSON_TYPE)
-                  .get(JsonNode.class);
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get(JsonNode.class);
     }
-    
-    public String getFirstName(){
+
+    public String getFirstName() {
         String firstName = "";
-        
-        JsonNode jnode = getInformation();              
+
+        JsonNode jnode = getInformation();
         JsonNode root = jnode.get("users");
-        for(int i=0; i<root.size();i++){
+        for (int i = 0; i < root.size(); i++) {
             JsonNode inner = root.get(i);
-            if(inner.get("login").asText().equals(username)){
+            if (inner.get("login").asText().equals(username)) {
                 firstName = inner.get("name").asText();
             }
         }
         return firstName;
     }
-    
-    public String getEmail(){
+
+    public String getEmail() {
         String email = "";
-        
-        JsonNode jnode = getInformation();              
+
+        JsonNode jnode = getInformation();
         JsonNode root = jnode.get("users");
-        for(int i=0; i<root.size();i++){
+        for (int i = 0; i < root.size(); i++) {
             JsonNode inner = root.get(i);
-            if(inner.get("login").asText().equals(username)){
+            if (inner.get("login").asText().equals(username)) {
                 email = inner.get("email").asText();
             }
         }
         return email;
     }
-    
-    public void close(){
+
+    public void close() {
         this.client.close();
     }
-    
+
 }

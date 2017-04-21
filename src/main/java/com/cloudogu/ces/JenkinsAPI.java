@@ -6,29 +6,29 @@
 package com.cloudogu.ces;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
 
 /**
- *
  * @author malte
  */
 public class JenkinsAPI {
-    
+
     private final Client client;
-    
-    public JenkinsAPI(String username, String password){
+
+    public JenkinsAPI(String username, String password) {
         this.client = EcoSystem.createRestClient(username, password);
     }
-    
-    public JsonNode getInformation(){
+
+    public JsonNode getInformation() {
         return client.target(EcoSystem.getUrl("/jenkins/api/json"))
-                  .request(MediaType.APPLICATION_JSON_TYPE)
-                  .get(JsonNode.class);
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get(JsonNode.class);
     }
-    
-    public void close(){
+
+    public void close() {
         this.client.close();
     }
-    
+
 }

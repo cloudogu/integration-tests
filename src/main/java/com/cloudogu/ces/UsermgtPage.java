@@ -6,14 +6,15 @@
 package com.cloudogu.ces;
 
 import driver.Driver;
-import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
- *
  * @author malte
  */
 public class UsermgtPage {
@@ -47,11 +48,11 @@ public class UsermgtPage {
     }
 
     public void createNewUserExt(String username, String givenname,
-            String surname, String displayName, String mail,
-            String password) {
-        
+                                 String surname, String displayName, String mail,
+                                 String password) {
+
         assertThat(Driver.webDriver.getCurrentUrl(), is(EcoSystem.getUrl("/usermgt/#/user/")));
-        
+
         WebElement input_username = Driver.webDriver.findElement(By.id("username"));
         input_username.sendKeys(username);
 
@@ -82,8 +83,8 @@ public class UsermgtPage {
     }
 
     public boolean userExists(String username) {
-        assertThat(Driver.webDriver.getCurrentUrl(),is(EcoSystem.getUrl("/usermgt/#/users")));
-        
+        assertThat(Driver.webDriver.getCurrentUrl(), is(EcoSystem.getUrl("/usermgt/#/users")));
+
         boolean userExists = false;
         String xpath = "//body/div[2]/table/tbody";
         WebElement tableroot = Driver.webDriver.findElement(By.xpath(xpath));
@@ -102,7 +103,7 @@ public class UsermgtPage {
     public void deleteUser(String username) {
 
         Driver.webDriver.get(EcoSystem.getUrl("/usermgt/#/user/" + username));
-        
+
         String xpath = "//body/div[2]/div[2]/div/div/form/button[2]";
         WebElement remove = EcoSystem.findElementByClickable(By.xpath(xpath));
         remove.click();
