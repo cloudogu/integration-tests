@@ -39,6 +39,10 @@ public void login(String user, String password){
   // some test code injecting user as "admin" and password as "adminpw"
 }
 ```
+* When a specification is added or changed, be sure to have 
+    * adjusted documentation where appropriate
+    * improved test logging in case of test failures
+    * left the codebase cleaner that you found it
 * Now feel free to implement your own Steps
 
 ---
