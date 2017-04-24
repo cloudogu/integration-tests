@@ -34,11 +34,13 @@ public class NexusPage {
     }
 
     public String getCurrentUsername() {
-        WebElement currentUser = null;
 
         if (EcoSystem.attributeContainsBy(By.id("head-link-r"), "class", "head-link head-link-logged-in")) {
-            currentUser = Driver.webDriver.findElement(By.id("head-link-r"));
+            WebElement currentUser = Driver.webDriver.findElement(By.id("head-link-r"));
+
+            return currentUser.getText();
+        } else {
+            return "";
         }
-        return currentUser.getText();
     }
 }
