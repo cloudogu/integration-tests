@@ -14,7 +14,7 @@ public class Verifier {
 
     public static void verifyTitle(WebDriver webDriver, Matcher<String> titleMatcher) {
 
-        String errorMessage = String.format("Title did not match: was <%s> \r\n\t\t\tCurrent URL %s", webDriver.getTitle(), webDriver.getCurrentUrl());
+        String errorMessage = String.format("Title did not match: was <%s> \r\n\t\t\tCurrent URL: %s", webDriver.getTitle(), webDriver.getCurrentUrl());
         assertThat(errorMessage, webDriver.getTitle(), titleMatcher);
     }
 }
